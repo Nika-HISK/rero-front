@@ -1,3 +1,66 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "@commitlint/config-conventional"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "react-hooks"
+  ],
+  "rules": {
+    "no-console": "warn",  
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/array-type": ["warn", { "default": "array" }], 
+    "@typescript-eslint/ban-ts-comment": "warn", 
+    "@typescript-eslint/no-inferrable-types": "warn", 
+    "prettier/prettier": [
+      "warn", 
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-var": "error",
+    "prefer-const": "warn", 
+    "@typescript-eslint/explicit-function-return-type": "off", 
+    "@typescript-eslint/typedef": [
+      "warn", 
+      {
+        "arrayDestructuring": false,
+        "arrowParameter": false,
+        "memberVariableDeclaration": false,
+        "objectDestructuring": false,
+        "parameter": true,
+        "propertyDeclaration": true,
+        "variableDeclaration": false,
+        "variableDeclarationIgnoreFunction": true
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "@typescript-eslint/no-require-imports": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off", 
+    "@typescript-eslint/no-unused-vars": [
+      "warn", 
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "warn", 
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn" 
+  }
 }
