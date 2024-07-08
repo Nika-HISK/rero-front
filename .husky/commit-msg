@@ -1,0 +1,5 @@
+mkdir -p .husky
+echo '#!/bin/sh' > .husky/commit-msg
+echo '. "$(dirname "$0")/_/husky.sh"' >> .husky/commit-msg
+echo 'npx --no-install commitlint --edit "$1"' >> .husky/commit-msg
+chmod +x .husky/commit-msg
