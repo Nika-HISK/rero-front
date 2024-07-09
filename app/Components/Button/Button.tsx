@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Button.module.scss';
 
 export enum Mode {
@@ -11,12 +12,12 @@ export enum Mode {
 
 export enum ButtonType {
     Text = 'text',
-    IconText ='icon-text',
-    IconOnly ='icon-Only',
+    IconText = 'iconText',
+    IconOnly = 'iconOnly',
 }
 
 type Props = {
-    title: string;
+    title?: string;
     mode?: Mode;
     disabled?: boolean;
     onClick?: () => void;
@@ -27,17 +28,16 @@ type Props = {
 const Button = (props: Props) => {
 
     const classes = [styles.container];
+
+    if (props.mode) classes.push(styles[props.mode]);
+
     const iconClass = [];
-
-    if (props.mode === Mode.Fill) classes.push(styles.fill);
-    if (props.mode === Mode.Outline) classes.push(styles.outline);
-    if (props.mode === Mode.More) classes.push(styles.more);
-
-    if (props.type === ButtonType.IconText && props.icon) iconClass.push(styles.iconContainer);
-    if (props.type === ButtonType.IconOnly&& props.icon) {
-        if (props.mode === Mode.Inline) iconClass.push(styles.inline);
-        if (props.mode === Mode.Delete) iconClass.push(styles.delete);
-        if (props.mode === Mode.Transparent) iconClass.push(styles.transparent);
+    if (props.type === ButtonType.IconText && props.icon) {
+        iconClass.push(styles.iconContainer);
+    } else if (props.type === ButtonType.IconOnly && props.icon && props.mode) {
+        iconClass.push(styles[props.mode]);
+    } else if(props.type === ButtonType.Text && props.mode){
+        iconClass.push(styles[props.mode]);
     };
 
     return (

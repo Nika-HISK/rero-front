@@ -22,6 +22,7 @@
     cursor: not-allowed;
 }
 
+
 .iconContainer {
     width: 100%;
     background-color: #13828A;
@@ -74,12 +75,17 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .transparent {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding: 10px;
 }
 
 .more {
