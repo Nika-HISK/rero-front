@@ -36,6 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # husky ignore
-.husky/_
-.husky/pre-commit
-.husky/commit-msg
+*.husky
