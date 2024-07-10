@@ -1,0 +1,105 @@
+.container {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #13828A;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+}
+
+.fill:hover:enabled {
+    background-color: #1DC2CE;
+}
+
+.fill:active:enabled {
+    background-color: #1DC2CE;
+}
+
+.fill:disabled {
+    background-color: #8A9793;
+    cursor: not-allowed;
+}
+
+
+.iconContainer {
+    width: 100%;
+    background-color: #13828A;
+    border: none;
+    cursor: pointer;
+    padding-left: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+}
+
+.iconContainer:active:enabled {
+    background-color: #1DC2CE;
+}
+
+.iconContainer:hover:enabled {
+    background-color: #1DC2CE;
+}
+
+.iconContainer:active:disabled {
+    background-color: #8A9793;
+    cursor: not-allowed;
+}
+
+.outline {
+    background-color: #13828A4D;
+    border: 1px solid #13828A;
+    color: #13828A;
+    cursor: pointer;
+}
+
+.inline {
+    padding: 10px;
+    background-color: #13828A;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: #FF4343;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparent {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.more {
+    background-color: #13828A;
+    border: none;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: #FFF;
+}
+
+.more:hover {
+    background-color: #1DC2CE;
+}
+
+.more:active {
+    background-color: #1DC2CE;
+}
