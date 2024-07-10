@@ -1,42 +1,21 @@
 import React from 'react';
 import styles from './Button.module.scss';
+import { ButtonMode, ButtonType } from '../../Enums/Enums';
+import type { Button } from '@/app/Interfaces/Interfaces';
 
-export enum Mode {
-    Fill = 'fill',
-    Outline = 'outline',
-    Inline = 'inline',
-    Delete = 'delete',
-    Transparent = 'transparent',
-    More = 'more',
-}
-
-export enum ButtonType {
-    Text = 'text',
-    IconText = 'iconText',
-    IconOnly = 'iconOnly',
-}
-
-type Props = {
-    title?: string;
-    mode?: Mode;
-    disabled?: boolean;
-    onClick?: () => void;
-    icon?: string;
-    type?: ButtonType;
-}
-
-const Button = (props: Props) => {
+const Button = (props: Button) => {
 
     const classes = [styles.container];
 
     if (props.mode) classes.push(styles[props.mode]);
 
     const iconClass = [];
+    
     if (props.type === ButtonType.IconText && props.icon) {
         iconClass.push(styles.iconContainer);
     } else if (props.type === ButtonType.IconOnly && props.icon && props.mode) {
         iconClass.push(styles[props.mode]);
-    } else if(props.type === ButtonType.Text && props.mode){
+    } else if (props.type === ButtonType.Text && props.mode) {
         iconClass.push(styles[props.mode]);
     };
 
