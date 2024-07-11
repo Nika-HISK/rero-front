@@ -27,7 +27,7 @@ const Input = (props: Props) => {
                     :
                     <input
                         type="text"
-                        className={props.appearance}
+                        className={props.appearance ? styles[props.appearance] : ""}
                         placeholder={props.placeholder}
                     />
             }

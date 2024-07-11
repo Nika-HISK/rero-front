@@ -8,10 +8,8 @@ const InputBlock = () => {
     return (
         <React.Fragment>
             <Input
-                placeholder='Search'
-                appearance='onNavBar'
-                searchIcon='/searchIcon/search.svg'
-                searchIconState='searchIconState'
+                placeholder="Email"
+                appearance="onLoginIn"
             />
         </React.Fragment>
     )
