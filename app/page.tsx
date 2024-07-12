@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import InputBlock from "./Components/InputBlock/InputBlock";
 import React from "react";
+import Input from "./Components/Input/Input";
 
 export default function Home() {
   return (
-    <React.Fragment>
-
-    </React.Fragment >
-  );
+    <>
+      <Input />
+    </>
+  )
 }
