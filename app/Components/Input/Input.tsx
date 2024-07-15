@@ -3,16 +3,20 @@
 import React, { useState } from "react";
 import styles from "./Input.module.scss";
 
-const Input = () => {
-    const [placeholder, setPlaceholder] = useState<string>("      Search");
+interface Props {
+    placeholder: string;
+}
+
+const Input = (props: Props) => {
+    const [placeholder, setPlaceholder] = useState<string>('');
 
     return (
         <input
             className={styles.inputStyle}
             type="text"
-            placeholder={placeholder}
+            placeholder={props.placeholder}
             onFocus={() => setPlaceholder("")}
-            onBlur={() => setPlaceholder("      Search")}
+            onBlur={() => setPlaceholder(`${props.placeholder}`)}
         />
     );
 }
