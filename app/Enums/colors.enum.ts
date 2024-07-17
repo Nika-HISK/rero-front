@@ -1,4 +1,4 @@
-export enum colors {
+export enum ColorsEnum {
     Primary_Color = '#052224',
     Primary_Hover = '#13828A',
     Primary_Text = '#FFFFFF',
