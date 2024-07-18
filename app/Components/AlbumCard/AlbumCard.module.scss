@@ -5,6 +5,10 @@
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
+    --background-image: url('');
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
 
     &::before {
         content: "";
@@ -13,7 +17,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: inherit;
+        background-image: var(--background-image);
         background-size: cover;
         background-position: center;
         filter: blur(0);

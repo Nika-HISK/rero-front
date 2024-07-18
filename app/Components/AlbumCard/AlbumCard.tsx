@@ -1,4 +1,3 @@
-
 import styles from "./AlbumCard.module.scss";
 
 interface Props {
@@ -6,14 +5,14 @@ interface Props {
     albumName: string;
     artisName: string;
     releaseDate: string;
-    songQuantity: string
+    songQuantity: string;
 }
 
 const AlbumCard = (props: Props) => {
     return (
         <div
             className={styles.albumWrapper}
-            style={{ backgroundImage: `url(${props.artistImage})` }}
+            style={{ '--background-image': `url(${props.artistImage})` } as React.CSSProperties}
         >
             <div className={styles.captionWrapper} >
                 <div className={styles.wrapper} >
