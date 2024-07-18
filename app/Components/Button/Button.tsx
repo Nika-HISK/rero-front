@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Button.module.scss';
-import { ButtonMode, ButtonType } from '../../Enums/Enums';
+import { ButtonType } from '../../Enums/Enums';
 import type { Button } from '@/app/Interfaces/Interfaces';
 
 const Button = (props: Button) => {

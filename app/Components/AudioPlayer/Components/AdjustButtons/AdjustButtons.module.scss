@@ -1,0 +1,45 @@
+.adjustButtons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.adjustButton img {
+    width: 28px;
+    height: 28px;
+}
+
+@media screen and (max-width: 767px) {
+    .adjustButtons {
+        gap: 12px;
+    }
+
+    .buttonWrapper {
+        display: none;
+    }
+
+    .mainButton img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .buttonWrapper {
+        display: none;
+    }
+
+    .adjustButtons {
+        gap: 12px;
+    }
+
+    .adjustButton img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .mainButton img {
+        width: 28px;
+        height: 28px;
+    }
+}

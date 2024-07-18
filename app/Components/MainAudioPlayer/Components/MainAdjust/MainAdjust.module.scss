@@ -1,0 +1,15 @@
+.adjustButtons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.adjustButton img {
+    width: 28px;
+    height: 28px;
+}
+
+.adjustButtons img {
+    cursor: pointer;
+}

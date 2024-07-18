@@ -1,0 +1,21 @@
+.arrow :hover {
+    background-color: #1DC2CE;
+    border-radius: 48px;
+}
+
+.arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .arrow {
+        padding-right: 16px;
+    }
+}

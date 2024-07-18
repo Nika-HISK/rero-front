@@ -1,0 +1,47 @@
+.wrapper {
+    color: #fff;
+}
+
+.container {
+    background-color: #052224;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .photo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .musicPhoto {
+        gap: 8px;
+    }
+
+    .ipadContainer {
+        display: flex;
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .photo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .photo {
+        padding-left: 16px;
+    }
+    .container {
+        gap: 0;
+    }
+
+}

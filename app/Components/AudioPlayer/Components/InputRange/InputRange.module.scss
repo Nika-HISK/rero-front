@@ -1,0 +1,19 @@
+.range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: #FFFFFF80;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+  
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 0.1px;
+      height: 5px;
+      box-shadow: -400px 0 0 400px #fff;
+    }
+  }
+  
