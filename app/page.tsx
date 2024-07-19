@@ -1,15 +1,12 @@
-'use client'
+"use client";
 
-import Image from "next/image";
-import styles from "./page.module.css";
-import AudioPlayer from "./Components/AudioPlayer/AudioPlayer";
-import songs from "./array";
-import MainAudioPlayer from "./Components/MainAudioPlayer/MainAudioPlayer";
+import BigPlayer from "./Components/BigPlayer/BigPlayer";
+import songs from "./Components/SmallPlayer/Utils/dummy-musics";
 
 export default function Home() {
   return (
     <>
-      <MainAudioPlayer songs={songs} />
+      <BigPlayer songs={songs} />
     </>
   );
 }
