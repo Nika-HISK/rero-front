@@ -1,14 +1,6 @@
-import { ColorsEnum } from "@/app/Enums/colors.enum"
-import { ReactNode } from "react"
 import styles from './Typhography.module.scss'
-import { TyphographyEnum } from "@/app/Enums/Typhography.enum"
+import { Props } from "./interfaces/typography-props.interface"
 
-type Props = {
-    children: ReactNode
-    type: TyphographyEnum
-    color?: ColorsEnum
-
-}
 const Typhography = (props: Props) => {
     return (
         <>
