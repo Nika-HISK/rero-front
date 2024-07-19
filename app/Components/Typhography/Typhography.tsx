@@ -1,7 +1,7 @@
+import { TypographyPropsInterface } from './interfaces/typography-props.interface'
 import styles from './Typhography.module.scss'
-import { Props } from "./interfaces/typography-props.interface"
 
-const Typhography = (props: Props) => {
+const Typhography = (props: TypographyPropsInterface) => {
     return (
         <>
             <div className={styles[props.type]} style={{ color: props.color }}>
