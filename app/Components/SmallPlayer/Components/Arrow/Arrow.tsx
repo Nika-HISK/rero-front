@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./Arrow.module.scss";
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './Arrow.module.scss';
 
 const ArrowLink = () => (
   <Link href="" className={styles.arrow}>

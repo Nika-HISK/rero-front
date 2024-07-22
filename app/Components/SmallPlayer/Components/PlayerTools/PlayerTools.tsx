@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import styles from "./AdjustButtons.module.scss";
-import { AdjustButtonProps } from "@/app/Interfaces/Interfaces";
+import Image from 'next/image';
+import React from 'react';
+import styles from './PlayerTools.module.scss';
+import { AdjustButtonProps } from '@/app/Interfaces/Interfaces';
 
-const AdjustButtons = (props: AdjustButtonProps) => {
+const PlayerTools = (props: AdjustButtonProps) => {
   return (
     <div className={styles.adjustButtons}>
       <div className={styles.buttonWrapper}>
@@ -26,7 +26,7 @@ const AdjustButtons = (props: AdjustButtonProps) => {
       </div>
       <div onClick={props.onPlayMusic} className={styles.mainButton}>
         <Image
-          src={props.playing ? "/play.png" : "/pause.png"}
+          src={props.playing ? '/play.png' : '/pause.png'}
           alt="playbutton"
           width={42}
           height={42}
@@ -54,4 +54,4 @@ const AdjustButtons = (props: AdjustButtonProps) => {
   );
 };
 
-export default AdjustButtons;
+export default PlayerTools;

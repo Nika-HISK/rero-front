@@ -1,13 +1,13 @@
-import React from "react";
-import { PlayerProps } from "../../Interfaces/AudioPlayer-props.interface";
-import AdjustButtons from "../AdjustButtons/AdjustButtons";
-import ProgressBars from "../ProgressBars/ProgressBars";
-import styles from "./Player.module.scss";
+import React from 'react';
+import { PlayerProps } from '../../interfaces/Player-Props';
+import PlayerMediaControl from '../PlayerMediaControl/PlayerMediaControl';
+import PlayerTools from '../PlayerTools/PlayerTools';
+import styles from './Player.module.scss';
 
 const Player = (props: PlayerProps) => {
   return (
     <div className={styles.musicMiddle}>
-      <AdjustButtons
+      <PlayerTools
         onVolumeDown={props.onVolumeDown}
         onVolumeUp={props.onVolumeUp}
         onPreviousSong={props.onPreviousSong}
@@ -16,7 +16,7 @@ const Player = (props: PlayerProps) => {
         playing={props.playing}
         customStyle={false}
       />
-      <ProgressBars
+      <PlayerMediaControl
         currentTime={props.currentTime}
         duration={props.duration}
         onProgressChange={props.onProgressChange}

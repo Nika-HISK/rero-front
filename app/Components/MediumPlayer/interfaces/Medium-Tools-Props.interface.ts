@@ -1,4 +1,4 @@
-export interface MainAdjustProps {
+export interface MediumToolsProps {
   onVolumeDown: () => void;
   onVolumeUp: () => void;
   onPreviousSong: () => void;

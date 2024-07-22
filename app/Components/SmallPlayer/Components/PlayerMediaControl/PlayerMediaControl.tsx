@@ -1,16 +1,16 @@
-import Image from "next/image";
-import React from "react";
-import { ProgressBarsProps } from "../../Interfaces/AudioPlayer-props.interface";
-import InputRange from "../InputRange/InputRange";
-import styles from "./ProgressBars.module.scss";
-import { formatTime } from "@/app/Helpers/AudioHelpers";
+import React from 'react';
+import Image from 'next/image';
+import ProgressBar from '../ProgressBar/ProgressBar';
+import styles from './PlayerMediaControl.module.scss';
+import { formatTime } from '@/app/Helpers/AudioHelpers';
+import { PlayerMediaControlProps } from '../../interfaces/Player-Media-Control-Props.interface';
 
-const ProgressBars = (props: ProgressBarsProps) => {
+const PlayerMediaControl = (props: PlayerMediaControlProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.progressBar}>
         <p>{formatTime(props.currentTime)}</p>
-        <InputRange
+        <ProgressBar
           defaultValue={String((props.currentTime / props.duration) * 100)}
           onChange={props.onProgressChange}
           progressRef={props.progressRef}
@@ -47,7 +47,7 @@ const ProgressBars = (props: ProgressBarsProps) => {
             />
           </div>
           <div className={styles.ipadRange}>
-            <InputRange
+            <ProgressBar
               defaultValue={String((props.currentTime / props.duration) * 100)}
               onChange={props.onProgressChange}
               progressRef={props.ipadProgressRef}
@@ -59,4 +59,4 @@ const ProgressBars = (props: ProgressBarsProps) => {
   );
 };
 
-export default ProgressBars;
+export default PlayerMediaControl;

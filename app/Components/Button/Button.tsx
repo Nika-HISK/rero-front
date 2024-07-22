@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import { ButtonType } from "../../Enums/Enums";
-import styles from "./Button.module.scss";
-import type { Button } from "@/app/Interfaces/Interfaces";
+import Image from 'next/image';
+import React from 'react';
+import { ButtonType } from '../../Enums/Enums';
+import styles from './Button.module.scss';
+import type { Button } from '@/app/Interfaces/Interfaces';
 
 const Button = (props: Button) => {
   const classes = [styles.container];
@@ -24,7 +24,7 @@ const Button = (props: Button) => {
       onClick={props.onClick}
       disabled={props.disabled}
       className={
-        props.icon ? iconClass.join(" ").trim() : classes.join(" ").trim()
+        props.icon ? iconClass.join(' ').trim() : classes.join(' ').trim()
       }
     >
       {props.type === ButtonType.IconOnly && props.icon && (

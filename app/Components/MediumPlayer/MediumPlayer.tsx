@@ -1,11 +1,11 @@
-import React from "react";
-import { useAudioPlayer } from "../SmallPlayer/Hooks/use-audio.hook";
-import styles from "./BigPlayer.module.scss";
-import BigPlayerAdjust from "./Components/BigPlayerAdjust/BigPlayerAdjust";
-import ProgressBar from "./Components/BigProgress/BigProgress";
-import { SongProps } from "@/app/Interfaces/Interfaces";
+import React from 'react';
+import { useAudioPlayer } from '../SmallPlayer/Hooks/use-audio.hook';
+import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
+import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
+import styles from './MediumPlayer.module.scss';
+import { SongProps } from '@/app/Interfaces/Interfaces';
 
-const BigPlayer = (props: SongProps) => {
+const MediumPlayer = (props: SongProps) => {
   const {
     audioRef,
     audioPlayer,
@@ -52,4 +52,4 @@ const BigPlayer = (props: SongProps) => {
   );
 };
 
-export default BigPlayer;
+export default MediumPlayer;

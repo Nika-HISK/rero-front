@@ -1,10 +1,10 @@
-import React from "react";
-import ArrowLink from "./Components/Arrow/Arrow";
-import MusicPhoto from "./Components/MusicPhoto/MusicPhoto";
-import Player from "./Components/Player/Player";
-import { useAudioPlayer } from "./Hooks/use-audio.hook";
-import styles from "./SmallPlayer.module.scss";
-import { SongProps } from "@/app/Interfaces/Interfaces";
+import React from 'react';
+import ArrowLink from './Components/Arrow/Arrow';
+import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
+import Player from './Components/Player/Player';
+import { useAudioPlayer } from './Hooks/use-audio.hook';
+import styles from './SmallPlayer.module.scss';
+import { SongProps } from '@/app/Interfaces/Interfaces';
 
 const AudioPlayer = (props: SongProps) => {
   const {

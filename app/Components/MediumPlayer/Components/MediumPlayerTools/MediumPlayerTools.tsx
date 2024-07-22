@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import { MainAdjustProps } from "../../Interfaces/BigAudioPlayer-props.interface";
-import styles from "./BigPlayerAdjust.module.scss";
+import Image from 'next/image';
+import React from 'react';
+import { MediumToolsProps } from '../../interfaces/Medium-Tools-Props.interface';
+import styles from './MediumPlayerTools.module.scss';
 
-const BigPlayerAdjust = (props: MainAdjustProps) => {
+const MediumPlayerTools = (props: MediumToolsProps) => {
   return (
     <div className={styles.adjustButtons}>
       <div className={styles.volumeButton} onClick={props.onVolumeDown}>
@@ -24,7 +24,7 @@ const BigPlayerAdjust = (props: MainAdjustProps) => {
       </div>
       <div onClick={props.onPlayMusic} className={styles.mainButton}>
         <Image
-          src={props.playing ? "/play.png" : "/pause.png"}
+          src={props.playing ? '/play.png' : '/pause.png'}
           alt="playbutton"
           width={42}
           height={42}
@@ -45,4 +45,4 @@ const BigPlayerAdjust = (props: MainAdjustProps) => {
   );
 };
 
-export default BigPlayerAdjust;
+export default MediumPlayerTools;

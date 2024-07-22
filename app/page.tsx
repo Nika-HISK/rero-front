@@ -1,12 +1,5 @@
-"use client";
-
-import BigPlayer from "./Components/BigPlayer/BigPlayer";
-import songs from "./Components/SmallPlayer/Utils/dummy-musics";
+'use client';
 
 export default function Home() {
-  return (
-    <>
-      <BigPlayer songs={songs} />
-    </>
-  );
+  return <></>;
 }

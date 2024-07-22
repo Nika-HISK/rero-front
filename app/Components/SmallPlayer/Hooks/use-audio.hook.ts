@@ -1,7 +1,7 @@
-import { useRef, useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { audioPlayerState } from "@/app/Atoms/states";
-import { Song } from "@/app/Interfaces/Interfaces";
+import { useRef, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { audioPlayerState } from '@/app/Atoms/states';
+import { Song } from '@/app/Interfaces/Interfaces';
 
 export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
@@ -44,13 +44,13 @@ export const useAudioPlayer = (songs: Song[]) => {
 
     if (audioRef.current) {
       const audio = audioRef.current;
-      audio.addEventListener("timeupdate", handleTimeUpdate);
-      audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-      audio.addEventListener("ended", handleEnded);
+      audio.addEventListener('timeupdate', handleTimeUpdate);
+      audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.addEventListener('ended', handleEnded);
       return () => {
-        audio.removeEventListener("timeupdate", handleTimeUpdate);
-        audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-        audio.removeEventListener("ended", handleEnded);
+        audio.removeEventListener('timeupdate', handleTimeUpdate);
+        audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        audio.removeEventListener('ended', handleEnded);
       };
     }
   }, [audioPlayer.currentSongIndex, songs.length, setAudioPlayer]);

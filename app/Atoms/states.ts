@@ -1,7 +1,7 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const audioPlayerState = atom({
-  key: "audioPlayerState",
+  key: 'audioPlayerState',
   default: {
     currentTime: 0,
     duration: 0,
