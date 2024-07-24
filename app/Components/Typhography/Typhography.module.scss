@@ -1,0 +1,333 @@
+@import '../../colors.scss';
+
+.headingOne {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.headingTwo {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.headingThree {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 97px;
+}
+
+.bodyOne {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.bodyTwo {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.bodyThree {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.bodyFour {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.bodyFive {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.bodySix {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.bodySeven {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.bodyEight {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.bodyNine {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.bodyTen {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.bodyEleven {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.bodyTwelve {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.bodyThirteen {
+  color: $primaryText;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .headingOne {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+  }
+
+  .headingTwo {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33px;
+  }
+
+  .headingThree {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 73px;
+  }
+
+  .bodyOne {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .bodyTwo {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  .bodyThree {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .bodyFour {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 34px;
+  }
+
+  .bodyFive {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .bodySix {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+  }
+
+  .bodySeven {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  .bodyEight {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+  }
+
+  .bodyNine {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+  }
+
+  .bodyTen {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .bodyEleven {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headingOne {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .headingTwo {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+  }
+
+  .bodyOne {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  .bodyTwo {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 57px;
+  }
+
+  .bodyThree {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+  }
+
+  .bodyFour {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .bodyFive {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+  }
+
+  .bodySix {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .bodySeven {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 10px;
+  }
+
+  .bodyEight {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+  }
+
+  .bodyNine {
+    color: $primaryText;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 12px;
+  }
+}

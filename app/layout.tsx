@@ -3,7 +3,10 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import RecoilWrapper from './Components/RecoilWrapper/RecoilWrapper';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+});
 
 export const metadata: Metadata = {
   title: 'Rero',
