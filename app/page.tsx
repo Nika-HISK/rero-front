@@ -6,7 +6,7 @@ import Icons from './Components/Icons/Icons';
 export default function Home() {
   return (
     <>
-      <Icons name={'home'} width={36} height={36}  />
+
     </>
   );
 }
