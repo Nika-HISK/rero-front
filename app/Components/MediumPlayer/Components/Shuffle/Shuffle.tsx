@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface ShuffleIconProps {
-  color: string;
-}
+import { ShuffleIconProps } from './interfaces/Shuffle-Icon-Props.interface';
 
 const ShuffleIcon: React.FC<ShuffleIconProps> = ({ color }) => (
   <svg
