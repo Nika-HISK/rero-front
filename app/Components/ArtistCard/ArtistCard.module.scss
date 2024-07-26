@@ -1,0 +1,60 @@
+.wrapper {
+  max-width: 288px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.container img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper a {
+  width: 100%;
+  height: 100%;
+}
+.wrapper p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+.wrapper:hover p {
+  color: #13828a;
+}
+
+.wrapper a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.containerParagraph {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .wrapper p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .wrapper {
+    width: 40%;
+    max-width: unset;
+  }
+}
