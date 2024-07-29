@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import styles from './RowAlbum.module.scss';
 import MusicRowPhoto from './components/MusicRowPhoto/MusicRowPhoto';
-import Image from 'next/image';
 import { AlbumRowPropsInterface } from './interfaces/Row-Album-Props.interface';
 
 const RowAlbum = (props: AlbumRowPropsInterface) => {

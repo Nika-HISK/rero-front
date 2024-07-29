@@ -1,0 +1,30 @@
+.container {
+  max-width: 200px;
+  width: 100%;
+  background-color: #2c2c2c;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  &.active {
+    background-color: #13828a;
+    color: white;
+  }
+}
+
+.leftContainer {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.rightContainer {
+  border-bottom-right-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.container span {
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
