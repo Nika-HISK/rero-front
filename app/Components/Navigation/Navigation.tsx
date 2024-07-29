@@ -4,16 +4,10 @@ import styles from './Navigation.module.scss';
 import { NavigationPropsInterface } from './interfaces/Navigation-Props.interface';
 
 const Navigation = (props: NavigationPropsInterface) => {
-  const classes = [styles.container];
-
-  if (props.left) classes.push(styles.leftContainer);
-  if (props.right) classes.push(styles.rightContainer);
-  if (props.isActive) classes.push(styles.active);
-
   return (
     <Link
       href={props.link ? props.link : ''}
-      className={classes.join(' ').trim()}
+      className={`${styles.container} ${props.isActive && styles.active}`}
     >
       <div onClick={props.onClick}>
         <span>{props.title}</span>
