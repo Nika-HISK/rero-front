@@ -1,5 +1,5 @@
-import { TypographyPropsInterface } from './interfaces/typography-props.interface';
 import styles from './Typhography.module.scss';
+import { TypographyPropsInterface } from './interfaces/typography-props.interface';
 
 const Typhography = (props: TypographyPropsInterface) => {
   return (

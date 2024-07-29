@@ -6,9 +6,3 @@ export enum ButtonMode {
   Transparent = 'transparent',
   More = 'more',
 }
-
-export enum ButtonType {
-  Text = 'text',
-  IconText = 'iconText',
-  IconOnly = 'iconOnly',
-}
