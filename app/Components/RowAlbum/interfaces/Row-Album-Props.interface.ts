@@ -1,6 +1,6 @@
-export interface RowAlbumProps {
+export interface AlbumRowPropsInterface {
   albumName: string;
-  duration: String;
+  duration: string;
   onPlusClick?: () => void;
   onRowAlbumClick?: () => void;
 }

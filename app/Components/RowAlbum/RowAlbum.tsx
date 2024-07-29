@@ -1,13 +1,13 @@
 import styles from './RowAlbum.module.scss';
-import RowMusicPhoto from './components/RowMusicPhoto/RowMusicPhoto';
+import MusicRowPhoto from './components/MusicRowPhoto/MusicRowPhoto';
 import Image from 'next/image';
-import { RowAlbumProps } from './interfaces/Row-Album-Props.interface';
+import { AlbumRowPropsInterface } from './interfaces/Row-Album-Props.interface';
 
-const RowAlbum = (props: RowAlbumProps) => {
+const RowAlbum = (props: AlbumRowPropsInterface) => {
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
-        <RowMusicPhoto
+        <MusicRowPhoto
           cover={'/dummy'}
           music={'Music Name'}
           artist={'Artist Name'}

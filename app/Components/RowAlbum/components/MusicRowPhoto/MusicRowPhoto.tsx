@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import styles from './RowMusicPhoto.module.scss';
-import { RowMusicPhotoProps } from './interfaces/Row-Music-Photo-Props.interface';
+import styles from './MusicRowPhoto.module.scss';
+import { RowMusicPhotoPropsInterface } from './interfaces/Row-Music-Photo-Props.interface';
 
-const RowMusicPhoto = (props: RowMusicPhotoProps) => {
+const MusicRowPhoto = (props: RowMusicPhotoPropsInterface) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.coverImage}>
@@ -16,4 +16,4 @@ const RowMusicPhoto = (props: RowMusicPhotoProps) => {
   );
 };
 
-export default RowMusicPhoto;
+export default MusicRowPhoto;
