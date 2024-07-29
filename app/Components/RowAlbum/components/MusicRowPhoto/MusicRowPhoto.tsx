@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './MusicRowPhoto.module.scss';
-import { RowMusicPhotoPropsInterface } from './interfaces/Row-Music-Photo-Props.interface';
+import { RowMusicPhotoPropsInterface } from './interfaces/row-music-photo-props.interface';
 
 const MusicRowPhoto = (props: RowMusicPhotoPropsInterface) => {
   return (
