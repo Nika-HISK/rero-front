@@ -1,4 +1,4 @@
-interface IconsProps {
+interface IconPropsInterface {
   isActive?: boolean;
   onClick?: () => void;
   name: string;
@@ -6,4 +6,4 @@ interface IconsProps {
   height?:number;
 }
 
-export default IconsProps;
+export default IconPropsInterface;

@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import IconsProps from './Icons.interface';
-import { IconsEnum } from '@/app/Enums/Icons.enum';
+import IconsProps from './icon-props.interface';
 
-const Icons = (props: IconsProps) => {
+
+const Icon = (props: IconsProps) => {
   const src = props.isActive
     ? `/icons/${props.name}Active.svg`
     : `/icons/${props.name}.svg`;
@@ -12,4 +12,4 @@ const Icons = (props: IconsProps) => {
   )
 };
 
-export default Icons
+export default Icon

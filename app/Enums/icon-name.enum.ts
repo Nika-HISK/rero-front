@@ -1,4 +1,4 @@
-export enum IconsEnum {
+export enum IconNameEnum{
     Add = 'add',
     AddPlayList = 'addplaylist',
     Edit = 'edit',
