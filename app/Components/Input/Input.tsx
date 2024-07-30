@@ -1,11 +1,8 @@
 'use client';
 
-import React, { useState } from "react";
 import styles from "./Input.module.scss";
-
-interface Props {
-    placeholder: string;
-}
+import React, { useState } from "react";
+import { Props } from "./InputPropsInterface/InputPropsInterface";
 
 const Input = (props: Props) => {
     const [placeholder, setPlaceholder] = useState<string>('');
