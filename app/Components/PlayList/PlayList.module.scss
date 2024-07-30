@@ -1,0 +1,66 @@
+.playListWrapper {
+    width: 1224px;
+    height: fit-content;
+    flex-direction: column;
+    background-color: rgba(19, 130, 138, 0.30);
+    border-radius: 24px;
+}
+
+.wrapper {
+    width: 1124px;
+    height: 80px;
+    background-color: #13828A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 12px;
+    border-radius: 24px;
+}
+
+.playListWrapper div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.playListWrapper div>span+img {
+    cursor: pointer;
+}
+
+.playlistName {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.afterOpen {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 100px;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.afterOpen div div img {
+    cursor: pointer;
+}
+
+.afterOpen div div {
+    width: fit-content;
+    display: flex;
+    gap: 24px;
+    margin-left: 27px;
+    margin-top: 16px;
+    margin-bottom: 18px;
+}
