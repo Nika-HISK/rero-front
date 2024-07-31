@@ -6,7 +6,7 @@ import Input from "./Components/Input/Input";
 export default function Home() {
   return (
     <>
-    
+    <div></div>    
     </>
   )
 }
