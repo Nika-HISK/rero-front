@@ -1,19 +1,18 @@
 'use client';
 
 import styles from "./Input.module.scss";
-import React, { useState } from "react";
-import { Props } from "./InputPropsInterface/InputPropsInterface";
+import React from "react";
+import { InputPropsInterface } from "./InputPropsInterface/InputPropsInterface";
 
-const Input = (props: Props) => {
-    const [placeholder, setPlaceholder] = useState<string>('');
+const Input = (props: InputPropsInterface) => {
 
     return (
         <input
             className={styles.inputStyle}
             type="text"
-            placeholder={props.placeholder}
-            onFocus={() => setPlaceholder("")}
-            onBlur={() => setPlaceholder(`${props.placeholder}`)}
+            placeholder={`      ${props.placeholder}`}
+            onFocus={() => ``}
+            onBlur={() => `${props.placeholder}`}
         />
     );
 }
