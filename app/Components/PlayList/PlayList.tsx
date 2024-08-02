@@ -2,13 +2,7 @@
 
 import styles from './PlayList.module.scss';
 import { useState } from 'react';
-
-interface Props {
-    playlistName: string;
-    artistName?: string;
-    artistPhoto: string;
-    musicName?: string;
-}
+import { Props } from './playlistPropsInterface/playlistPropsInterface';
 
 const PlayList = (props: Props) => {
 
