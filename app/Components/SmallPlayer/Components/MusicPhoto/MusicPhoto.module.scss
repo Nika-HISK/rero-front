@@ -1,0 +1,69 @@
+.musicPhoto {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.photo {
+  padding-left: 36px;
+}
+
+.photo img {
+  border-radius: 6px;
+}
+
+.musicInfo {
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 97px;
+}
+
+.musicInfo .musicName {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.musicInfo .artistName {
+  font-size: 14px;
+}
+
+.musicInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.musicInfo span {
+  font-size: 14px;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .musicInfo .musicName {
+    font-weight: 400;
+  }
+
+  .musicInfo .musicArtist {
+    font-weight: 400;
+  }
+  .photo img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .musicInfo {
+    display: none;
+  }
+  .photo {
+    padding-left: 16px;
+  }
+  .photo img {
+    width: 36px;
+    height: 36px;
+  }
+}
