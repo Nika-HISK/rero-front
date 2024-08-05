@@ -1,4 +1,4 @@
-export interface AudioPlayerPropsInterface {
+export interface AtomAudioPlayerPropsInterface {
   currentTime: number;
   duration: number;
   currentSongIndex: number;

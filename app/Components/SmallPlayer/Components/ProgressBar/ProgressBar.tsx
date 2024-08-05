@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { ProgressBarProps } from '../../interfaces/progress-bar-props.interface';
+import { ProgressBarPropsInterface } from '../../interfaces/progress-bar-props.interface';
 import styles from './ProgressBar.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 
-const ProgressBar = (props: ProgressBarProps) => {
+const ProgressBar = (props: ProgressBarPropsInterface) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import styles from './Button.module.scss';
-import { ButtonPropsInterface } from './interfaces/button.interface';
+import { ButtonPropsInterface } from './interfaces/button-props.interface';
 
 const Button = (props: ButtonPropsInterface) => {
   const classes = [styles.container];

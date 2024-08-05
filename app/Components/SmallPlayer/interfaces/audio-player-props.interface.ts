@@ -1,4 +1,4 @@
-export interface ProgressBarPropsInterface {
+export interface AudioPlayerPropsInterface {
   currentTime: number;
   duration: number;
   progressRef: React.RefObject<HTMLInputElement>;

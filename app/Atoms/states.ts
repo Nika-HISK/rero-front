@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
-import { AudioPlayerPropsInterface } from './interfaces/audio-player.props.interface';
+import { AtomAudioPlayerPropsInterface } from './interfaces/audio-player.props.interface';
 
-export const audioPlayerState = atom<AudioPlayerPropsInterface>({
+export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
   key: 'audioPlayerState',
   default: {
     currentTime: 0,
