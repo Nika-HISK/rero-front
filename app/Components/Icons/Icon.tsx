@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import IconsProps from './icon-props.interface';
+import IconPropsInterface from './icon-props.interface';
 
 
-const Icon = (props: IconsProps) => {
+
+const Icon = (props: IconPropsInterface) => {
   const src = props.isActive
     ? `/icons/${props.name}Active.svg`
     : `/icons/${props.name}.svg`;

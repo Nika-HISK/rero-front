@@ -1,6 +1,6 @@
 export enum IconNameEnum{
     Add = 'add',
-    AddPlayList = 'addplaylist',
+    PlusIcon = 'plusicon',
     Edit = 'edit',
     Home = 'home',
     MiniAdd = 'miniadd',
