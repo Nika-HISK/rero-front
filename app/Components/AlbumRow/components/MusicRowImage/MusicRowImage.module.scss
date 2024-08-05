@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wrapper img {
+  border-radius: 6px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 10px;
+}
+
+.music {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.artist {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .coverImage img {
+    width: 48px;
+    height: 48px;
+  }
+  .music {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .artist {
+    font-size: 10px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .coverImage img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .artist {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .music {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
