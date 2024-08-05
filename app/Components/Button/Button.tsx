@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import { ButtonType } from '../../Enums/Enums';
+import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import styles from './Button.module.scss';
-import type { Button } from '@/app/Interfaces/Interfaces';
+import { ButtonPropsInterface } from './interfaces/button.interface';
 
-const Button = (props: Button) => {
+const Button = (props: ButtonPropsInterface) => {
   const classes = [styles.container];
 
   if (props.mode) classes.push(styles[props.mode]);

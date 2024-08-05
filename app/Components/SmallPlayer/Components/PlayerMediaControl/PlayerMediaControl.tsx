@@ -3,9 +3,9 @@ import Image from 'next/image';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import styles from './PlayerMediaControl.module.scss';
 import { formatTime } from '@/app/Helpers/AudioHelpers';
-import { PlayerMediaControlProps } from '../../interfaces/Player-Media-Control-Props.interface';
+import { PlayerMediaControlPropsInterface } from '../../interfaces/player-media-control-props.interface';
 
-const PlayerMediaControl = (props: PlayerMediaControlProps) => {
+const PlayerMediaControl = (props: PlayerMediaControlPropsInterface) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.progressBar}>

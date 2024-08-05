@@ -2,13 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import ProgressBar from '../../../SmallPlayer/Components/ProgressBar/ProgressBar';
-import ShuffleIcon from '../Shuffle/Shuffle';
 import styles from './MediumControlPanel.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { formatTime } from '@/app/Helpers/AudioHelpers';
-import { ProgressBarProps } from '@/app/Interfaces/Interfaces';
+import { ProgressBarPropsInterface } from '@/app/Components/SmallPlayer/interfaces/audio-player-props.interface';
 
-const MediumControlPanel = (props: ProgressBarProps) => {
+const MediumControlPanel = (props: ProgressBarPropsInterface) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
 
   const handleShuffleClick = () => {
@@ -21,7 +20,7 @@ const MediumControlPanel = (props: ProgressBarProps) => {
   return (
     <div className={styles.progressBar}>
       <div className={styles.icons} onClick={handleShuffleClick}>
-        <ShuffleIcon color={audioPlayer.shuffle ? '#13828A' : 'white'} />
+        <Image src={'/shuffle.png'} alt="shuffle icon" width={28} height={28} />
       </div>
       <p>{formatTime(props.currentTime)}</p>
       <ProgressBar

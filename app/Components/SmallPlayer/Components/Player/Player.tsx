@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayerProps } from '../../interfaces/Player-Props';
+import { PlayerProps } from '../../interfaces/player-props';
 import PlayerMediaControl from '../PlayerMediaControl/PlayerMediaControl';
 import PlayerTools from '../PlayerTools/PlayerTools';
 import styles from './Player.module.scss';

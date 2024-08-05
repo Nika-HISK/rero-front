@@ -1,4 +1,4 @@
-export interface PlayerMediaControlProps {
+export interface PlayerMediaControlPropsInterface {
   currentTime: number;
   duration: number;
   onProgressChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

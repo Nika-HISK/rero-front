@@ -2,11 +2,11 @@ import React from 'react';
 import ArrowLink from './Components/Arrow/Arrow';
 import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
 import Player from './Components/Player/Player';
-import { useAudioPlayer } from './Hooks/use-audio.hook';
+import { useAudioPlayer } from './hooks/useAudio.hook';
 import styles from './SmallPlayer.module.scss';
-import { SongProps } from '@/app/Interfaces/Interfaces';
+import { SongPropsInterface } from './interfaces/song-props.interface';
 
-const AudioPlayer = (props: SongProps) => {
+const AudioPlayer = (props: SongPropsInterface) => {
   const {
     audioRef,
     progressRef,
@@ -19,9 +19,8 @@ const AudioPlayer = (props: SongProps) => {
     handlePreviousSong,
     handleVolumeDown,
     handleVolumeUp,
+    isPlaying,
   } = useAudioPlayer(props.songs);
-
-  const isPlaying = audioRef.current ? !audioRef.current.paused : false;
 
   return (
     <>

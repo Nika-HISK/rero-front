@@ -1,4 +1,4 @@
-export interface MusicPhotoProps {
+export interface MusicPhotoPropsInterface {
   src: string;
   music: string;
   artist: string;

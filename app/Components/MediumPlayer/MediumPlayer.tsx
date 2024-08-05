@@ -1,11 +1,11 @@
 import React from 'react';
-import { useAudioPlayer } from '../SmallPlayer/Hooks/use-audio.hook';
+import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
-import { SongProps } from '@/app/Interfaces/Interfaces';
+import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 
-const MediumPlayer = (props: SongProps) => {
+const MediumPlayer = (props: SongPropsInterface) => {
   const {
     audioRef,
     audioPlayer,
@@ -17,9 +17,9 @@ const MediumPlayer = (props: SongProps) => {
     handlePreviousSong,
     handleVolumeDown,
     handleVolumeUp,
+    isPlaying,
   } = useAudioPlayer(props.songs);
 
-  const isPlaying = audioRef.current ? audioRef.current.paused : false;
 
   return (
     <>

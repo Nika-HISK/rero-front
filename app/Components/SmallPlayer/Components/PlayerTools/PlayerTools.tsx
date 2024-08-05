@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 import styles from './PlayerTools.module.scss';
-import { AdjustButtonProps } from '@/app/Interfaces/Interfaces';
+import { PlayerToolsPropsInterface } from '../../interfaces/player-tools-props.interface';
 
-const PlayerTools = (props: AdjustButtonProps) => {
+const PlayerTools = (props: PlayerToolsPropsInterface) => {
   return (
     <div className={styles.adjustButtons}>
       <div className={styles.buttonWrapper}>

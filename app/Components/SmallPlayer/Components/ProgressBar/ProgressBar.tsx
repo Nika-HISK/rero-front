@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { ProgressBarProps } from '../../interfaces/Progress-Bar-Props.interface';
+import { ProgressBarProps } from '../../interfaces/progress-bar-props.interface';
 import styles from './ProgressBar.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 

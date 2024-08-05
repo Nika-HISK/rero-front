@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
-import { MediumToolsProps } from '../../interfaces/Medium-Tools-Props.interface';
+import { MediumToolsPropsInterface } from '../../interfaces/medium-tools-props.interface';
 import styles from './MediumPlayerTools.module.scss';
 
-const MediumPlayerTools = (props: MediumToolsProps) => {
+const MediumPlayerTools = (props: MediumToolsPropsInterface) => {
   return (
     <div className={styles.adjustButtons}>
       <div className={styles.volumeButton} onClick={props.onVolumeDown}>
