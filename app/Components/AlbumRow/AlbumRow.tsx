@@ -1,7 +1,7 @@
-import styles from './RowAlbum.module.scss';
-import MusicRowPhoto from './components/MusicRowPhoto/MusicRowPhoto';
+import styles from './AlbumRow.module.scss';
+import MusicRowPhoto from './components/MusicRowImage/MusicRowImage';
 import Image from 'next/image';
-import { AlbumRowPropsInterface } from './interfaces/row-album-props.interface';
+import { AlbumRowPropsInterface } from './interfaces/album-row-props.interface';
 
 const RowAlbum = (props: AlbumRowPropsInterface) => {
   return (
