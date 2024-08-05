@@ -6,7 +6,7 @@ import { NavigationPropsInterface } from './interfaces/navigation-props.interfac
 const Navigation = (props: NavigationPropsInterface) => {
   return (
     <Link
-      href={props.link ? props.link : ''}
+      href={props.href ? props.href : ''}
       className={`${styles.container} ${props.isActive && styles.active}`}
     >
       <div onClick={props.onClick}>
