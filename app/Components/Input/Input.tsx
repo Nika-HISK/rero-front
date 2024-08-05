@@ -2,7 +2,7 @@
 
 import styles from "./Input.module.scss";
 import React from "react";
-import { InputPropsInterface } from "./InputPropsInterface/InputPropsInterface";
+import { InputPropsInterface } from "./interfaces/input-props.interface";
 
 const Input = (props: InputPropsInterface) => {
 
