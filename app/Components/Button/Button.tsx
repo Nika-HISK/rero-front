@@ -10,7 +10,7 @@ const Button = (props: Button) => {
     if (props.mode) classes.push(styles[props.mode]);
 
     const iconClass = [];
-    
+
     if (props.type === ButtonType.IconText && props.icon) {
         iconClass.push(styles.iconContainer);
     } else if (props.type === ButtonType.IconOnly && props.icon && props.mode) {

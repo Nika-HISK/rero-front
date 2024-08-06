@@ -1,86 +1,86 @@
 .albumWrapper {
-    position: relative;
-    width: 348px;
-    height: 212px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    --background-image: url('');
+  position: relative;
+  width: 348px;
+  height: 212px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  --background-image: url('');
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-image: var(--background-image);
     background-size: cover;
     background-position: center;
+    filter: blur(0);
+    transition: filter 0.3s;
+    z-index: 1;
+  }
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-image: var(--background-image);
-        background-size: cover;
-        background-position: center;
-        filter: blur(0);
-        transition: filter 0.3s;
-        z-index: 1;
-    }
+  &:hover::before {
+    filter: blur(1.3px);
+  }
 
-    &:hover::before {
-        filter: blur(1.3px);
-    }
+  .captionWrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 84px;
+    padding: 12px 163px 0px 16px;
+  }
 
-    .captionWrapper {
-        position: relative;
-        z-index: 2; 
-        display: flex;
-        flex-direction: column;
-        gap: 84px;
-        padding: 12px 163px 0px 16px;
-    }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
 
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
+  .albumName,
+  .artistName,
+  .releaseDate,
+  .songQuantity {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.5s;
+  }
 
-    .albumName,
-    .artistName,
-    .releaseDate,
-    .songQuantity {
-        color: white;
-        font-family: "Inter", sans-serif;
-        transition: color 0.5s;
-    }
+  .albumName {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 120.944%;
+  }
 
-    .albumName {
-        font-size: 28px;
-        font-weight: 400;
-        line-height: 120.944%;
-    }
+  .artistName {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120.944%;
+  }
 
-    .artistName {
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 120.944%;
-    }
+  .releaseDate {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120.944%;
+  }
 
-    .releaseDate {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 120.944%;
-    }
+  .songQuantity {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+  }
 
-    .songQuantity {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: normal;
-    }
-
-    &:hover .albumName,
-    &:hover .artistName,
-    &:hover .releaseDate,
-    &:hover .songQuantity {
-        color: #13828A;
-    }
+  &:hover .albumName,
+  &:hover .artistName,
+  &:hover .releaseDate,
+  &:hover .songQuantity {
+    color: #13828a;
+  }
 }

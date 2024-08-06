@@ -1,52 +1,51 @@
 .cardWrapper {
-    width: 224px;
-    height: 209px;
-    border-radius: 0px 0px 0px 24px;
-    background-color: rgba(115, 115, 115, 0.50);
+  width: 224px;
+  height: 209px;
+  border-radius: 0px 0px 0px 24px;
+  background-color: rgba(115, 115, 115, 0.5);
 }
 
 .artistNameStyle {
-    color: #FFF;
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .musicNameStyle {
-    color: #FFF;
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .captionWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 4px;
-    padding-left: 8px;
-    padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+  padding-left: 8px;
+  padding-top: 12px;
 }
 
 .playerStyling {
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
 }
 
 .imgWrapper {
-    width: 100%;
-    height: 152px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: 83px;
+  width: 100%;
+  height: 152px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 83px;
 }
-

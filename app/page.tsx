@@ -6,7 +6,7 @@ import ArtistCard from "./Components/ArtistCard/ArtistCard";
 export default function Home() {
   return (
     <>
-      
+
     </>
   );
 }

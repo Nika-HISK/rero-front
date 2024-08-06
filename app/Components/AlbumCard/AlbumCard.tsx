@@ -1,12 +1,6 @@
 import styles from "./AlbumCard.module.scss";
+import { Props } from "./interface/albumCard-props.interface";
 
-interface Props {
-    artistImage: string;
-    albumName: string;
-    artisName: string;
-    releaseDate: string;
-    songQuantity: string;
-}
 
 const AlbumCard = (props: Props) => {
     return (

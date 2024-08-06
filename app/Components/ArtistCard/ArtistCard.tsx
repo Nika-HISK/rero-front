@@ -2,11 +2,7 @@
 
 import { useState } from 'react';
 import styles from "./ArtistCard.module.scss";
-
-interface Props {
-    artisName: string;
-    musicName: string;
-}
+import { Props } from './interface/artistCard-props.interface';
 
 const ArtistCard = (props: Props) => {
     const [isFilled, setIsFilled] = useState<boolean>(false);
