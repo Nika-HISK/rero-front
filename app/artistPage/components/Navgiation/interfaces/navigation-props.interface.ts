@@ -5,3 +5,6 @@ export interface NavigationPropsInterface {
   link?: string;
 }
 
+export interface NavigationMapPropsInterface {
+  map: NavigationPropsInterface[];
+}

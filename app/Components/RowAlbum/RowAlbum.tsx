@@ -1,10 +1,10 @@
-import styles from './RowAlbum.module.scss';
 import Image from 'next/image';
+import styles from './RowAlbum.module.scss';
 import RowMusicPhoto from './RowMusicPhoto/RowMusicPhoto';
 
 interface Props {
   albumName: string;
-  duration: String;
+  duration: string;
   onPlusClick?: () => void;
   onRowAlbumClick?: () => void;
 }
@@ -21,7 +21,6 @@ const RowAlbum = (props: Props) => {
       <div className={styles.container}>
         <p>{props.duration}</p>
         <Image
-        
           width={36}
           height={36}
           src="/plusMini.png"

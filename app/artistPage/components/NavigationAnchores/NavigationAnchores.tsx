@@ -1,11 +1,7 @@
-import Navigation from "../Navgiation/Navigation";
-import { NavigationPropsInterface } from "../Navgiation/intefaces";
+import Navigation from '../Navgiation/Navigation';
+import { NavigationMapPropsInterface } from '../Navgiation/interfaces/navigation-props.interface';
 
-interface Props {
-  map: NavigationPropsInterface[];
-}
-
-const NavigationAnchors = ({ map }: Props) => {
+const NavigationAnchors = ({ map }: NavigationMapPropsInterface) => {
   return (
     <>
       {map.map((item, index) => (

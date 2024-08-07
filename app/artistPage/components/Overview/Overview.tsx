@@ -1,5 +1,6 @@
 import RowAlbum from '@/app/Components/RowAlbum/RowAlbum';
 import styles from './Overview.module.scss';
+import { overviewData } from './overview-dummy-data';
 
 const Overview = () => {
   return (
@@ -8,10 +9,13 @@ const Overview = () => {
         <span>Overview</span>
       </div>
       <div className={styles.timeContainer}>
-        <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
-        <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
-        <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
-        <RowAlbum albumName={'zdddddddd'} duration={'3:33'} />
+        {overviewData.map((album, index) => (
+          <RowAlbum
+            key={index}
+            albumName={album.albumName}
+            duration={album.duration}
+          />
+        ))}
       </div>
     </>
   );

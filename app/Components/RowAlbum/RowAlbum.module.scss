@@ -46,8 +46,8 @@
 }
 
 .wrapper p {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .wrapper {
@@ -64,6 +64,20 @@
     width: 24px;
     height: 24px;
   }
+  .wrapper:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(19, 130, 138, 0.1) 0%,
+      rgba(5, 34, 36, 0.1) 100%
+    );
+  }
+  .wrapper:active {
+    background: linear-gradient(
+      90deg,
+      rgba(19, 130, 138, 0.1) 0%,
+      rgba(5, 34, 36, 0.1) 100%
+    );
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -75,5 +89,19 @@
   .container img {
     width: 16px;
     height: 16px;
+  }
+  .wrapper:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(19, 130, 138, 0.1) 0%,
+      rgba(5, 34, 36, 0.1) 100%
+    );
+  }
+  .wrapper:active {
+    background: linear-gradient(
+      90deg,
+      rgba(19, 130, 138, 0.1) 0%,
+      rgba(5, 34, 36, 0.1) 100%
+    );
   }
 }

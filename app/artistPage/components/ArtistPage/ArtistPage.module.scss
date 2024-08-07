@@ -1,0 +1,47 @@
+.wrapper {
+  width: 100%;
+  background-image: url(../../../../public/background.png);
+  background-repeat: repeat;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.desktopArtistWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  max-width: 1272px;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.artistCover {
+  max-width: 628px;
+  width: 100%;
+  max-width: 660px;
+  height: 100%;
+  justify-self: flex-end;
+}
+
+.artistCover img {
+  width: 100%;
+  height: 100%;
+}
+
+.overviewContainer {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .overviewContainer {
+    display: block;
+    max-width: 1272px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

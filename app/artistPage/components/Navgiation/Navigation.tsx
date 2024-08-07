@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from './Navigation.module.scss';
-import { NavigationPropsInterface } from './intefaces';
+import { NavigationPropsInterface } from './interfaces/navigation-props.interface';
 
 const Navigation = (props: NavigationPropsInterface) => {
   return (
