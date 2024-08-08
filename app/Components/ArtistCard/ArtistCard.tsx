@@ -4,7 +4,7 @@ import styles from './ArtistCard.module.scss';
 import { ArtistCardPropsInterface } from './interfaces/artist-card-props.interface';
 
 const ArtistCard = (props: ArtistCardPropsInterface) => {
-  // TODO: add href in Link '
+  // TODO: add href in Link
   return (
     <div className={styles.wrapper}>
       <Link href="">
