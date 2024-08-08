@@ -3,13 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-.children{
-  width: 100%;
-  background-image: url(/_next/static/media/background.e645a620.png);
-  background-repeat: repeat;
-  overflow-x: hidden;
-  width: 100%;
+
+.children {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  overflow-x: hidden;
+  width: 100%;
+  background-image: url(../public/background.png);
+
+} 
