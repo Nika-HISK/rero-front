@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .container img {
@@ -26,10 +27,6 @@
 
 .wrapper:hover p {
   color: #13828a;
-}
-
-.wrapper a {
-  text-decoration: none;
 }
 
 .container {
