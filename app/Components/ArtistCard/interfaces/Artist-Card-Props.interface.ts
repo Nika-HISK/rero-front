@@ -1,4 +1,5 @@
 export interface ArtistCardPropsInterface {
-  artistName: string;
-  artistPhoto: string;
-}
+    artistName: string;
+    artistPhoto: string;
+  }
+  
