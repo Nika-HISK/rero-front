@@ -1,84 +1,82 @@
 .mainContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .inputStyle {
-    border: 0;
-    outline: none;
-    color: #121212;
-    font-size: 20px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    max-width: 393px;
-    width: 100%;
-    height: 40px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: #FFF;
+  border: 0;
+  outline: none;
+  color: #121212;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  max-width: 393px;
+  width: 100%;
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #fff;
 }
 
 .inputStyle::placeholder {
-    font-weight: 500;
-    font-style: normal;
-    background: url("/searchIcon/search.svg") no-repeat left -3px center;
+  font-weight: 500;
+  font-style: normal;
+  background: url('/searchIcon/search.svg') no-repeat left -3px center;
 }
 
 .iconStyle {
-    display: none;
+  display: none;
 }
 
 .imgStyle {
-    display: none;
+  display: none;
 }
-
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .iconStyle {
-        display: block;
-        max-width: 348px;
-        width: 100%;
-        height: 40px;
-    }
+  .iconStyle {
+    display: block;
+    max-width: 348px;
+    width: 100%;
+    height: 40px;
+  }
 
-    .isActiveInput {
-        display: none;
-    }
+  .isActiveInput {
+    display: none;
+  }
 
-    .imgStyle {
-        display: block;
-        cursor: pointer;
-        padding-top: 8px;
-        padding-left: 13px;
-    }
+  .imgStyle {
+    display: block;
+    cursor: pointer;
+    padding-top: 8px;
+    padding-left: 13px;
+  }
 
-    .isActive {
-        display: none; 
-    }
+  .isActive {
+    display: none;
+  }
 }
 
-
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .iconStyle {
-        display: block;
-        max-width: 170px;
-        width: 100%;
-        height: 36px;
-    }
+  .iconStyle {
+    display: block;
+    max-width: 170px;
+    width: 100%;
+    height: 36px;
+  }
 
-    .isActiveInput {
-        display: none;
-    }
+  .isActiveInput {
+    display: none;
+  }
 
-    .imgStyle {
-        cursor: pointer;
-        display: block;
-        padding-top: 8px;
-        padding-left: 13px;
-    }
+  .imgStyle {
+    cursor: pointer;
+    display: block;
+    padding-top: 8px;
+    padding-left: 13px;
+  }
 
-    .isActive {
-        display: none; 
-    }
+  .isActive {
+    display: none;
+  }
 }
