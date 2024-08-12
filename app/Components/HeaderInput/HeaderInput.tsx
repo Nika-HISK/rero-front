@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './Input.module.scss';
+import styles from './HeaderInput.module.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import { InputPropsInterface } from './interfaces/input-props.interface';
 
