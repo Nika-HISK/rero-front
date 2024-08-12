@@ -9,5 +9,5 @@ export default function Home() {
     <>
       <HeaderInput placeholder={"Type something: "} />
     </>
-  )
+  );
 }
