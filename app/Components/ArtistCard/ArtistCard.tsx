@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ArtistCard.module.scss';
-import { ArtistCardPropsInterface } from './interfaces/artist-card-props.interface';
+import { ArtistCardPropsInterface } from './interfaces/temp.interface';
 
 const ArtistCard = (props: ArtistCardPropsInterface) => {
   //TODO: Link href 
