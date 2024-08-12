@@ -35,9 +35,9 @@ const Button = (props: ButtonPropsInterface) => {
           <Image
             src={props.icon}
             alt="Icon"
+            className={styles.icon}
             width={24}
             height={24}
-            className={styles.icon}
           />
           {props.title}
         </>
