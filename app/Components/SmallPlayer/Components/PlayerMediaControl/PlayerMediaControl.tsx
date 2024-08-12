@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import styles from './PlayerMediaControl.module.scss';
 import { formatTime } from '@/app/Helpers/AudioHelpers';
-import { PlayerMediaControlPropsInterface } from '../../interfaces/temppp.interface';
+import { PlayerMediaControlPropsInterface } from '../../interfaces/player-media-control-props.interface';
 
 const PlayerMediaControl = (props: PlayerMediaControlPropsInterface) => {
   return (
