@@ -1,4 +1,4 @@
-export interface PlayerProps {
+export interface PlayerPropsInterface {
   playing: boolean;
   currentTime: number;
   duration: number;

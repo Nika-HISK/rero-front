@@ -1,10 +1,10 @@
 import React from 'react';
-import { PlayerProps } from '../../interfaces/player-props';
+import { PlayerPropsInterface } from '../../interfaces/player-props.interface';
 import PlayerMediaControl from '../PlayerMediaControl/PlayerMediaControl';
 import PlayerTools from '../PlayerTools/PlayerTools';
 import styles from './Player.module.scss';
 
-const Player = (props: PlayerProps) => {
+const Player = (props: PlayerPropsInterface) => {
   return (
     <div className={styles.musicMiddle}>
       <PlayerTools
