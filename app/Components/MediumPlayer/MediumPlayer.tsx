@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
+import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
-import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 
 const MediumPlayer = (props: SongPropsInterface) => {
   const {
@@ -19,7 +19,6 @@ const MediumPlayer = (props: SongPropsInterface) => {
     handleVolumeUp,
     isPlaying,
   } = useAudioPlayer(props.songs);
-
 
   return (
     <>
