@@ -1,9 +1,9 @@
+import Image from 'next/image';
 import styles from './AlbumRow.module.scss';
 import MusicRowPhoto from './components/MusicRowImage/MusicRowImage';
-import Image from 'next/image';
 import { AlbumRowPropsInterface } from './interfaces/album-row-props.interface';
 
-const RowAlbum = (props: AlbumRowPropsInterface) => {
+const AlbumRow = (props: AlbumRowPropsInterface) => {
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
@@ -28,4 +28,4 @@ const RowAlbum = (props: AlbumRowPropsInterface) => {
   );
 };
 
-export default RowAlbum;
+export default AlbumRow;
