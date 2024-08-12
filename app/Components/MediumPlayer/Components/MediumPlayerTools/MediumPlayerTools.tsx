@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { MediumToolsPropsInterface } from '../../interfaces/Medium-Tools-Props.interface';
+import { MediumToolsPropsInterface } from '../../interfaces/temp.interface';
 import styles from './MediumPlayerTools.module.scss';
 
 const MediumPlayerTools = (props: MediumToolsPropsInterface) => {
