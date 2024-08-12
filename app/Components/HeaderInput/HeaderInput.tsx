@@ -41,7 +41,7 @@ const HeaderInput = (props: InputPropsInterface) => {
         ref={inputRef}
         className={`${styles.inputStyle} ${isActive ? '' : styles.isActiveInput}`}
         type="text"
-        placeholder={`       ${props.placeholder}`}
+        placeholder={`${props.placeholder}`}
       />
       <img
         className={`${styles.imgStyle} ${isActive && styles.isActive}`}

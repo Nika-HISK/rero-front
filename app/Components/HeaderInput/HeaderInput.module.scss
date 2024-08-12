@@ -20,6 +20,7 @@
 }
 
 .inputStyle::placeholder {
+  padding-left: 30px;
   font-weight: 500;
   font-style: normal;
   background: url('/searchIcon/search.svg') no-repeat left -3px center;
@@ -55,6 +56,10 @@
   .isActive {
     display: none;
   }
+
+  .inputStyle::placeholder {
+    padding-left: 30px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -78,5 +83,9 @@
 
   .isActive {
     display: none;
+  }
+
+  .inputStyle::placeholder {
+    padding-left: 30px;
   }
 }
