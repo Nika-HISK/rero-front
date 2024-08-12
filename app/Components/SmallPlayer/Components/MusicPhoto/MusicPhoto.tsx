@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './MusicPhoto.module.scss';
-import { MusicPhotoPropsInterface } from '../../interfaces/music-photo-props.interface';
+import { MusicPhotoPropsInterface } from '../../interfaces/temp.interface';
 
 const MusicPhoto = (props: MusicPhotoPropsInterface) => (
   <div className={styles.musicPhoto}>
