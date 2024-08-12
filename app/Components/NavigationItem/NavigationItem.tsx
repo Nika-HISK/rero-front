@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from './NavigationItem.module.scss';
-import { NavigationPropsInterface } from './interfaces/navigation-props.interface';
+import { NavigationItemPropsInterface } from './interfaces/navigation-props.interface';
 
-const Navigation = (props: NavigationPropsInterface) => {
+const NavigationItem = (props: NavigationItemPropsInterface) => {
   return (
     <Link
-      href={props.href ? props.href : ''}
+      href={props.href}
       className={`${styles.container} ${props.isActive && styles.active}`}
     >
       <div onClick={props.onClick}>
@@ -16,4 +16,4 @@ const Navigation = (props: NavigationPropsInterface) => {
   );
 };
 
-export default Navigation;
+export default NavigationItem;
