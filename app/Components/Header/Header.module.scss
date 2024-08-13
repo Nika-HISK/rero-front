@@ -1,0 +1,49 @@
+.fullscreenContainer {
+  width: 100%;
+  background-color: #052224;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1224px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 108px;
+}
+
+.headerTable {
+  display: flex;
+  align-items: center;
+  gap: 89px;
+}
+
+.userInterface {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.input {
+  width: 394px;
+  height: 40px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 12px 24px;
+  }
+  .homeButton {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 8px 16px;
+  }
+  .homeButton {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import IconPropsInterface from './icon-props.interface';
+import IconPropsInterface from './interfaces/icon-props.interface';
 
 const Icon = (props: IconPropsInterface) => {
   const src = props.isActive
