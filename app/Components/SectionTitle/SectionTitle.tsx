@@ -8,7 +8,7 @@ const SectionTitle = () => {
     <div className={styles.container}>
       <p>Popular Artist</p>
       <div className={styles.button}>
-        <Button type={ButtonType.Text} mode={ButtonMode.More} title='More'/>
+        <Button type={ButtonType.Text} mode={ButtonMode.More} title="More" />
       </div>
     </div>
   );
