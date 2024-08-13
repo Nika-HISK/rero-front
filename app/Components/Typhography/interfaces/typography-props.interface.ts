@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { ColorsEnum } from '@/app/Enums/colors.enum';
 import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
+import { ColorsEnum } from '@/app/Enums/colors.enum';
 
 export interface TypographyPropsInterface {
   children: ReactNode;

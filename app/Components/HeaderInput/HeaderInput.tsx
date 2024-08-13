@@ -1,7 +1,8 @@
 'use client';
 
-import styles from './HeaderInput.module.scss';
+import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './HeaderInput.module.scss';
 import { InputPropsInterface } from './interfaces/input-props.interface';
 
 const HeaderInput = (props: InputPropsInterface) => {
@@ -43,10 +44,13 @@ const HeaderInput = (props: InputPropsInterface) => {
         type="text"
         placeholder={`${props.placeholder}`}
       />
-      <img
+      <Image
         className={`${styles.imgStyle} ${isActive && styles.isActive}`}
         onClick={toggleClass}
         src="/searchIcon/search.svg"
+        alt="searchicon"
+        width={24}
+        height={24}
       />
     </div>
   );

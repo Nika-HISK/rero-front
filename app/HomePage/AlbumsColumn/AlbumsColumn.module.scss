@@ -1,0 +1,21 @@
+.wrapper {
+  max-width: 392px;
+  width: 100%;
+  padding-right: 16px;
+}
+
+.container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    max-width: unset;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

@@ -8,7 +8,7 @@ const AlbumRow = (props: AlbumRowPropsInterface) => {
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
         <MusicRowPhoto
-          cover={'/dummy'}
+          cover={'/big.jpg'}
           music={'Music Name'}
           artist={'Artist Name'}
         />

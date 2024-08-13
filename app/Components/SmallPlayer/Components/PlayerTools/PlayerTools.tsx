@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import styles from './PlayerTools.module.scss';
 import { PlayerToolsPropsInterface } from '../../interfaces/player-tools-props.interface';
+import styles from './PlayerTools.module.scss';
 
 const PlayerTools = (props: PlayerToolsPropsInterface) => {
   return (
