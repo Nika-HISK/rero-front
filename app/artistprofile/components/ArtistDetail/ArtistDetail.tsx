@@ -1,4 +1,3 @@
-import { navigationArtistItems } from '@/app/Constants/dummyJson/dummyJson';
 import ArtistDescription from '../ArtistDescription/ArtistDescription';
 import NavigationAnchors from '../NavigationAnchores/NavigationAnchores';
 import Overview from '../Overview/Overview';

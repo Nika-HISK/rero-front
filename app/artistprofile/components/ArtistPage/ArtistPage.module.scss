@@ -1,13 +1,3 @@
-.wrapper {
-  width: 100%;
-  background-image: url(../../../../public/background.png);
-  background-repeat: repeat;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .desktopArtistWrapper {
   display: flex;
   justify-content: center;
@@ -15,8 +5,7 @@
   margin-top: 36px;
   max-width: 1272px;
   width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 24px;
 }
 
 .artistCover {
@@ -41,7 +30,6 @@
     display: block;
     max-width: 1272px;
     width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0 24px;
   }
 }

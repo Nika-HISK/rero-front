@@ -1,6 +1,6 @@
 import styles from './Overview.module.scss';
 import { overviewData } from './overview-dummy-data';
-import RowAlbum from '@/app/Components/RowAlbum/RowAlbum';
+import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
 
 const Overview = () => {
   return (
@@ -10,7 +10,7 @@ const Overview = () => {
       </div>
       <div className={styles.timeContainer}>
         {overviewData.map((album, index) => (
-          <RowAlbum
+          <AlbumRow
             key={index}
             albumName={album.albumName}
             duration={album.duration}
