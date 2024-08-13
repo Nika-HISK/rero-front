@@ -31,12 +31,25 @@
   height: 40px;
 }
 
+.responsiveInput {
+  display: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .container {
     padding: 12px 24px;
   }
   .homeButton {
     display: none;
+  }
+
+  .desktopInput {
+    display: none;
+  }
+
+  .responsiveInput {
+    display: flex;
+    margin-top: -9px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -45,5 +58,12 @@
   }
   .homeButton {
     display: none;
+  }
+  .desktopInput {
+    display: none;
+  }
+
+  .responsiveInput {
+    display: flex;
   }
 }
