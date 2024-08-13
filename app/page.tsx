@@ -6,7 +6,10 @@ import Icons from './Components/Icons/Icon';
 export default function Home() {
   return (
     <>
+    <div className={styles.container}> 
 
+      <Icons name={'miniadd'} width={30} height={30}  />
+    </div>
     </>
   );
 }
