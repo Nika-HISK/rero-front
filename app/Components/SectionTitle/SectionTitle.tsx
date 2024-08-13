@@ -1,6 +1,7 @@
-import { ButtonMode, ButtonType } from '@/app/Enums/Enums';
 import Button from '../Button/Button';
 import styles from './SectionTitle.module.scss';
+import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
+import { ButtonType } from '@/app/Enums/ButtonType.enum';
 
 const SectionTitle = () => {
   return (

@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 import styles from './Button.module.scss';
-import { ButtonType } from '@/app/Enums/Enums';
-import type { Button } from '@/app/Interfaces/Interfaces';
+import { ButtonPropsInterface } from './interfaces/button-props.interface';
+import { ButtonType } from '@/app/Enums/ButtonType.enum';
 
-
-const Button = (props: Button) => {
+const Button = (props: ButtonPropsInterface) => {
   const classes = [styles.container];
 
   if (props.mode) classes.push(styles[props.mode]);
@@ -29,7 +28,7 @@ const Button = (props: Button) => {
       }
     >
       {props.type === ButtonType.IconOnly && props.icon && (
-        <Image src={props.icon} alt="Icon" width={25} height={25} />
+        <Image src={props.icon} alt="Icon" width={24} height={24} />
       )}
       {props.type === ButtonType.IconText && props.icon && (
         <>
@@ -37,8 +36,8 @@ const Button = (props: Button) => {
             src={props.icon}
             alt="Icon"
             className={styles.icon}
-            width={25}
-            height={25}
+            width={24}
+            height={24}
           />
           {props.title}
         </>

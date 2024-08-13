@@ -1,7 +1,7 @@
-import { NavigationPropsInterface } from '@/app/artistPage/components/Navgiation/interfaces/navigation-props.interface';
+import { NavigationPropsInterface } from '@/app/Components/NavigationItem/interfaces/navigation-props.interface';
 
 export const navigationArtistItems: NavigationPropsInterface[] = [
-  { title: 'Home', link: '/' },
-  { title: 'Top Artists', link: '/topArtist' },
-  { title: 'Artist Name' },
+  { title: 'Home', href: '/' },
+  { title: 'Top Artists', href: '/topArtist' },
+  { title: 'Artist Name', href: '' },
 ];

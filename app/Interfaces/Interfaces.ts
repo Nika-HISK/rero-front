@@ -1,4 +1,5 @@
-import type { ButtonMode, ButtonType } from '../Enums/Enums';
+import { ButtonMode } from '../Enums/ButtonMode.enum';
+import { ButtonType } from '../Enums/ButtonType.enum';
 
 export interface Button {
   title?: string;
