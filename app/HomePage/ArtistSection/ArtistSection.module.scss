@@ -1,0 +1,24 @@
+.wrapper {
+  display: grid;
+  width: 100%;
+  max-width: 1224px;
+  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 24px;
+  justify-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.parentWrapper {
+  width: 100%;
+  max-width: 1224px;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

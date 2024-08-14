@@ -1,0 +1,42 @@
+.albumName {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.artistName {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.wrapper {
+  width: 100%;
+  color: #fff;
+  border-radius: 20px;
+  height: 170px;
+  padding-top: 12px;
+  padding-left: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+
+    .albumName {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .artistName {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  &:hover {
+    color: #13828a;
+  }
+}

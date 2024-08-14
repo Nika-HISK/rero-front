@@ -7,8 +7,9 @@
 .children {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  overflow-x: hidden;
   width: 100%;
   background-image: url(../public/background.png);
-} 
+  background-repeat: repeat;
+}

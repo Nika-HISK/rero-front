@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  max-width: 1224px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  width: 114px;
+}
+
+.wrapper p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+@media  screen and (max-width : 768px) {
+  .button {
+    width: 54px;
+  }
+  .wrapper p {
+    font-size: 26px;
+  }
+}
