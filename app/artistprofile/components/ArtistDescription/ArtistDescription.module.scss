@@ -1,0 +1,46 @@
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  width: 100%;
+}
+
+.textContainer h1 {
+  color: #fff;
+  font-size: 80px;
+  display: inline;
+  margin: 0;
+}
+
+.artist {
+  font-size: 28px;
+  color: #ffffff7e;
+}
+
+.description {
+  color: #ffffff80;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .textContainer h1 {
+    font-size: 60px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textContainer h1 {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  .description {
+    color: #ffffff80;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .artist {
+    font-size: 20px;
+  }
+}

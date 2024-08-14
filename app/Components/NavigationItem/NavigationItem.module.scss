@@ -19,3 +19,11 @@
   color: #fff;
   text-align: center;
 }
+
+
+@media screen  and (min-width : 768px) and (max-width: 1023px){
+  .container span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
