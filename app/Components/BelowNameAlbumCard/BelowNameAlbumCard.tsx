@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { AlbumBelowNamePropsInterface } from './interfaces/album-below-name.props';
 import styles from './BelowNameAlbumCard.module.scss';
+import { AlbumBelowNamePropsInterface } from './interfaces/album-below-name.props';
 
 const BelowNameAlbumCard = (props: AlbumBelowNamePropsInterface) => {
   return (
