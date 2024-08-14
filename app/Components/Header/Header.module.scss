@@ -11,13 +11,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 108px;
+  padding: 28px 0px;
 }
 
 .headerTable {
   display: flex;
   align-items: center;
-  gap: 89px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 602px;
 }
 
 .userInterface {
@@ -26,13 +28,13 @@
   gap: 22px;
 }
 
-.input {
-  width: 394px;
-  height: 40px;
-}
-
 .responsiveInput {
   display: none;
+}
+
+.desktopInput{
+  width: 100%;
+  max-width: 394px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
