@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import IconPropsInterface from './icon-props.interface';
+import IconPropsInterface from './interfaces/icon-props.interface';
+import styles from './Icon.module.scss';
 
 const Icon = (props: IconPropsInterface) => {
   const src = props.isActive
@@ -7,7 +8,9 @@ const Icon = (props: IconPropsInterface) => {
     : `/icons/${props.name}.svg`;
 
   return (
-    <Image src={src} alt="icon" width={props.width} height={props.height} />
+    <div className={styles.container}>
+      <Image src={src} alt="icon" width={props.width} height={props.height} />
+    </div>
   );
 };
 
