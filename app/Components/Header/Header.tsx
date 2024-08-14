@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
-import Image from 'next/image';
+
 const Header = () => {
   return (
     <div className={styles.fullscreenContainer}>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import styles from './NavigationItem.module.scss';
+import styles from './Navigation.module.scss';
 import { NavigationPropsInterface } from './interfaces/navigation-props.interface';
 
 const NavigationItem = (props: NavigationPropsInterface) => {
