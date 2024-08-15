@@ -8,3 +8,9 @@
   overflow: hidden;
   margin-top: 36px;
 }
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: 140px;
+  }
+}
