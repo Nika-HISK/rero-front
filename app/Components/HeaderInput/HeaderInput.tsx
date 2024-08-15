@@ -49,8 +49,8 @@ const HeaderInput = (props: InputPropsInterface) => {
         onClick={toggleClass}
         src="/searchIcon/search.svg"
         alt="searchicon"
-        width={24}
-        height={24}
+        width={34}
+        height={34}
       />
     </div>
   );
