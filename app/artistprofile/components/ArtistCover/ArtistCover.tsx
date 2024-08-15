@@ -1,5 +1,5 @@
-import styles from './ArtistCover.module.scss';
 import Image from 'next/image';
+import styles from './ArtistCover.module.scss';
 import { ArtistCoverPropsInterface } from './interfaces/artist-cover-props.interface';
 
 const ArtistCover = (props: ArtistCoverPropsInterface) => {

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './SectionTitle.module.scss';
 import { SectionTitlePropsInterface } from './interface/section-title-props.interface';
 import Button from '@/app/Components/Button/Button';
@@ -8,9 +9,9 @@ const SectionTitle = (props: SectionTitlePropsInterface) => {
   return (
     <div className={styles.wrapper}>
       <p>{props.title}</p>
-      <div className={styles.button}>
+      <Link className={styles.button} href="/topalbums">
         <Button mode={ButtonMode.More} type={ButtonType.Text} title="More" />
-      </div>
+      </Link>
     </div>
   );
 };

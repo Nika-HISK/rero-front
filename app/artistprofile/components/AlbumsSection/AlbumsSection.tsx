@@ -1,6 +1,6 @@
-import BelowNameAlbumCard from '@/app/Components/BelowNameAlbumCard/BelowNameAlbumCard';
 import styles from './AlbumsSection.module.scss';
 import { albumData } from './album-dummy-data';
+import BelowNameAlbumCard from '@/app/Components/BelowNameAlbumCard/BelowNameAlbumCard';
 
 const AlbumSection = () => {
   return (
