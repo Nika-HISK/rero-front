@@ -2,8 +2,8 @@ import React from 'react';
 import ArrowLink from './Components/Arrow/Arrow';
 import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
 import Player from './Components/Player/Player';
-import { useAudioPlayer } from './hooks/useAudio.hook';
 import styles from './SmallPlayer.module.scss';
+import { useAudioPlayer } from './hooks/useAudio.hook';
 import { SongPropsInterface } from './interfaces/song-props.interface';
 
 const AudioPlayer = (props: SongPropsInterface) => {

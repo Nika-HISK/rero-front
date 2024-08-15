@@ -1,6 +1,5 @@
-export interface NavigationItemPropsInterface {
+export interface NavigationPropsInterface {
   title: string;
-  isActive: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   href: string;
 }

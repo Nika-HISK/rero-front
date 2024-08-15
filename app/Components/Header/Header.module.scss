@@ -1,0 +1,75 @@
+.fullscreenContainer {
+  width: 100%;
+  background-color: #052224;
+  display: flex;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1224px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0px;
+}
+
+.headerTable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 602px;
+  cursor: pointer;
+}
+
+.userInterface {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.responsiveInput {
+  display: none;
+}
+
+.desktopInput {
+  width: 100%;
+  max-width: 394px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 12px 24px;
+  }
+  .homeButton {
+    display: none;
+  }
+
+  .desktopInput {
+    display: none;
+  }
+
+  .responsiveInput {
+    display: flex;
+    margin-top: -9px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 8px 16px;
+  }
+  .homeButton {
+    display: none;
+  }
+  .desktopInput {
+    display: none;
+  }
+
+  .responsiveInput {
+    display: flex;
+    margin-top: -13px;
+  }
+}

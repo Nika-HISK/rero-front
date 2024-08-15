@@ -1,14 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from './NavigationItem.module.scss';
-import { NavigationItemPropsInterface } from './interfaces/navigation-props.interface';
+import { NavigationPropsInterface } from './interfaces/navigation-props.interface';
 
-const NavigationItem = (props: NavigationItemPropsInterface) => {
+const NavigationItem = (props: NavigationPropsInterface) => {
   return (
-    <Link
-      href={props.href}
-      className={`${styles.container} ${props.isActive && styles.active}`}
-    >
+    <Link href={props.href} className={styles.container}>
       <div onClick={props.onClick}>
         <span>{props.title}</span>
       </div>

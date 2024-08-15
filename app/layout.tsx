@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Header from './Components/Header/Header';
 import RecoilWrapper from './Components/RecoilWrapper/RecoilWrapper';
 
 const inter = Inter({
@@ -20,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} children`}>
+        <Header />
         <RecoilWrapper>{children}</RecoilWrapper>
       </body>
     </html>

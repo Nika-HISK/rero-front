@@ -4,11 +4,11 @@ import { useRecoilState } from 'recoil';
 import ProgressBar from '../../../SmallPlayer/Components/ProgressBar/ProgressBar';
 import styles from './MediumControlPanel.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
-import { formatTime } from '@/app/Helpers/AudioHelpers';
 import { AudioPlayerPropsInterface } from '@/app/Components/SmallPlayer/interfaces/audio-player-props.interface';
+import { formatTime } from '@/app/Helpers/AudioHelpers';
 
 const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
-  const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
+  const [, setAudioPlayer] = useRecoilState(audioPlayerState);
 
   const handleShuffleClick = () => {
     setAudioPlayer((prevState) => ({

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { audioPlayerState } from '@/app/Atoms/states';
 import { Song } from '../interfaces/song-props.interface';
+import { audioPlayerState } from '@/app/Atoms/states';
 
 export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);

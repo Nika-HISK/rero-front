@@ -6,4 +6,5 @@ export enum IconNameEnum {
   MiniAdd = 'miniadd',
   PlayButton = 'playbutton',
   PlayList = 'playlist',
+  Exit = 'exit',
 }

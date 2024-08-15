@@ -19,3 +19,9 @@
   color: #fff;
   text-align: center;
 }
+
+@media screen and (max-width: 1023px) {
+  .container span {
+    font-size: 16px;
+  }
+}
