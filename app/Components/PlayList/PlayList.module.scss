@@ -1,66 +1,114 @@
 .playListWrapper {
-    width: 1224px;
-    height: fit-content;
-    flex-direction: column;
-    background-color: rgba(19, 130, 138, 0.30);
-    border-radius: 24px;
+  max-width: 1224px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(19, 130, 138, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .wrapper {
-    width: 1124px;
-    height: 80px;
-    background-color: #13828A;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 12px;
-    border-radius: 24px;
-}
-
-.playListWrapper div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.playListWrapper div>span+img {
-    cursor: pointer;
+  height: 80px;
+  background-color: #13828a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px;
+  border-radius: 24px;
 }
 
 .playlistName {
-    color: #FFF;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  padding-left: 5%;
+}
+
+.playListWrapper .wrapper {
+  width: 100%;
+}
+
+.playListWrapper div > span + img {
+  cursor: pointer;
+}
+
+.artistCover {
+  border-radius: 6px;
+}
+
+.playlistName {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .afterOpen {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    max-height: 100px;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 1000px;
+  opacity: 1;
+  transition:
+    max-height 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
 }
 
 .collapsed {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .afterOpen div div img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.afterOpen div div {
-    width: fit-content;
-    display: flex;
-    gap: 24px;
-    margin-left: 27px;
-    margin-top: 16px;
-    margin-bottom: 18px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+.musics {
+  display: flex;
+  flex-direction: column;
+}
+
+.images {
+  display: flex;
+  justify-content: start;
+  gap: 24px;
+  padding-left: 27px;
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+.images img {
+  cursor: pointer;
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 12px;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 470px;
+  overflow-y: scroll;
+}
+
+.mapContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mapContainer::-webkit-scrollbar-track {
+  background: rgba(19, 130, 138, 0.1);
+  border-radius: 10px;
+}
+
+.mapContainer::-webkit-scrollbar-thumb {
+  background-color: #13828a;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
