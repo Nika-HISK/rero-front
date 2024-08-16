@@ -4,7 +4,7 @@ import styles from './PopularSectionTitle.module.scss';
 const PopularSectionTitle = () => {
   return (
     <div className={styles.wrapper}>
-      <SectionTitle title="Popular artists" />
+      <SectionTitle title="Popular artists" link={'/'} />
     </div>
   );
 };
