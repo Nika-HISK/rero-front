@@ -5,4 +5,5 @@ export enum ButtonMode {
   Delete = 'delete',
   Transparent = 'transparent',
   More = 'more',
+  Little = 'little',
 }
