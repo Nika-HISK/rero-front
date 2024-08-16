@@ -95,6 +95,9 @@
       rgba(5, 34, 36, 0.1) 100%
     );
   }
+  .plus:hover {
+    background-image: url(../../../public/icons/plusicon.svg);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -120,5 +123,8 @@
       rgba(19, 130, 138, 0.1) 0%,
       rgba(5, 34, 36, 0.1) 100%
     );
+  }
+  .plus:hover {
+    background-image: url(../../../public/icons/plusicon.svg);
   }
 }
