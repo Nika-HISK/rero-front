@@ -8,7 +8,7 @@ const SurePopup = () => {
     <div className={styles.wrapper}>
       <h2>Are you sure?</h2>
       <div className={styles.container}>
-        <div className={styles.button}>
+        <div className={styles.nobutton}>
           <Button type={ButtonType.Text} mode={ButtonMode.Outline} title="No" />
         </div>
         <div className={styles.button}>
