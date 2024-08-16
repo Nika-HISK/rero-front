@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1224px;
+  width: 100%;
+  padding: 48px 12px;
+}
+
+.navigation {
+  max-width: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.container {
+  max-width: 1224px;
+  width: 100%;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
