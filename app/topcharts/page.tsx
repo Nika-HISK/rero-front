@@ -15,6 +15,7 @@ const TopCharts = () => {
             key={index}
             albumName={album.albumName}
             duration={album.duration}
+            
           />
         ))}
       </div>
