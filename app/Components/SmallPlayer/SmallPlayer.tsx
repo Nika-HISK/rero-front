@@ -6,7 +6,7 @@ import styles from './SmallPlayer.module.scss';
 import { useAudioPlayer } from './hooks/useAudio.hook';
 import { SongPropsInterface } from './interfaces/song-props.interface';
 
-const AudioPlayer = (props: SongPropsInterface) => {
+const SmallPlayer = (props: SongPropsInterface) => {
   const {
     audioRef,
     progressRef,
@@ -56,4 +56,4 @@ const AudioPlayer = (props: SongPropsInterface) => {
   );
 };
 
-export default AudioPlayer;
+export default SmallPlayer;

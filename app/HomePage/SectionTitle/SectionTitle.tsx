@@ -9,7 +9,7 @@ const SectionTitle = (props: SectionTitlePropsInterface) => {
   return (
     <div className={styles.wrapper}>
       <p>{props.title}</p>
-      <Link className={styles.button} href="/topalbums">
+      <Link className={styles.button} href={props.link}>
         <Button mode={ButtonMode.More} type={ButtonType.Text} title="More" />
       </Link>
     </div>

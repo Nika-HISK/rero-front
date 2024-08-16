@@ -13,3 +13,9 @@
 .adjustButtons img {
   cursor: pointer;
 }
+
+@media  screen and (max-width: 1023px) {
+  .volumeButton {
+    display: none;
+  }
+}

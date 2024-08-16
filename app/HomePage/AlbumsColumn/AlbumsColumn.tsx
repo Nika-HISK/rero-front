@@ -6,7 +6,7 @@ import { albumsColumn } from './album-column-data/album-column-data';
 const AlbumsColumn = () => {
   return (
     <div className={styles.wrapper}>
-      <SectionTitle title={'Top Albums'} />
+      <SectionTitle title={'Top Albums'} link={'/topalbums'} />
       <div className={styles.container}>
         {albumsColumn.map((album, index) => (
           <LongAlbumCover
