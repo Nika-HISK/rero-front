@@ -21,7 +21,7 @@ const PlayerContent = (props: PlayerPropsInterface) => {
       }}
     >
       <Link className={styles.arrow} href=''>
-        <Icon name={'arrowDown'} width={18} height={10}/>
+        <Icon name={'arrowdown'} width={18} height={10}/>
       </Link>
       <div className={styles.container}>
         <MediumPlayer songs={songs} />

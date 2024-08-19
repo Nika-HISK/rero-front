@@ -20,7 +20,7 @@ const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
   return (
     <div className={styles.progressBar}>
       <div className={styles.icons} onClick={handleShuffleClick}>
-        <Image src={'/shuffle.png'} alt="shuffle icon" width={28} height={28} />
+        <Image src={'/shuffle.png'} alt="shuffle icon" width={24} height={24} />
       </div>
       <p>{formatTime(props.currentTime)}</p>
       <ProgressBar
