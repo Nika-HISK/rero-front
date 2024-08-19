@@ -1,0 +1,27 @@
+.wrapper {
+  width: 250px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 12px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 34px;
+}
+
+.button {
+  width: 85px;
+  color: #fff;
+}
+
+.nobutton {
+  width: 83px;
+}

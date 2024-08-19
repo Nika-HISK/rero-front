@@ -55,6 +55,7 @@
   border: 1px solid #13828a;
   color: #13828a;
   cursor: pointer;
+  padding: 4px 0;
 }
 
 .inline {
@@ -68,13 +69,22 @@
   cursor: pointer;
 }
 
+.little {
+  background-color: #13828a;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.little:hover {
+  background-color: #1dc2ce;
+}
+
 .delete {
   background-color: #ff4343;
   border-radius: 4px;
   border: none;
   padding: 10px;
   cursor: pointer;
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
