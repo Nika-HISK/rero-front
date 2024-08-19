@@ -24,7 +24,7 @@ const MediumPlayerTools = (props: MediumToolsPropsInterface) => {
       </div>
       <div onClick={props.onPlayMusic} className={styles.mainButton}>
         <Image
-          src={props.playing ? '/play.png' : '/pause.png'}
+          src={props.playing ? '/play.png' : '/Pause.png'}
           alt="playbutton"
           width={42}
           height={42}
