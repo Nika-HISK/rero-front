@@ -5,4 +5,3 @@ export interface AlbumRowTimePropsInterface {
   albumName: string;
   createTime: string;
 }
-

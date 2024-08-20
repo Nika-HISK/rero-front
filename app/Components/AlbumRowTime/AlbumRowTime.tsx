@@ -1,5 +1,5 @@
-import styles from './AlbumRowTIme.module.scss';
 import Image from 'next/image';
+import styles from './AlbumRowTIme.module.scss';
 import { AlbumRowTimePropsInterface } from './albumRowTimePropsInterface/album-row-time-props.inteface';
 
 const AlbumRowTime = (props: AlbumRowTimePropsInterface) => {

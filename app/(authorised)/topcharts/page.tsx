@@ -1,5 +1,5 @@
-import AlbumRow from '../Components/AlbumRow/AlbumRow';
-import { TopHitsAlbums } from '../HomePage/TopHits/top-hits-data/top-hits-data';
+import AlbumRow from '../../Components/AlbumRow/AlbumRow';
+import { TopHitsAlbums } from '../../HomePage/TopHits/top-hits-data/top-hits-data';
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import styles from './page.module.scss';
 

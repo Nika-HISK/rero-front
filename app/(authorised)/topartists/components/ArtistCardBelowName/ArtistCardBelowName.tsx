@@ -1,12 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ArtistCardBelowName.module.scss';
 import { ArtistCardBelowNamePropsInterface } from './artist-card-below-name-props.interface/artist-card-below-name-props.interface';
-import Link from 'next/link';
 
 const ArtistCardBelowName = (props: ArtistCardBelowNamePropsInterface) => {
-    //TODO Link Href 
+  //TODO Link Href
   return (
-    <Link className={styles.wrapper} href=''>
+    <Link className={styles.wrapper} href="">
       <Image
         src={props.artistPhoto}
         width={392}

@@ -1,12 +1,11 @@
 'use client';
 
-import Image from 'next/image';
-import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
-import { PlayerPropsInterface } from './player-props-interface/player-props.interface';
-import styles from './PlayerContent.module.scss';
-import MediumPlayer from '@/app/Components/MediumPlayer/MediumPlayer';
-import Icon from '@/app/Components/Icons/Icon';
 import Link from 'next/link';
+import styles from './PlayerContent.module.scss';
+import { PlayerPropsInterface } from './player-props-interface/player-props.interface';
+import Icon from '@/app/Components/Icons/Icon';
+import MediumPlayer from '@/app/Components/MediumPlayer/MediumPlayer';
+import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
 
 const PlayerContent = (props: PlayerPropsInterface) => {
   //TODO Link Href
@@ -20,8 +19,8 @@ const PlayerContent = (props: PlayerPropsInterface) => {
         backgroundPosition: 'top',
       }}
     >
-      <Link className={styles.arrow} href=''>
-        <Icon name={'arrowdown'} width={18} height={10}/>
+      <Link className={styles.arrow} href="">
+        <Icon name={'arrowdown'} width={18} height={10} />
       </Link>
       <div className={styles.container}>
         <MediumPlayer songs={songs} />
