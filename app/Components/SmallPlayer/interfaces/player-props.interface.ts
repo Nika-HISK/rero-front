@@ -3,7 +3,6 @@ export interface PlayerPropsInterface {
   currentTime: number;
   duration: number;
   progressRef: React.RefObject<HTMLInputElement>;
-  ipadProgressRef: React.RefObject<HTMLInputElement>;
   onProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onTenSecondsBack: () => void;
   onVolumeDown: () => void;

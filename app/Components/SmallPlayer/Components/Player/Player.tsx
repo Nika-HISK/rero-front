@@ -22,7 +22,6 @@ const Player = (props: PlayerPropsInterface) => {
         onProgressChange={props.onProgressChange}
         onTenSecondsBack={props.onTenSecondsBack}
         progressRef={props.progressRef}
-        ipadProgressRef={props.ipadProgressRef}
       />
     </div>
   );
