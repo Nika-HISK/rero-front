@@ -7,7 +7,6 @@ export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLInputElement>(null);
-  const ipadProgressRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleTimeUpdate = () => {
@@ -23,8 +22,6 @@ export const useAudioPlayer = (songs: Song[]) => {
           (audioRef.current.currentTime / audioRef.current.duration) * 100,
         );
         if (progressRef.current) progressRef.current.value = progressValue;
-        if (ipadProgressRef.current)
-          ipadProgressRef.current.value = progressValue;
       }
     };
 
@@ -192,7 +189,6 @@ export const useAudioPlayer = (songs: Song[]) => {
   return {
     audioRef,
     progressRef,
-    ipadProgressRef,
     audioPlayer,
     handleProgressChange,
     playMusic,

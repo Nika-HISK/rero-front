@@ -4,5 +4,4 @@ export interface PlayerMediaControlPropsInterface {
   onProgressChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTenSecondsBack: () => void;
   progressRef: React.RefObject<HTMLInputElement>;
-  ipadProgressRef: React.RefObject<HTMLInputElement>;
 }

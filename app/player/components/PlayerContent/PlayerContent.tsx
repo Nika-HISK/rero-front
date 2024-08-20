@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
 import { PlayerPropsInterface } from './player-props-interface/player-props.interface';
 import styles from './PlayerContent.module.scss';
