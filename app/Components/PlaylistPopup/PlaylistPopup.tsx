@@ -10,10 +10,6 @@ import { useState } from 'react';
 const PlaylistPopup = () => {
   const [value, setValue] = useState('');
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.userInterfaces}>
@@ -31,7 +27,9 @@ const PlaylistPopup = () => {
               type="text"
               className={styles.input}
               value={value}
-              onChange={onChange}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setValue(e.target.value);
+              }}
             />
           </div>
         </div>
@@ -44,20 +42,20 @@ const PlaylistPopup = () => {
             />
           </div>
           <div className={styles.button}>
-            {value.length > 0 ? 
+            {value.length > 0 ? (
               <Button
                 mode={ButtonMode.Fill}
                 type={ButtonType.Text}
                 title="Confirm"
               />
-             : 
+            ) : (
               <Button
                 mode={ButtonMode.Fill}
                 type={ButtonType.Text}
                 title="Confirm"
                 disabled
               />
-            }
+            )}
           </div>
         </div>
       </div>
