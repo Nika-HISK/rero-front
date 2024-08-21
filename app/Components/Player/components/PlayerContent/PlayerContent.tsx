@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import styles from './PlayerContent.module.scss';
 import { PlayerPropsInterface } from './player-props-interface/player-props.interface';
 import Icon from '@/app/Components/Icons/Icon';
@@ -8,7 +7,10 @@ import MediumPlayer from '@/app/Components/MediumPlayer/MediumPlayer';
 import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
 
 const PlayerContent = (props: PlayerPropsInterface) => {
-  //TODO Link Href
+  const handleArrowClick = () => {
+    props.setOpened(false);
+  };
+
   return (
     <div
       className={styles.wrapper}
@@ -19,9 +21,9 @@ const PlayerContent = (props: PlayerPropsInterface) => {
         backgroundPosition: 'top',
       }}
     >
-      <Link className={styles.arrow} href="">
+      <div className={styles.arrow} onClick={handleArrowClick}>
         <Icon name={'arrowdown'} width={18} height={10} />
-      </Link>
+      </div>
       <div className={styles.container}>
         <MediumPlayer songs={songs} />
       </div>
