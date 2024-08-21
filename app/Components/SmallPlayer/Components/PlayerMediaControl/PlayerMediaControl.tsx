@@ -50,7 +50,7 @@ const PlayerMediaControl = (props: PlayerMediaControlPropsInterface) => {
             <ProgressBar
               defaultValue={String((props.currentTime / props.duration) * 100)}
               onChange={props.onProgressChange}
-              progressRef={props.ipadProgressRef}
+              progressRef={props.progressRef}
             />
           </div>
         </div>

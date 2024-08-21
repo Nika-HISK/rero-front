@@ -10,7 +10,6 @@ const SmallPlayer = (props: SongPropsInterface) => {
   const {
     audioRef,
     progressRef,
-    ipadProgressRef,
     audioPlayer,
     handleProgressChange,
     playMusic,
@@ -40,7 +39,6 @@ const SmallPlayer = (props: SongPropsInterface) => {
             currentTime={audioPlayer.currentTime}
             duration={audioPlayer.duration}
             progressRef={progressRef}
-            ipadProgressRef={ipadProgressRef}
             onProgressChange={handleProgressChange}
             onTenSecondsBack={handleTenSecondsBack}
             onVolumeDown={handleVolumeDown}

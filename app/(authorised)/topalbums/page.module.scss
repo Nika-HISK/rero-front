@@ -1,7 +1,7 @@
 .wrapper {
-  max-width: 1224px;
+  max-width: 1200px;
+  padding-left: 12px;
   width: 100%;
-  display: flex;
-  justify-content: start;
-  padding-left: 24px;
+  overflow: hidden;
+  border-radius: 24px;
 }
