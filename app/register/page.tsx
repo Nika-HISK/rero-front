@@ -5,12 +5,7 @@ import Link from 'next/link';
 import styles from './page.module.scss';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-
-interface Props {
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { RegisterPropsInterface } from './register-props.interaface/register-props.interface';
 
 const Register = () => {
   const {
@@ -18,11 +13,11 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<Props>();
+  } = useForm<RegisterPropsInterface>();
 
   const router = useRouter();
 
-  const onRegisterFinish = (data: Props) => {
+  const onRegisterFinish = (data: RegisterPropsInterface) => {
     if (data.password !== data.confirmPassword) {
       setError('confirmPassword', {
         type: 'manual',
@@ -99,7 +94,7 @@ const Register = () => {
           )}
         </div>
         <div className={styles.submitContainer}>
-          <input type="submit" value={'Confirm'} />
+          <input type="submit" value={'Confirm'}  />
         </div>
       </form>
       <p>
