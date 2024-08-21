@@ -37,64 +37,70 @@ const Register = () => {
         onSubmit={handleSubmit(onRegisterFinish)}
       >
         <div className={styles.container}>
-          <input
-            placeholder="Email"
-            className={`${errors.email ? styles.inputError : styles.input}`}
-            {...register('email', {
-              required: {
-                value: true,
-                message: 'Email is required',
-              },
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: 'Entered value does not match email format',
-              },
-            })}
-          />
-          {errors.email && (
-            <span className={styles.errors}>{errors.email.message}</span>
-          )}
-          <input
-            type="password"
-            placeholder="Password"
-            className={`${errors.password ? styles.inputError : styles.input}`}
-            {...register('password', {
-              required: {
-                value: true,
-                message: 'Password is required',
-              },
-              minLength: {
-                value: 8,
-                message: 'Min length is 8',
-              },
-            })}
-          />
-          {errors.password && (
-            <span className={styles.errors}>{errors.password.message}</span>
-          )}
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className={`${errors.confirmPassword ? styles.inputError : styles.input}`}
-            {...register('confirmPassword', {
-              required: {
-                value: true,
-                message: 'Confirm Password is required',
-              },
-              minLength: {
-                value: 8,
-                message: 'Min length is 8',
-              },
-            })}
-          />
-          {errors.confirmPassword && (
-            <span className={styles.errors}>
-              {errors.confirmPassword.message}
-            </span>
-          )}
+          <div className={styles.inputContainer}>
+            <input
+              placeholder="Email"
+              className={`${errors.email ? styles.inputError : styles.input}`}
+              {...register('email', {
+                required: {
+                  value: true,
+                  message: 'Email is required',
+                },
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'Entered value does not match email format',
+                },
+              })}
+            />
+            {errors.email && (
+              <span className={styles.errors}>{errors.email.message}</span>
+            )}
+          </div>
+          <div className={styles.inputContainer}>
+            <input
+              type="password"
+              placeholder="Password"
+              className={`${errors.password ? styles.inputError : styles.input}`}
+              {...register('password', {
+                required: {
+                  value: true,
+                  message: 'Password is required',
+                },
+                minLength: {
+                  value: 8,
+                  message: 'Min length is 8',
+                },
+              })}
+            />
+            {errors.password && (
+              <span className={styles.errors}>{errors.password.message}</span>
+            )}
+          </div>
+          <div className={styles.inputContainer}>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className={`${errors.confirmPassword ? styles.inputError : styles.input}`}
+              {...register('confirmPassword', {
+                required: {
+                  value: true,
+                  message: 'Confirm Password is required',
+                },
+                minLength: {
+                  value: 8,
+                  message: 'Min length is 8',
+                },
+              })}
+            />
+            {errors.confirmPassword && (
+              <span className={styles.errors}>
+                {errors.confirmPassword.message}
+              </span>
+            )}
+          </div>
         </div>
         <div className={styles.submitContainer}>
-          <input type="submit" value={'Confirm'}  />
+          <input type="submit" value={'Confirm'} />
         </div>
       </form>
       <p>
