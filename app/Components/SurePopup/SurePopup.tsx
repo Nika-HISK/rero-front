@@ -1,7 +1,7 @@
-import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import Button from '../Button/Button';
 import styles from './SurePopup.module.scss';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
+import { ButtonType } from '@/app/Enums/ButtonType.enum';
 
 const SurePopup = () => {
   return (

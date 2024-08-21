@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import styles from './PlayList.module.scss';
 import { useState } from 'react';
-import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
+import styles from './PlayList.module.scss';
 import { PlayListData } from './play-list-dummy-data/play-list-dummy-data';
+import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
 
 const PlayList = (props: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

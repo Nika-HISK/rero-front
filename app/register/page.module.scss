@@ -1,0 +1,97 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 64px;
+}
+
+.wrapper h1 {
+  color: #ffffffb2;
+  font-size: 38px;
+  margin-top: 64px;
+}
+
+.submitContainer {
+  width: 100%;
+}
+
+.formContainer {
+  width: 100%;
+}
+
+.submitContainer input {
+  width: 100%;
+  background: #13828a;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 20px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.wrapper p {
+  margin-top: 24px;
+  color: #fff;
+}
+
+.wrapper p a {
+  color: #00dc9a;
+}
+
+.errors {
+  color: red;
+}
+
+.containerError {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 64px;
+}
+
+.inputError {
+  border: 1px solid red;
+  background-color: #414141;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #ffffff99;
+  border-radius: 8px;
+}
+
+.input {
+  background-color: #414141;
+  border: none;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #ffffff99;
+  border-radius: 8px;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer span {
+  padding-top: 8px;
+}

@@ -1,12 +1,12 @@
 'use client';
-import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
+
+import { useState } from 'react';
 import Typhography from '../Typhography/Typhography';
-import styles from './PlaylistPopup.module.scss';
 import Button from '../Button/Button';
+import styles from './PlaylistPopup.module.scss';
+import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
-import { useState } from 'react';
-
 const PlaylistPopup = () => {
   const [value, setValue] = useState('');
 
@@ -14,15 +14,13 @@ const PlaylistPopup = () => {
     <div className={styles.container}>
       <div className={styles.userInterfaces}>
         <div className={styles.playlistInfo}>
-          <Typhography
-            children={'Create Playlist'}
-            type={TyphographyEnum.BodyNine}
-          />
+          <Typhography type={TyphographyEnum.BodyNine}>
+            Create Playlist
+          </Typhography>
           <div className={styles.playlistInput}>
-            <Typhography
-              children={'Playlist Name'}
-              type={TyphographyEnum.BodyThree}
-            />
+            <Typhography type={TyphographyEnum.BodyThree}>
+              Playlist Name
+            </Typhography>
             <input
               type="text"
               className={styles.input}

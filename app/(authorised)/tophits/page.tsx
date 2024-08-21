@@ -1,11 +1,11 @@
 'use client';
 
-import AlbumRow from '../Components/AlbumRow/AlbumRow';
-import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import MusicBox from './components/MusicBox/MusicBox';
 import { musicData } from './music-dummy-data/music-dummy-data';
-import styles from './page.module.scss';
 import { albumData } from './top-hits-album-data/top-hits-album-data';
+import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
+import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import styles from './page.module.scss';
 
 const TopHits = () => {
   return (
@@ -26,7 +26,11 @@ const TopHits = () => {
       </div>
       <div className={styles.mainContainer}>
         {albumData.map((album, index) => (
-          <AlbumRow key={index} albumName={album.albumName} duration={album.duration} />
+          <AlbumRow
+            key={index}
+            albumName={album.albumName}
+            duration={album.duration}
+          />
         ))}
       </div>
     </>
