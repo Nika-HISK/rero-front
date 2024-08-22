@@ -1,7 +1,9 @@
 'use client';
 
+import AudioManager from '../Components/Manager/Manager';
 import SmallPlayer from '../Components/SmallPlayer/SmallPlayer';
 import songs from '../Components/SmallPlayer/Utils/dummy-musics';
+import { useAudioPlayer } from '../Components/SmallPlayer/hooks/useAudio.hook';
 import ArtistSection from '../HomePage/ArtistSection/ArtistSection';
 import MusicLibrary from '../HomePage/MusicLibrary/MusicLibrary';
 import PopularSectionTitle from '../HomePage/PopularSectionTitle/PopularSectionTitle';
@@ -12,7 +14,7 @@ const HomePage = () => {
     <>
       <PopularSectionTitle />
       <ArtistSection />
-      <SmallPlayer songs={songs} />
+      <AudioManager songs={songs} />
       <MusicLibrary />
       <TopHits />
     </>

@@ -3,36 +3,36 @@ import ArrowLink from './Components/Arrow/Arrow';
 import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
 import Player from './Components/Player/Player';
 import styles from './SmallPlayer.module.scss';
-import { useAudioPlayer } from './hooks/useAudio.hook';
-import { SongPropsInterface } from './interfaces/song-props.interface';
+import { SmallPlayerPropsInterface } from './interfaces/small-player-props.interace';
 
-const SmallPlayer = (props: SongPropsInterface) => {
-  const {
-    audioRef,
-    progressRef,
-    audioPlayer,
-    handleProgressChange,
-    playMusic,
-    handleTenSecondsBack,
-    handleNextSong,
-    handlePreviousSong,
-    handleVolumeDown,
-    handleVolumeUp,
-    isPlaying,
-  } = useAudioPlayer(props.songs);
-
+const SmallPlayer = ({
+  setOpen,
+  open,
+  audioRef,
+  progressRef,
+  audioPlayer,
+  handleProgressChange,
+  playMusic,
+  handleTenSecondsBack,
+  handleNextSong,
+  handlePreviousSong,
+  handleVolumeDown,
+  handleVolumeUp,
+  isPlaying,
+  songs,
+}: SmallPlayerPropsInterface) => {
   return (
     <>
       <audio
         ref={audioRef}
-        src={props.songs[audioPlayer.currentSongIndex].audioSrc}
+        src={songs[audioPlayer.currentSongIndex].audioSrc}
       ></audio>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <MusicPhoto
-            src={props.songs[audioPlayer.currentSongIndex].src}
-            music={props.songs[audioPlayer.currentSongIndex].music}
-            artist={props.songs[audioPlayer.currentSongIndex].artist}
+            src={songs[audioPlayer.currentSongIndex].src}
+            music={songs[audioPlayer.currentSongIndex].music}
+            artist={songs[audioPlayer.currentSongIndex].artist}
           />
           <Player
             playing={isPlaying}
@@ -47,7 +47,7 @@ const SmallPlayer = (props: SongPropsInterface) => {
             onNextSong={handleNextSong}
             onPlayMusic={playMusic}
           />
-          <ArrowLink />
+          <div onClick={() => setOpen(!open)}><ArrowLink /></div>
         </div>
       </div>
     </>

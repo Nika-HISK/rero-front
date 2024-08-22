@@ -1,3 +1,4 @@
+// PlayerContent.tsx
 import React from 'react';
 import styles from './PlayerContent.module.scss';
 import { PlayerPropsInterface } from './player-props-interface/player-props.interface';

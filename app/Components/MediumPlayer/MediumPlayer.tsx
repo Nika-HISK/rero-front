@@ -1,30 +1,28 @@
 import React from 'react';
-import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
-import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
+import { MediumPlayerPropsInterface } from './interfaces/medium-player-props.interface';
 
-const MediumPlayer = (props: SongPropsInterface) => {
-  const {
-    audioRef,
-    audioPlayer,
-    progressRef,
-    handleProgressChange,
-    playMusic,
-    toggleLoop,
-    handleNextSong,
-    handlePreviousSong,
-    handleVolumeDown,
-    handleVolumeUp,
-    isPlaying,
-  } = useAudioPlayer(props.songs);
-
+const MediumPlayer = ({
+  audioRef,
+  audioPlayer,
+  progressRef,
+  handleProgressChange,
+  playMusic,
+  toggleLoop,
+  handleNextSong,
+  handlePreviousSong,
+  handleVolumeDown,
+  handleVolumeUp,
+  isPlaying,
+  songs,
+}: MediumPlayerPropsInterface) => {
   return (
     <>
       <audio
         ref={audioRef}
-        src={props.songs[audioPlayer.currentSongIndex].audioSrc}
+        src={songs[audioPlayer.currentSongIndex].audioSrc}
         loop={audioPlayer.loop}
       ></audio>
       <div className={styles.container}>

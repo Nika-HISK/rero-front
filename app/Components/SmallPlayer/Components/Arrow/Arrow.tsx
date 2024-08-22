@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import styles from './Arrow.module.scss';
 import { useState } from 'react';
-import Player from '@/app/Components/Player/Player';
+import PlayerFullScreen from '@/app/Components/PlayerFullScreen/PlayerFullScreen';
 
 const ArrowLink = () => {
   const [opened, setOpened] = useState(false);
@@ -23,11 +23,6 @@ const ArrowLink = () => {
           onClick={handleClick}
         />
       </div>
-      {opened && (
-        <div className={styles.container}>
-          <Player setOpened={setOpened} />
-        </div>
-      )}
     </>
   );
 };
