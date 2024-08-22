@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from '../Header/Header';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
-import styles from './Manager.module.scss';
+import styles from './AudioManager.module.scss';
 
 const AudioManager = (props: SongPropsInterface) => {
   const audioPlayerControls = useAudioPlayer(props.songs);
   const [open, setOpen] = useState(true);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -23,8 +24,25 @@ const AudioManager = (props: SongPropsInterface) => {
     };
   }, [open]);
 
-  const currentSong =
-    props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        setOpen(true);
+      }
+    };
+
+    if (!open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
+
+  const currentSong = props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
 
   return (
     <>
@@ -37,9 +55,12 @@ const AudioManager = (props: SongPropsInterface) => {
           {...audioPlayerControls}
         />
       </div>
-      <div className={open ? styles.hidden : styles.notHidden}>
+      <div
+        className={open ? styles.hidden : styles.notHidden}
+      >
         <div
           className={styles.wrapper}
+          ref={wrapperRef}
           style={{
             backgroundImage: `url(${currentSong.src})`,
             backgroundRepeat: 'no-repeat',

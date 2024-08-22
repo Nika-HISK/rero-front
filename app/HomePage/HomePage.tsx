@@ -1,6 +1,6 @@
 'use client';
 
-import AudioManager from '../Components/Manager/Manager';
+import AudioManager from '../Components/AudioManager/AudioManager';
 import songs from '../Components/SmallPlayer/Utils/dummy-musics';
 import ArtistSection from '../HomePage/ArtistSection/ArtistSection';
 import MusicLibrary from '../HomePage/MusicLibrary/MusicLibrary';
