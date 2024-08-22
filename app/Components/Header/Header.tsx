@@ -3,9 +3,15 @@ import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
 
-const Header = () => {
-  return ( 
-    <div className={styles.fullscreenContainer}>
+interface HeaderProps {
+  isFixed: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isFixed }) => {
+  return (
+    <div
+      className={`${styles.fullscreenContainer} ${isFixed ? styles.fixed : ''}`}
+    >
       <div className={styles.container}>
         <div className={styles.headerTable}>
           <Image src="/logo.png" alt="logo" width={100} height={80} />

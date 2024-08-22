@@ -1,11 +1,12 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Header from '../Header/Header';
+import Icon from '../Icons/Icon';
+import MediumPlayer from '../MediumPlayer/MediumPlayer';
+import SmallPlayer from '../SmallPlayer/SmallPlayer';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
-import SmallPlayer from '../SmallPlayer/SmallPlayer';
 import styles from './Manager.module.scss';
-import MediumPlayer from '../MediumPlayer/MediumPlayer';
-import Icon from '../Icons/Icon';
-  
+
 const AudioManager = (props: SongPropsInterface) => {
   const audioPlayerControls = useAudioPlayer(props.songs);
   const [open, setOpen] = useState(true);
@@ -27,6 +28,7 @@ const AudioManager = (props: SongPropsInterface) => {
 
   return (
     <>
+      {!open && <Header isFixed={!open} />}
       <div className={!open ? styles.hidden : styles.notHiddenSmall}>
         <SmallPlayer
           open={open}
