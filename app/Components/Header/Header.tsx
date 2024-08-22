@@ -4,7 +4,7 @@ import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
 
 const Header = () => {
-  return (
+  return ( 
     <div className={styles.fullscreenContainer}>
       <div className={styles.container}>
         <div className={styles.headerTable}>

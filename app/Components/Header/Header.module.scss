@@ -8,6 +8,10 @@
   z-index: 1;
 }
 
+.fixed {
+  position: fixed;
+  top: 0;
+}
 .container {
   width: 100%;
   max-width: 1224px;
