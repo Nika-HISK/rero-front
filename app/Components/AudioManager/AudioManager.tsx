@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import Header from '../Header/Header';
+import { useState, useEffect } from 'react';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';

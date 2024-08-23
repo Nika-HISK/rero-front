@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Typhography from '../Typhography/Typhography';
 import Button from '../Button/Button';
+import Typhography from '../Typhography/Typhography';
 import styles from './PlaylistPopup.module.scss';
-import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
+import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
+
 const PlaylistPopup = () => {
   const [value, setValue] = useState('');
 

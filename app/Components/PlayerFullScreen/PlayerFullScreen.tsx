@@ -1,6 +1,6 @@
 'use client';
 
-import PlayerContent from "./components/PlayerContent/PlayerContent";
+import PlayerContent from './components/PlayerContent/PlayerContent';
 
 interface PlayerProps {
   setOpened: (opened: boolean) => void;
@@ -8,7 +8,10 @@ interface PlayerProps {
 
 const PlayerFullScreen = ({ setOpened }: PlayerProps) => {
   return (
-    <PlayerContent setOpened={setOpened} backgroundImage="/playerbackground.png" />
+    <PlayerContent
+      setOpened={setOpened}
+      backgroundImage="/playerbackground.png"
+    />
   );
 };
 
