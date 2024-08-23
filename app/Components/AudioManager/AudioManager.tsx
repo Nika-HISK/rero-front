@@ -10,7 +10,6 @@ import styles from './AudioManager.module.scss';
 const AudioManager = (props: SongPropsInterface) => {
   const audioPlayerControls = useAudioPlayer(props.songs);
   const [open, setOpen] = useState(true);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -21,24 +20,6 @@ const AudioManager = (props: SongPropsInterface) => {
 
     return () => {
       document.body.style.overflow = 'auto';
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-        setOpen(true);
-      }
-    };
-
-    if (!open) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [open]);
 
@@ -60,7 +41,6 @@ const AudioManager = (props: SongPropsInterface) => {
       >
         <div
           className={styles.wrapper}
-          ref={wrapperRef}
           style={{
             backgroundImage: `url(${currentSong.src})`,
             backgroundRepeat: 'no-repeat',
