@@ -1,14 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
-import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div
-      className={styles.fullscreenContainer}
-    >
+    <div className={styles.fullscreenContainer}>
       <div className={styles.container}>
         <div className={styles.headerTable}>
           <Link href="/">

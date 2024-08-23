@@ -7,12 +7,7 @@ const ArrowLink = () => {
   return (
     <>
       <div className={styles.arrow}>
-        <Image
-          src="/Arroww.png"
-          alt="arrow"
-          width={32}
-          height={32}
-        />
+        <Image src="/Arroww.png" alt="arrow" width={32} height={32} />
       </div>
     </>
   );
