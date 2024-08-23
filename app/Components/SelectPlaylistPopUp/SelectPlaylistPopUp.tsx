@@ -1,13 +1,13 @@
 import styles from './SelectPlaylistPopUp.module.scss';
 import { useState } from 'react';
-import { Props } from './interface/Select-playlist-popup-interface';
 import { albumsSelectPupUpDummy } from './select-playlist-dummy-data/dummy-data';
-import { ItemType } from './select-playlist-dummy-data/dummy-data';
 import Button from '../Button/Button';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
+import { SelectPlaylistPopupPropsInterface } from './interface/select-playlist-popup-props.interface';
 
-const SelectPlaylistPopUp = (props: Props) => {
+const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
+  //TODO confirm button function
   const [value, setValue] = useState<string | undefined>(undefined);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -26,7 +26,7 @@ const SelectPlaylistPopUp = (props: Props) => {
               value={value}
               onChange={onChangeValue}
             >
-              {albumsSelectPupUpDummy.map((item: ItemType, index: number) => (
+              {albumsSelectPupUpDummy.map((item, index) => (
                 <option key={index} className={styles.optionStyle}>
                   {item.name}
                 </option>
@@ -48,7 +48,8 @@ const SelectPlaylistPopUp = (props: Props) => {
               mode={ButtonMode.Fill}
               title="Confirm"
               type={ButtonType.Text}
-              disabled={!value} 
+              disabled={!value}
+              onClick={() => props.value(false)}
             />
           </div>
         </div>
