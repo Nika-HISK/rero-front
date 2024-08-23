@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import { MusicBoxPropsInterace } from './music-box-props-interface/music-box-props.interface';
+import React, { useState, useRef } from 'react';
 import styles from './MusicBox.module.scss';
-
+import { MusicBoxPropsInterace } from './music-box-props-interface/music-box-props.interface';
 
 const MusicBox = (props: MusicBoxPropsInterace) => {
   const [isPlaying, setIsPlaying] = useState(false);
