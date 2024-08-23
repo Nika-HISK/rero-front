@@ -5,6 +5,9 @@
   justify-content: center;
   padding-left: 24px;
   padding-right: 24px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
 }
 
 .container {

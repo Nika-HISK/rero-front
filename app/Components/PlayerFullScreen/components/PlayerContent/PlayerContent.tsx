@@ -1,14 +1,14 @@
-'use client';
-
-import Link from 'next/link';
+import React from 'react';
 import styles from './PlayerContent.module.scss';
 import { PlayerPropsInterface } from './player-props-interface/player-props.interface';
 import Icon from '@/app/Components/Icons/Icon';
 import MediumPlayer from '@/app/Components/MediumPlayer/MediumPlayer';
 import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
+import { useAudioPlayer } from '@/app/Components/SmallPlayer/hooks/useAudio.hook';
 
-const PlayerContent = (props: PlayerPropsInterface) => {
-  //TODO Link Href
+const PlayerContent: React.FC<PlayerPropsInterface> = (props) => {
+  const audioPlayerControls = useAudioPlayer(songs);
+
   return (
     <div
       className={styles.wrapper}
@@ -19,11 +19,11 @@ const PlayerContent = (props: PlayerPropsInterface) => {
         backgroundPosition: 'top',
       }}
     >
-      <Link className={styles.arrow} href="">
+      <div className={styles.arrow} onClick={() => props.setOpened(false)}>
         <Icon name={'arrowdown'} width={18} height={10} />
-      </Link>
+      </div>
       <div className={styles.container}>
-        <MediumPlayer songs={songs} />
+        <MediumPlayer songs={songs} {...audioPlayerControls} />
       </div>
     </div>
   );
