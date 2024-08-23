@@ -3,12 +3,11 @@ import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-import { HeaderProps } from './interfaces/header-props.interface';
 
-const Header = (props: HeaderProps) => {
+const Header = () => {
   return (
     <div
-      className={`${styles.fullscreenContainer} ${props.isFixed ? styles.fixed : ''}`}
+      className={styles.fullscreenContainer}
     >
       <div className={styles.container}>
         <div className={styles.headerTable}>

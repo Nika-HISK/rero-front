@@ -23,11 +23,11 @@ const AudioManager = (props: SongPropsInterface) => {
     };
   }, [open]);
 
-  const currentSong = props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
+  const currentSong =
+    props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
 
   return (
     <>
-      {!open && <Header isFixed={!open} />}
       <div className={!open ? styles.hidden : styles.notHiddenSmall}>
         <SmallPlayer
           open={open}
@@ -36,9 +36,7 @@ const AudioManager = (props: SongPropsInterface) => {
           {...audioPlayerControls}
         />
       </div>
-      <div
-        className={open ? styles.hidden : styles.notHidden}
-      >
+      <div className={open ? styles.hidden : styles.notHidden}>
         <div
           className={styles.wrapper}
           style={{
