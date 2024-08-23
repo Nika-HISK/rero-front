@@ -1,5 +1,6 @@
 .wrapper {
   color: #fff;
+  width: 100%;
 }
 
 .container {
@@ -11,6 +12,11 @@
   gap: 36px;
   padding-top: 12px;
   padding-bottom: 12px;
+}
+
+.arrowContainer {
+  width: 48px;
+  margin-right: 12px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

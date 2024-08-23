@@ -6,7 +6,7 @@ import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
 const TopHits = () => {
   return (
     <div className={styles.wrapper}>
-      <SectionTitle title="Top Hits" link="/" />
+      <SectionTitle title="Top Hits" link="/tophits" />
       <div className={styles.container}>
         {TopHitsAlbums.map((album, index) => (
           <AlbumRow

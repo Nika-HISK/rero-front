@@ -1,49 +1,34 @@
 import React from 'react';
-import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
-import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
+import { MediumPlayerPropsInterface } from './interfaces/medium-player-props.interface';
 
-const MediumPlayer = (props: SongPropsInterface) => {
-  const {
-    audioRef,
-    audioPlayer,
-    progressRef,
-    handleProgressChange,
-    playMusic,
-    toggleLoop,
-    handleNextSong,
-    handlePreviousSong,
-    handleVolumeDown,
-    handleVolumeUp,
-    isPlaying,
-  } = useAudioPlayer(props.songs);
-
+const MediumPlayer = (props: MediumPlayerPropsInterface) => {
   return (
     <>
       <audio
-        ref={audioRef}
-        src={props.songs[audioPlayer.currentSongIndex].audioSrc}
-        loop={audioPlayer.loop}
+        ref={props.audioRef}
+        src={props.songs[props.audioPlayer.currentSongIndex].audioSrc}
+        loop={props.audioPlayer.loop}
       ></audio>
       <div className={styles.container}>
         <div className={styles.controls}>
           <BigPlayerAdjust
-            onVolumeDown={handleVolumeDown}
-            onVolumeUp={handleVolumeUp}
-            onPreviousSong={handlePreviousSong}
-            onNextSong={handleNextSong}
-            onPlayMusic={playMusic}
-            playing={isPlaying}
+            onVolumeDown={props.handleVolumeDown}
+            onVolumeUp={props.handleVolumeUp}
+            onPreviousSong={props.handlePreviousSong}
+            onNextSong={props.handleNextSong}
+            onPlayMusic={props.playMusic}
+            playing={props.isPlaying}
           />
           <ProgressBar
-            currentTime={audioPlayer.currentTime}
-            duration={audioPlayer.duration}
-            progressRef={progressRef}
-            handleProgressChange={handleProgressChange}
-            loop={audioPlayer.loop}
-            toggleLoop={toggleLoop}
+            currentTime={props.audioPlayer.currentTime}
+            duration={props.audioPlayer.duration}
+            progressRef={props.progressRef}
+            handleProgressChange={props.handleProgressChange}
+            loop={props.audioPlayer.loop}
+            toggleLoop={props.toggleLoop}
           />
         </div>
       </div>

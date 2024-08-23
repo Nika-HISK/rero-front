@@ -9,6 +9,7 @@
   width: 28px;
   height: 28px;
   cursor: pointer;
+  display: flex;
 }
 
 .buttonWrapper {
@@ -19,6 +20,7 @@
 
 .mainButton {
   cursor: pointer;
+  display: flex;
 }
 
 @media screen and (max-width: 1023px) {
