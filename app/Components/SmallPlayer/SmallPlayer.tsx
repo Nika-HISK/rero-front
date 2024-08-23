@@ -32,7 +32,9 @@ const SmallPlayer = (props: SmallPlayerPropsInterface) => {
             onNextSong={props.handleNextSong}
             onPlayMusic={props.playMusic}
           />
-          <div onClick={() => props.setOpen(!open)}><ArrowLink /></div>
+          <div onClick={() => props.setOpen(!open)} className={styles.arrowContainer}>
+            <ArrowLink />
+          </div>
         </div>
       </div>
     </>
