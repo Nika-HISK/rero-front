@@ -12,20 +12,20 @@ import { useRouter } from 'next/navigation';
 const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-
   const router = useRouter()
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    watch,
     setValue,
+    formState: { errors },
   } = useForm<LoginPropsInterface>();
 
-
+  const email = watch('email');
+  const password = watch('password');
 
   const onSubmit = (data: LoginPropsInterface) => {
-    
     if (rememberMe) {
       localStorage.setItem('email', data.email);
       localStorage.setItem('password', data.password);
@@ -33,8 +33,8 @@ const Login = () => {
 
     localStorage.setItem('userToken', 'someToken');
     setLoggedIn(true);
-        router.push('/')
 
+    router.push('/')
   };
 
   const handleCheckboxChange = () => {
@@ -57,7 +57,9 @@ const Login = () => {
     if (savedPassword) {
       setValue('password', savedPassword);
     }
-  }, []);
+  }, [setValue]);
+
+  const isSubmitDisabled = !email || !password;
 
   return (
     <div className={styles.mainContainer}>
@@ -133,16 +135,21 @@ const Login = () => {
                 Create account
               </Link>
             </div>
-            <input type="submit" value="Log in" className={styles.submit} />
+            <input
+              type="submit"
+              value="Log in"
+              disabled={isSubmitDisabled}
+              className={isSubmitDisabled ? styles.submition : styles.submit}
+            />
           </div>
         </form>
       </div>
       <div className={styles.characterBg}>
         <Image
           src="/rerobg.png"
+          width={900}
+          height={1080}
           alt="rerobg"
-          width={1000}
-          height={100}
           className={styles.rero}
         />
       </div>
