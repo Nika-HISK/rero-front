@@ -11,3 +11,8 @@ export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
     shuffle: false,
   },
 });
+
+export const currentSongIndexState = atom<number | null>({
+  key: 'currentSongIndexState',
+  default: null,
+});
