@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   margin-top: 88px;
-  
 }
 
 .container {
@@ -13,7 +12,6 @@
   width: 100%;
   max-width: 540px;
   margin-top: 88px;
-
 }
 
 .loginHeader {
@@ -21,7 +19,6 @@
   flex-direction: column;
   gap: 42px;
   align-items: center;
-  
 }
 
 .loginInfo {
@@ -30,14 +27,13 @@
   gap: 20px;
   width: 100%;
   max-width: 400px;
-  
 }
 
 .loginInputs {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  
+  padding: 0px 16px;
 }
 
 .inputContainer {
@@ -45,7 +41,6 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
-
 }
 
 .input {
@@ -56,7 +51,6 @@
   background: rgba(255, 255, 255, 0.2);
   border: none;
   color: #fff;
-  
 }
 
 .erroredInput {
@@ -68,28 +62,24 @@
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid red;
   color: #fff;
-  
 }
 
 .loginAccess {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  
 }
 
 .remembermeContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  
 }
 
 .rememberme {
   display: flex;
   align-items: center;
   gap: 8px;
-  
 }
 
 .link {
@@ -99,12 +89,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
-  
 }
 
 .errorText {
   color: red;
-  
 }
 
 .submit {
@@ -120,7 +108,6 @@
   line-height: 29px;
   border: none;
   cursor: pointer;
-  
 }
 
 .submition {
@@ -135,27 +122,23 @@
   line-height: 29px;
   border: none;
   cursor: pointer;
-  
-  
-  
 }
 
 .mainContainer {
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   width: 100%;
   height: 100vh;
 }
 
-.characterBg{
+.characterBg {
   width: 100%;
   max-width: 900px;
   height: 100vh;
   overflow: hidden;
-
 }
 
-.rero{
+.rero {
   width: 100%;
   height: 100vh;
 }

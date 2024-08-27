@@ -1,18 +1,18 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import Typhography from '../Components/Typhography/Typhography';
 import { TyphographyEnum } from '../Enums/Typhography.enum';
-import styles from './page.module.scss';
-import Image from 'next/image';
-import { useForm } from 'react-hook-form';
 import { LoginPropsInterface } from './login-props.interface/login-props.interface';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import styles from './page.module.scss';
 
 const Login = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
@@ -34,7 +34,7 @@ const Login = () => {
     localStorage.setItem('userToken', 'someToken');
     setLoggedIn(true);
 
-    router.push('/')
+    router.push('/');
   };
 
   const handleCheckboxChange = () => {
@@ -57,7 +57,7 @@ const Login = () => {
     if (savedPassword) {
       setValue('password', savedPassword);
     }
-  }, []);
+  }, [setValue]);
 
   const isSubmitDisabled = !email || !password;
 
@@ -66,12 +66,12 @@ const Login = () => {
       <div className={styles.fullscreenContainer}>
         <div className={styles.loginHeader}>
           <Image src="/logo.png" alt="logo" width={100} height={100} />
-          <Typhography children="Log in" type={TyphographyEnum.HeadingTwo} />
+          <Typhography type={TyphographyEnum.HeadingTwo}>Log In</Typhography>
         </div>
         <form className={styles.loginInfo} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.loginInputs}>
             <div className={styles.inputContainer}>
-              <Typhography children="Email" type={TyphographyEnum.BodyFour} />
+              <Typhography type={TyphographyEnum.BodyFour}>Email</Typhography>
               <input
                 type="text"
                 placeholder="Email"
@@ -92,10 +92,9 @@ const Login = () => {
               )}
             </div>
             <div className={styles.inputContainer}>
-              <Typhography
-                children="Password"
-                type={TyphographyEnum.BodyFour}
-              />
+              <Typhography type={TyphographyEnum.BodyFour}>
+                Password
+              </Typhography>
               <input
                 type="password"
                 className={errors.password ? styles.erroredInput : styles.input}
@@ -126,10 +125,9 @@ const Login = () => {
                   checked={rememberMe}
                   onChange={handleCheckboxChange}
                 />
-                <Typhography
-                  children="Remember me"
-                  type={TyphographyEnum.BodyFour}
-                />
+                <Typhography type={TyphographyEnum.BodyFour}>
+                  Remember Me
+                </Typhography>
               </div>
               <Link href="/register" className={styles.link}>
                 Create account
