@@ -57,7 +57,7 @@ const Login = () => {
     if (savedPassword) {
       setValue('password', savedPassword);
     }
-  }, [setValue]);
+  }, []);
 
   const isSubmitDisabled = !email || !password;
 
