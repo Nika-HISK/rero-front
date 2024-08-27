@@ -6,13 +6,13 @@ export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
   default: {
     currentTime: 0,
     duration: 0,
-    currentSongIndex: 0,
+    currentSongIndex: null,
     loop: false,
     shuffle: false,
   },
 });
 
-export const currentSongIndexState = atom<number | null>({
-  key: 'currentSongIndexState',
-  default: null,
-});
+// export const currentSongIndexState = atom<number | null>({
+//   key: 'currentSongIndexState',
+//   default: null,
+// });

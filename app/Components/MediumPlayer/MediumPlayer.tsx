@@ -1,16 +1,36 @@
+'use client';
+
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import songs from '../SmallPlayer/Utils/dummy-musics';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
 import { MediumPlayerPropsInterface } from './interfaces/medium-player-props.interface';
+import { audioPlayerState } from '@/app/Atoms/states';
 
 const MediumPlayer = (props: MediumPlayerPropsInterface) => {
+  const audioPlayer = useRecoilValue(audioPlayerState);
+
+  const currentSongIndex = audioPlayer.currentSongIndex;
+  const currentSong =
+    currentSongIndex !== null &&
+    currentSongIndex >= 0 &&
+    currentSongIndex < songs.length
+      ? songs[currentSongIndex]
+      : {
+          audioSrc: '',
+          src: '',
+          music: '',
+          artist: '',
+        };
+
   return (
     <>
       <audio
         ref={props.audioRef}
-        src={props.songs[props.audioPlayer.currentSongIndex].audioSrc}
-        loop={props.audioPlayer.loop}
+        src={currentSong.audioSrc}
+        loop={audioPlayer.loop}
       ></audio>
       <div className={styles.container}>
         <div className={styles.controls}>
@@ -23,11 +43,11 @@ const MediumPlayer = (props: MediumPlayerPropsInterface) => {
             playing={props.isPlaying}
           />
           <ProgressBar
-            currentTime={props.audioPlayer.currentTime}
-            duration={props.audioPlayer.duration}
+            currentTime={audioPlayer.currentTime}
+            duration={audioPlayer.duration}
             progressRef={props.progressRef}
             handleProgressChange={props.handleProgressChange}
-            loop={props.audioPlayer.loop}
+            loop={audioPlayer.loop}
             toggleLoop={props.toggleLoop}
           />
         </div>

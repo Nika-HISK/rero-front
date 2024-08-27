@@ -3,31 +3,34 @@
 import { useRecoilState } from 'recoil';
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import MusicBox from './components/MusicBox/MusicBox';
-import { musicData } from './music-dummy-data/music-dummy-data';
 import styles from './page.module.scss';
 import { albumData } from './top-hits-album-data/top-hits-album-data';
-import { currentSongIndexState } from '@/app/Atoms/states';
+import { audioPlayerState } from '@/app/Atoms/states';
 import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
 
 const TopHits = () => {
-  const [currentSong, setCurrentSong] = useRecoilState(currentSongIndexState);
+  const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
 
   const handlePlayClick = (id: number) => {
-    setCurrentSong(id);
+    setCurrentSong((prevState) => ({
+      ...prevState,
+      currentSongIndex: id,
+    }));
   };
 
   return (
     <>
       <div className={styles.wrapper}>
-        {musicData.map((music) => (
+        {songs.map((music, index) => (
           <MusicBox
             id={music.id}
-            key={music.id}
+            key={index}
             artistName={music.artist}
             musicName={music.music}
             cover={music.src}
             musicSrc={music.audioSrc}
-            isPlaying={currentSong === music.id}
+            isPlaying={currentSong.currentSongIndex === music.id}
             onClick={() => handlePlayClick(music.id)}
           />
         ))}

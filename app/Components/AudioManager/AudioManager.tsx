@@ -1,14 +1,33 @@
+'use client';
+
 import { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
+import songs from '../SmallPlayer/Utils/dummy-musics';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
+import { audioPlayerState } from '@/app/Atoms/states';
 
 const AudioManager = (props: SongPropsInterface) => {
-  const audioPlayerControls = useAudioPlayer(props.songs);
+  const audioPlayerControls = useAudioPlayer(songs);
   const [open, setOpen] = useState(true);
+
+  const audioPlayer = useRecoilValue(audioPlayerState);
+  const currentSongIndex = audioPlayer.currentSongIndex;
+  const currentSong =
+    currentSongIndex !== null &&
+    currentSongIndex >= 0 &&
+    currentSongIndex < songs.length
+      ? songs[currentSongIndex]
+      : {
+          audioSrc: '',
+          src: '',
+          music: '',
+          artist: '',
+        };
 
   useEffect(() => {
     if (open) {
@@ -21,9 +40,6 @@ const AudioManager = (props: SongPropsInterface) => {
       document.body.style.overflow = 'auto';
     };
   }, [open]);
-
-  const currentSong =
-    props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
 
   return (
     <>
