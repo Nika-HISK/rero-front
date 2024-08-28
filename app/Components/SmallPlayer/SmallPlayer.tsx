@@ -6,25 +6,13 @@ import ArrowLink from './Components/Arrow/Arrow';
 import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
 import Player from './Components/Player/Player';
 import styles from './SmallPlayer.module.scss';
-import songs from './Utils/dummy-musics';
 import { SmallPlayerPropsInterface } from './interfaces/small-player-props.interace';
 import { audioPlayerState } from '@/app/Atoms/states';
+import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const SmallPlayer = (props: SmallPlayerPropsInterface) => {
   const audioPlayer = useRecoilValue(audioPlayerState);
-
-  const currentSongIndex = audioPlayer.currentSongIndex;
-  const currentSong =
-    currentSongIndex !== null &&
-    currentSongIndex >= 0 &&
-    currentSongIndex < songs.length
-      ? songs[currentSongIndex]
-      : {
-          audioSrc: '',
-          src: '',
-          music: '',
-          artist: '',
-        };
+  const currentSong = getCurrentSong(audioPlayer.currentSongIndex);
 
   return (
     <>

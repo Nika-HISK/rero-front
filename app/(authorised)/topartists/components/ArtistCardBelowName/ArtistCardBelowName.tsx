@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ArtistCardBelowName.module.scss';
-import { ArtistCardBelowNamePropsInterface } from './artist-card-below-name-props.interface/artist-card-below-name-props.interface';
+import { ArtistCardBelowNamePropsInterface } from './interfaces/artist-card-below-name-props.interface';
 
 const ArtistCardBelowName = (props: ArtistCardBelowNamePropsInterface) => {
   //TODO Link Href

@@ -2,29 +2,16 @@
 
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import songs from '../SmallPlayer/Utils/dummy-musics';
 import ProgressBar from './Components/MediumControlPanel/MediumControlPanel';
 import BigPlayerAdjust from './Components/MediumPlayerTools/MediumPlayerTools';
 import styles from './MediumPlayer.module.scss';
 import { MediumPlayerPropsInterface } from './interfaces/medium-player-props.interface';
 import { audioPlayerState } from '@/app/Atoms/states';
+import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const MediumPlayer = (props: MediumPlayerPropsInterface) => {
   const audioPlayer = useRecoilValue(audioPlayerState);
-
-  const currentSongIndex = audioPlayer.currentSongIndex;
-  const currentSong =
-    currentSongIndex !== null &&
-    currentSongIndex >= 0 &&
-    currentSongIndex < songs.length
-      ? songs[currentSongIndex]
-      : {
-          audioSrc: '',
-          src: '',
-          music: '',
-          artist: '',
-        };
-
+  const currentSong = getCurrentSong(audioPlayer.currentSongIndex);
   return (
     <>
       <audio

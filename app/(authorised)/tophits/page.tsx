@@ -15,17 +15,17 @@ const TopHits = () => {
   const handlePlayClick = (id: number) => {
     setCurrentSong((prevState) => ({
       ...prevState,
-      currentSongIndex: id,
+      currentSongIndex: id - 1,
     }));
   };
 
   return (
     <>
       <div className={styles.wrapper}>
-        {songs.map((music, index) => (
+        {songs.map((music) => (
           <MusicBox
             id={music.id}
-            key={index}
+            key={music.id}
             artistName={music.artist}
             musicName={music.music}
             cover={music.src}

@@ -1,12 +1,9 @@
 'use client';
 
 import PlayerContent from './components/PlayerContent/PlayerContent';
+import { PlayerFullScreenPropsInterface } from './components/interfaces/player-full-screen-props.interface';
 
-interface PlayerProps {
-  setOpened: (opened: boolean) => void;
-}
-
-const PlayerFullScreen = ({ setOpened }: PlayerProps) => {
+const PlayerFullScreen = ({ setOpened }: PlayerFullScreenPropsInterface) => {
   return (
     <PlayerContent
       setOpened={setOpened}
