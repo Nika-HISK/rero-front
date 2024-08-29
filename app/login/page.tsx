@@ -10,7 +10,6 @@ import { LoginPropsInterface } from './login-props.interface/login-props.interfa
 import styles from './page.module.scss';
 
 const Login = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const router = useRouter();
 
@@ -31,9 +30,6 @@ const Login = () => {
       localStorage.setItem('password', data.password);
     }
 
-    localStorage.setItem('userToken', 'someToken');
-    setLoggedIn(true);
-
     router.push('/');
   };
 
@@ -42,11 +38,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    const userToken = localStorage.getItem('userToken');
-    if (userToken) {
-      setLoggedIn(true);
-    }
-
     const savedEmail = localStorage.getItem('email');
     const savedPassword = localStorage.getItem('password');
 
