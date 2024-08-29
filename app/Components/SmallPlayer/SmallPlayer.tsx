@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import ArrowLink from './Components/Arrow/Arrow';
 import MusicPhoto from './Components/MusicPhoto/MusicPhoto';
@@ -10,13 +10,12 @@ import { SmallPlayerPropsInterface } from './interfaces/small-player-props.inter
 import { audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
-const SmallPlayer = (props: SmallPlayerPropsInterface) => {
+const SmallPlayer = forwardRef((props: SmallPlayerPropsInterface, ref: ForwardedRef<HTMLAudioElement>) =>  {
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongIndex);
-
+  const currentSong = getCurrentSong(audioPlayer.currentSongId);
   return (
     <>
-      <audio ref={props.audioRef} src={currentSong.audioSrc}></audio>
+      <audio ref={ref}></audio>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <MusicPhoto
@@ -47,6 +46,6 @@ const SmallPlayer = (props: SmallPlayerPropsInterface) => {
       </div>
     </>
   );
-};
+});
 
 export default SmallPlayer;

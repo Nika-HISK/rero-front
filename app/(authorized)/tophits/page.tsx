@@ -15,7 +15,7 @@ const TopHits = () => {
   const handlePlayClick = (id: number) => {
     setCurrentSong((prevState) => ({
       ...prevState,
-      currentSongIndex: id - 1,
+      currentSongId: id,
     }));
   };
 
@@ -30,7 +30,7 @@ const TopHits = () => {
             musicName={music.music}
             cover={music.src}
             musicSrc={music.audioSrc}
-            isPlaying={currentSong.currentSongIndex === music.id}
+            isPlaying={currentSong.currentSongId=== music.id}
             onClick={() => handlePlayClick(music.id)}
           />
         ))}

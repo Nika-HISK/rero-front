@@ -1,10 +1,10 @@
 const songs = [
   {
     id: 1,
-    src: '/Justinbieber.webp',
-    music: 'Baby',
-    artist: 'Justin Bieber',
-    audioSrc: '/baby.mp3',
+    src: '/zeppelin.jpg',
+    music: 'Stairway To Heaven',
+    artist: 'Led Zeppelin',
+    audioSrc: '/stairway.mp3',
   },
   {
     id: 2,

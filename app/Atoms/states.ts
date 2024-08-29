@@ -6,7 +6,7 @@ export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
   default: {
     currentTime: 0,
     duration: 0,
-    currentSongIndex: null,
+    currentSongId: null,
     loop: false,
     shuffle: false,
   },

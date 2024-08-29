@@ -10,24 +10,14 @@ import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
+import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const AudioManager = (props: SongPropsInterface) => {
   const audioPlayerControls = useAudioPlayer(songs);
   const [open, setOpen] = useState(true);
 
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSongIndex = audioPlayer.currentSongIndex;
-  const currentSong =
-    currentSongIndex !== null &&
-    currentSongIndex >= 0 &&
-    currentSongIndex < songs.length
-      ? songs[currentSongIndex]
-      : {
-          audioSrc: '',
-          src: '',
-          music: '',
-          artist: '',
-        };
+  const currentSong = getCurrentSong(audioPlayer.currentSongId)
 
   useEffect(() => {
     if (open) {
@@ -49,6 +39,7 @@ const AudioManager = (props: SongPropsInterface) => {
           setOpen={setOpen}
           songs={props.songs}
           {...audioPlayerControls}
+          ref={audioPlayerControls.audioRef}
         />
       </div>
       <div className={open ? styles.hidden : styles.notHidden}>
