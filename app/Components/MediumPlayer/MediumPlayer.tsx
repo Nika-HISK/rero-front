@@ -11,7 +11,8 @@ import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const MediumPlayer = (props: MediumPlayerPropsInterface) => {
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongIndex);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+
   return (
     <>
       <audio

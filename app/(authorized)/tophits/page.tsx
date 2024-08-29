@@ -30,7 +30,7 @@ const TopHits = () => {
             musicName={music.music}
             cover={music.src}
             musicSrc={music.audioSrc}
-            isPlaying={currentSong.currentSongId=== music.id}
+            isPlaying={currentSong.currentSongId === music.id}
             onClick={() => handlePlayClick(music.id)}
           />
         ))}

@@ -17,7 +17,7 @@ const AudioManager = (props: SongPropsInterface) => {
   const [open, setOpen] = useState(true);
 
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId)
+  const currentSong = getCurrentSong(audioPlayer.currentSongId);
 
   useEffect(() => {
     if (open) {

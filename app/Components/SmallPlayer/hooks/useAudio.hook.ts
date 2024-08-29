@@ -38,7 +38,7 @@ export const useAudioPlayer = (songs: Song[]) => {
         if (prev.currentSongId === null) return prev;
         return {
           ...prev,
-          currentSongIndex: (prev.currentSongId + 1) % songs.length,
+          currentSongId: (prev.currentSongId + 1) % songs.length,
           currentTime: 0,
         };
       });
@@ -69,11 +69,10 @@ export const useAudioPlayer = (songs: Song[]) => {
     if (!audioRef.current) return;
     audioRef.current.src = currentSong.audioSrc;
     audioRef.current.play();
-  }, [audioPlayer.currentSongId]);
+  }, [audioPlayer.currentSongId, currentSong.audioSrc]);
 
   useEffect(() => {
     if (!audioRef.current) return;
-
     audioRef.current.play();
   }, []);
 
@@ -89,11 +88,8 @@ export const useAudioPlayer = (songs: Song[]) => {
     if (!audioRef.current) return;
 
     if (audioRef.current.paused) {
-      console.log('here');
       audioRef.current.play();
     } else {
-      console.log('here');
-
       audioRef.current.pause();
     }
   };
@@ -111,39 +107,45 @@ export const useAudioPlayer = (songs: Song[]) => {
   const handleNextSong = () => {
     if (!audioRef.current) return;
 
-    if (audioPlayer.loop) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    } else {
-      setAudioPlayer((prev) => {
-        if (prev.currentSongId === null) return prev;
-        return {
-          ...prev,
-          currentSongIndex: prev.currentSongId % songs.length,
-          currentTime: 0,
-          duration: 0,
-        };
-      });
-    }
+    setAudioPlayer((prev) => {
+      if (prev.currentSongId === null) return prev;
+
+      const currentIndex = songs.findIndex(
+        (song) => song.id === prev.currentSongId,
+      );
+      const nextSongIndex =
+        currentIndex === songs.length - 1 ? 0 : currentIndex + 1;
+      const nextSongId = songs[nextSongIndex].id;
+
+      return {
+        ...prev,
+        currentSongId: nextSongId,
+        currentTime: 0,
+        duration: 0,
+      };
+    });
   };
 
   const handlePreviousSong = () => {
     if (!audioRef.current) return;
 
-    if (audioPlayer.loop) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    } else {
-      setAudioPlayer((prev) => {
-        if (prev.currentSongId === null) return prev;
-        return {
-          ...prev,
-          currentSongId: prev.currentSongId,
-          currentTime: 0,
-          duration: 0,
-        };
-      });
-    }
+    setAudioPlayer((prev) => {
+      if (prev.currentSongId === null) return prev;
+
+      const currentIndex = songs.findIndex(
+        (song) => song.id === prev.currentSongId,
+      );
+      const prevSongIndex =
+        currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
+      const prevSongId = songs[prevSongIndex].id;
+
+      return {
+        ...prev,
+        currentSongId: prevSongId,
+        currentTime: 0,
+        duration: 0,
+      };
+    });
   };
 
   const handleVolumeDown = () => {

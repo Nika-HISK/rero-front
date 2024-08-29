@@ -14,7 +14,7 @@ const songs = [
     audioSrc: '/2pac.mp3',
   },
   {
-    id: 3,
+    id: 51,
     src: '/big.jpg',
     music: 'hipnozi',
     artist: 'didi',
