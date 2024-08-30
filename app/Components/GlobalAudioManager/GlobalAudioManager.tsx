@@ -1,7 +1,7 @@
-import { audioPlayerState } from '@/app/Atoms/states';
 import { useRecoilState } from 'recoil';
-import songs from '../SmallPlayer/Utils/dummy-musics';
 import AudioManager from '../AudioManager/AudioManager';
+import songs from '../SmallPlayer/Utils/dummy-musics';
+import { audioPlayerState } from '@/app/Atoms/states';
 
 const GlobalAudioManager = () => {
   const [audioPlayer] = useRecoilState(audioPlayerState);

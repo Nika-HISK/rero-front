@@ -8,9 +8,6 @@ import { albumData } from './top-hits-album-data/top-hits-album-data';
 import { audioPlayerState } from '@/app/Atoms/states';
 import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
 import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
-import { useEffect } from 'react';
-import axios from 'axios';
-import BaseApi from '@/app/api/BaseApi';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
@@ -22,27 +19,10 @@ const TopHits = () => {
     }));
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .get(BaseApi)
-  //     .then((response) => {
-  //       const fetchedSongs = response.data.map((post: any) => ({
-  //         id: post.id,
-  //         artist: `Artist ${post.id}`,
-  //         music: post.title,
-  //         src: post.src,
-  //         audioSrc: `${post.id}.mp3`,
-  //       }));
-  //       setSongs(fetchedSongs);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching music data:', error);
-  //     });
-  // }, []);
   return (
     <>
       <div className={styles.wrapper}>
-        {songs.map((music) => (
+        {songs.slice(0, 3).map((music) => (
           <MusicBox
             id={music.id}
             key={music.id}

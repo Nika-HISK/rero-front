@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { RecoilRoot } from 'recoil';
+import GlobalAudioManager from '../Components/GlobalAudioManager/GlobalAudioManager';
 import Header from '../Components/Header/Header';
 import RecoilWrapper from '../Components/RecoilWrapper/RecoilWrapper';
-import GlobalAudioManager from '../Components/GlobalAudioManager/GlobalAudioManager';
 
 interface AuthorisedLayoutProps {
   children: React.ReactNode;
