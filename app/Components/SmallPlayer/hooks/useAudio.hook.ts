@@ -170,7 +170,7 @@ export const useAudioPlayer = (songs: Song[]) => {
   const isPlaying = !!audioRef.current?.paused;
 
   return {
-    audioRef,
+    ref: audioRef,
     progressRef,
     audioPlayer,
     handleProgressChange,

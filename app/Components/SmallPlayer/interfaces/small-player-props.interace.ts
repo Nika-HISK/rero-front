@@ -2,7 +2,6 @@ import { SongPropsInterface } from './song-props.interface';
 import { AtomAudioPlayerPropsInterface } from '@/app/Atoms/interfaces/audio-player.props.interface';
 
 export interface SmallPlayerPropsInterface extends SongPropsInterface {
-  audioRef: React.RefObject<HTMLAudioElement>;
   audioPlayer: AtomAudioPlayerPropsInterface;
   playMusic: () => void;
   handleProgressChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

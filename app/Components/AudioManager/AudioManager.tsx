@@ -33,13 +33,13 @@ const AudioManager = (props: SongPropsInterface) => {
 
   return (
     <>
+      <audio {...audioPlayerControls}></audio>
       <div className={!open ? styles.hidden : styles.notHiddenSmall}>
         <SmallPlayer
           open={open}
           setOpen={setOpen}
           songs={props.songs}
           {...audioPlayerControls}
-          ref={audioPlayerControls.audioRef}
         />
       </div>
       <div className={open ? styles.hidden : styles.notHidden}>

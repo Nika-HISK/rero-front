@@ -3,10 +3,10 @@
 import PlayerContent from './components/PlayerContent/PlayerContent';
 import { PlayerFullScreenPropsInterface } from './components/interfaces/player-full-screen-props.interface';
 
-const PlayerFullScreen = ({ setOpened }: PlayerFullScreenPropsInterface) => {
+const PlayerFullScreen = (props: PlayerFullScreenPropsInterface) => {
   return (
     <PlayerContent
-      setOpened={setOpened}
+      setOpened={props.setOpened}
       backgroundImage="/playerbackground.png"
     />
   );
