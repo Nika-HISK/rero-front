@@ -25,7 +25,6 @@ const Register = () => {
       });
       return;
     }
-    router.push('/login');
   };
 
   return (

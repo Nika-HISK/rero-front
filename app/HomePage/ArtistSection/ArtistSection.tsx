@@ -6,12 +6,12 @@ const ArtistSection = () => {
   return (
     <div className={styles.parentWrapper}>
       <div className={styles.wrapper}>
-        {artistSectionArray.map((artist, index) => (
+        {artistSectionArray.slice(0, 4).map((artist) => (
           <ArtistCard
-            key={index}
+            key={artist.id}
+            id={artist.id}
             artistName={artist.artistName}
             artistPhoto={artist.artistPhoto}
-            id={index}
           />
         ))}
       </div>

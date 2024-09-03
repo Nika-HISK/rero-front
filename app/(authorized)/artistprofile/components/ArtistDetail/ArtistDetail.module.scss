@@ -3,13 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1224px;
+  max-width: 704px;
+  width: 100%;
 }
 
 .detailWrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
 }
 
 .navigationBar {
