@@ -16,13 +16,12 @@
 }
 
 .container {
-  max-width: 1224px;
+  max-width: 200px;
   width: 100%;
   display: flex;
   justify-content: start;
-  margin-top: 32px;
-  padding-left: 12px;
-  padding-right: 12px;
+  overflow: hidden;
+  border-radius: 24px;
 }
 
 .mainContainer {

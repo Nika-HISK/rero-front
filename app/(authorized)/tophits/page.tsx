@@ -35,15 +35,20 @@ const TopHits = () => {
           />
         ))}
       </div>
-      <div className={styles.container}>
-        <TopAlbumsNavigationAnchore />
-      </div>
+
       <div className={styles.mainContainer}>
+        <div className={styles.container}>
+          <TopAlbumsNavigationAnchore />
+        </div>
         {albumData.map((album) => (
           <AlbumRow
-            key={album.albumName}
+            id={album.id}
+            key={album.id}
             albumName={album.albumName}
             duration={album.duration}
+            cover={album.cover}
+            music={album.music}
+            artistName={album.artistName}
           />
         ))}
       </div>

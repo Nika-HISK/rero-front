@@ -16,7 +16,7 @@ const ArtistDetail = (props: ArtistDescriptionPropsInterface) => {
           biography={props.biography}
         />
         <div className={styles.overviewWrapper}>
-          <Overview />
+          <Overview albums={props.albums || []} />
         </div>
       </div>
     </div>

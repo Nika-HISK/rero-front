@@ -22,18 +22,19 @@ const ArtistPage = () => {
         <ArtistDetail
           artistName={artistParam?.artistName || ''}
           biography={artistParam?.biography || ''}
+          albums={artistParam?.rowAlbumData || []}
         />
         <ArtistCover cover={artistParam?.artistPhoto || ''} />
       </div>
       <div className={styles.overviewContainer}>
-        <Overview />
+        <Overview albums={artistParam?.rowAlbumData || []} />
       </div>
       <Released />
-      <AlbumSection />
+      <AlbumSection artists={artistParam?.albumData || []} />
       <TopMusicHeader />
-      <RowAlbumSection />
+      <RowAlbumSection albums={artistParam?.rowAlbumData || []} />
     </>
   );
 };
-
+  
 export default ArtistPage;

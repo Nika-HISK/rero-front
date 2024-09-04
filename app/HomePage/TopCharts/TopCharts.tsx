@@ -8,11 +8,15 @@ const TopCharts = () => {
     <div className={styles.wrapper}>
       <SectionTitle title={'Top Charts'} link="/topcharts" />
       <div className={styles.container}>
-        {TopChartsAlbums.map((album, index) => (
+        {TopChartsAlbums.map((album) => (
           <AlbumRow
-            key={index}
+            key={album.id}
             albumName={album.albumName}
             duration={album.duration}
+            cover={album.cover}
+            music={album.music}
+            artistName={album.artistName}
+            id={album.id}
           />
         ))}
       </div>
