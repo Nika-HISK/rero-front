@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import BaseApi from '../api/BaseApi';
 import styles from './page.module.scss';
 import { RegisterPropsInterface } from './register-props.interaface/register-props.interface';
 
@@ -25,6 +26,14 @@ const Register = () => {
       });
       return;
     }
+
+    BaseApi.post('/auth/register', data)
+      .then(() => {
+        router.push('/login');
+      })
+      .catch((error) => {
+        alert(error.response.data.message)
+      });
   };
 
   return (
