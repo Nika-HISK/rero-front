@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
-import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const pathname = usePathname();
@@ -25,14 +25,14 @@ const Header = () => {
           </div>
           <Link className={styles.homeButton} href="/">
             {pathname == '/' ? (
-              <Icon name={'home'} width={48} height={48} isActive />
+              <Icon name={'home'} width={35} height={35} isActive />
             ) : (
               <Icon name={'home'} width={21} height={21} />
             )}
           </Link>
           <Link href={'/playlist'}>
             {pathname == '/playlist' ? (
-              <Icon name={'playlist'} width={48} height={48} isActive />
+              <Icon name={'playlist'} width={35} height={35} isActive />
             ) : (
               <Icon name={'playlist'} width={21} height={21} />
             )}

@@ -8,6 +8,7 @@ import Typhography from '../Components/Typhography/Typhography';
 import { TyphographyEnum } from '../Enums/Typhography.enum';
 import { LoginPropsInterface } from './login-props.interface/login-props.interface';
 import styles from './page.module.scss';
+import BaseApi from '../api/BaseApi';
 
 const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
@@ -30,7 +31,13 @@ const Login = () => {
       localStorage.setItem('password', data.password);
     }
 
-    router.push('/');
+    BaseApi.post('/auth/login', data)
+      .then(() => {
+        router.push('/');
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   };
 
   const handleCheckboxChange = () => {
