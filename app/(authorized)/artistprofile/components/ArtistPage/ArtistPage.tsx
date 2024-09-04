@@ -21,7 +21,7 @@ const ArtistPage = () => {
       <div className={styles.desktopArtistWrapper}>
         <ArtistDetail
           artistName={artistParam?.artistName || ''}
-          description={artistParam?.description || ''}
+          biography={artistParam?.biography || ''}
         />
         <ArtistCover cover={artistParam?.artistPhoto || ''} />
       </div>

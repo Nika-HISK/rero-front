@@ -1,10 +1,10 @@
 import ArtistDescription from '../ArtistDescription/ArtistDescription';
+import { ArtistDescriptionPropsInterface } from '../ArtistDescription/interfaces/artist-description-props.interface';
 import NavigationAnchors from '../NavigationAnchores/NavigationAnchores';
 import Overview from '../Overview/Overview';
 import styles from './ArtistDetail.module.scss';
-import { ArtistDetailPropsInterface } from './interfaces/artist-detail-props.interface';
 
-const ArtistDetail = (props: ArtistDetailPropsInterface) => {
+const ArtistDetail = (props: ArtistDescriptionPropsInterface) => {
   return (
     <div className={styles.desktopContainer}>
       <div className={styles.detailWrapper}>
@@ -13,7 +13,7 @@ const ArtistDetail = (props: ArtistDetailPropsInterface) => {
         </div>
         <ArtistDescription
           artistName={props.artistName}
-          description={props.description}
+          biography={props.biography}
         />
         <div className={styles.overviewWrapper}>
           <Overview />

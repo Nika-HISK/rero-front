@@ -1,4 +1,4 @@
 export interface ArtistDescriptionPropsInterface {
-  description: string;
+  biography: string;
   artistName: string;
 }
