@@ -1,4 +1,5 @@
 export type Song = {
+  id: number | null;
   src: string;
   music: string;
   artist: string;

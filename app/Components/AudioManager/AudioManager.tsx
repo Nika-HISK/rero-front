@@ -1,14 +1,23 @@
+'use client';
+
 import { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
+import songs from '../SmallPlayer/Utils/dummy-musics';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
 import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
+import { audioPlayerState } from '@/app/Atoms/states';
+import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const AudioManager = (props: SongPropsInterface) => {
-  const audioPlayerControls = useAudioPlayer(props.songs);
+  const audioPlayerControls = useAudioPlayer(songs);
   const [open, setOpen] = useState(true);
+
+  const audioPlayer = useRecoilValue(audioPlayerState);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId);
 
   useEffect(() => {
     if (open) {
@@ -22,11 +31,9 @@ const AudioManager = (props: SongPropsInterface) => {
     };
   }, [open]);
 
-  const currentSong =
-    props.songs[audioPlayerControls.audioPlayer.currentSongIndex];
-
   return (
     <>
+      <audio {...audioPlayerControls}></audio>
       <div className={!open ? styles.hidden : styles.notHiddenSmall}>
         <SmallPlayer
           open={open}
