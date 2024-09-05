@@ -14,24 +14,25 @@ const ArtistPage = () => {
   const { id } = useParams();
 
   const artistParam = artistSectionArray.find((artist) => artist.id === +id);
-  const MusicData = artistParam?.rowAlbumData || [];
+  if (artistParam === undefined) return null;
+  const MusicData = artistParam.rowAlbumData;
 
   return (
     <>
       <ArtistNavigation />
       <div className={styles.desktopArtistWrapper}>
         <ArtistDetail
-          artistName={artistParam?.artistName || ''}
-          biography={artistParam?.biography || ''}
+          artistName={artistParam.artistName}
+          biography={artistParam.biography}
           albums={MusicData}
         />
-        <ArtistCover cover={artistParam?.artistPhoto || ''} />
+        <ArtistCover cover={artistParam.artistPhoto} />
       </div>
       <div className={styles.overviewContainer}>
         <Overview albums={MusicData} />
       </div>
       <Released />
-      <AlbumSection artists={artistParam?.albumData || []} />
+      <AlbumSection artists={artistParam.albumData} />
       <TopMusicHeader />
       <RowAlbumSection albums={MusicData} />
     </>
