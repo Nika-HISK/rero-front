@@ -4,15 +4,14 @@ import styles from './ArtistCard.module.scss';
 import { ArtistCardPropsInterface } from './interfaces/artist-card-props.interface';
 
 const ArtistCard = (props: ArtistCardPropsInterface) => {
-  //TODO: Link href
   return (
-    <Link href="" className={styles.wrapper}>
+    <Link href={`/artistprofile/${props.id}`} className={styles.wrapper}>
       <div className={styles.container}>
         <Image
           src={props.artistPhoto}
           alt={props.artistName}
           width={158}
-          height={305}
+          height={274}
         />
       </div>
       <div className={styles.containerParagraph}>

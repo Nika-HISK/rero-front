@@ -2,7 +2,7 @@ import { NavigationPropsInterface } from '@/app/Components/NavigationItem/interf
 
 const ArtistItems: NavigationPropsInterface[] = [
   { title: 'Home', href: '/' },
-  { title: 'Top Artists', href: '/' },
+  { title: 'Top Artists', href: '/topartists' },
 ];
 
 export default ArtistItems;

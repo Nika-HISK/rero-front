@@ -1,7 +1,5 @@
-export interface ArtistDescriptionPropsInterface {
-  biography: string;
-  artistName: string;
-  albums?: {
+export interface RowAlbumSectionPropsInterface {
+  albums: {
     artistName: string;
     music: string;
     cover: string;
