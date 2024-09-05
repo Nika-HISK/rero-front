@@ -1,7 +1,7 @@
-import AlbumRow from '../../Components/AlbumRow/AlbumRow';
 import { TopHitsAlbums } from '../../HomePage/TopHits/top-hits-data/top-hits-data';
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import styles from './page.module.scss';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const TopCharts = () => {
   return (
@@ -10,11 +10,15 @@ const TopCharts = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {TopHitsAlbums.map((album, index) => (
-          <AlbumRow
-            key={index}
+        {TopHitsAlbums.map((album) => (
+          <MusicRow
+            id={album.id}
+            key={album.id}
             albumName={album.albumName}
             duration={album.duration}
+            cover={album.cover}
+            music={album.music}
+            artistName={album.artistName}
           />
         ))}
       </div>

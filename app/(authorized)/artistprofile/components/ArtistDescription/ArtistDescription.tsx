@@ -6,7 +6,7 @@ const ArtistDescription = (props: ArtistDescriptionPropsInterface) => {
     <div className={styles.textContainer}>
       <span className={styles.artist}>Artist</span>
       <h1>{props.artistName}</h1>
-      <span className={styles.description}>{props.description}</span>
+      <span className={styles.description}>{props.biography}</span>
     </div>
   );
 };

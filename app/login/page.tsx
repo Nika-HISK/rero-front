@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Typhography from '../Components/Typhography/Typhography';
 import { TyphographyEnum } from '../Enums/Typhography.enum';
+import BaseApi from '../api/BaseApi';
 import { LoginPropsInterface } from './login-props.interface/login-props.interface';
 import styles from './page.module.scss';
-import BaseApi from '../api/BaseApi';
 
 const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);

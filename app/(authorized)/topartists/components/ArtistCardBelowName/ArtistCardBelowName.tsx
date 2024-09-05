@@ -4,9 +4,8 @@ import styles from './ArtistCardBelowName.module.scss';
 import { ArtistCardBelowNamePropsInterface } from './interfaces/artist-card-below-name-props.interface';
 
 const ArtistCardBelowName = (props: ArtistCardBelowNamePropsInterface) => {
-  //TODO Link Href
   return (
-    <Link className={styles.wrapper} href="">
+    <Link className={styles.wrapper} href={`/artistprofile/${props.id}`}>
       <Image
         src={props.artistPhoto}
         width={392}
