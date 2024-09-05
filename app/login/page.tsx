@@ -32,8 +32,9 @@ const Login = () => {
     }
 
     BaseApi.post('/auth/login', data)
-      .then(() => {
+      .then((response) => {
         router.push('/');
+        localStorage.setItem('token', response.data.accessToken);
       })
       .catch((error) => {
         alert(error.response.data.message);
