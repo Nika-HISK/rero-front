@@ -1,13 +1,13 @@
 import styles from './RowAlbumSection.module.scss';
 import { RowAlbumSectionPropsInterface } from './interfaces/row-album-section-props.interface';
-import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const RowAlbumSection = (props: RowAlbumSectionPropsInterface) => {
   return (
     <div className={styles.topMusicContainer}>
       <div className={styles.topMusicWrapper}>
         {props.albums.map((album) => (
-          <AlbumRow
+          <MusicRow
             id={album.id}
             key={album.id}
             duration={album.duration}

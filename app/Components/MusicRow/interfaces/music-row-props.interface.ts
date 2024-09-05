@@ -1,4 +1,4 @@
-export interface AlbumRowPropsInterface {
+export interface MusicRowPropsInterface {
   id: number;
   albumName: string;
   duration: string;

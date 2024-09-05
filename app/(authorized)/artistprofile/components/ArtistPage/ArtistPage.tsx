@@ -14,6 +14,7 @@ const ArtistPage = () => {
   const { id } = useParams();
 
   const artistParam = artistSectionArray.find((artist) => artist.id === +id);
+  const MusicData = artistParam?.rowAlbumData || [];
 
   return (
     <>
@@ -22,19 +23,19 @@ const ArtistPage = () => {
         <ArtistDetail
           artistName={artistParam?.artistName || ''}
           biography={artistParam?.biography || ''}
-          albums={artistParam?.rowAlbumData || []}
+          albums={MusicData}
         />
         <ArtistCover cover={artistParam?.artistPhoto || ''} />
       </div>
       <div className={styles.overviewContainer}>
-        <Overview albums={artistParam?.rowAlbumData || []} />
+        <Overview albums={MusicData} />
       </div>
       <Released />
       <AlbumSection artists={artistParam?.albumData || []} />
       <TopMusicHeader />
-      <RowAlbumSection albums={artistParam?.rowAlbumData || []} />
+      <RowAlbumSection albums={MusicData} />
     </>
   );
 };
-  
+
 export default ArtistPage;

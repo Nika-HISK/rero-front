@@ -1,6 +1,6 @@
 import { RowAlbumSectionPropsInterface } from '../RowAlbumSection/interfaces/row-album-section-props.interface';
 import styles from './Overview.module.scss';
-import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const Overview = (props: RowAlbumSectionPropsInterface) => {
   return (
@@ -10,7 +10,7 @@ const Overview = (props: RowAlbumSectionPropsInterface) => {
       </div>
       <div className={styles.timeContainer}>
         {props.albums.slice(0, 4).map((album) => (
-          <AlbumRow
+          <MusicRow
             id={album.id}
             key={album.id}
             duration={album.duration}

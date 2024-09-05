@@ -6,7 +6,7 @@ import MusicBox from './components/MusicBox/MusicBox';
 import styles from './page.module.scss';
 import { albumData } from './top-hits-album-data/top-hits-album-data';
 import { audioPlayerState } from '@/app/Atoms/states';
-import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
 
 const TopHits = () => {
@@ -41,7 +41,7 @@ const TopHits = () => {
           <TopAlbumsNavigationAnchore />
         </div>
         {albumData.map((album) => (
-          <AlbumRow
+          <MusicRow
             id={album.id}
             key={album.id}
             albumName={album.albumName}

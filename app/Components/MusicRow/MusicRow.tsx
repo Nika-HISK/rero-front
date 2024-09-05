@@ -1,8 +1,8 @@
-import styles from './AlbumRow.module.scss';
+import styles from './MusicRow.module.scss';
 import MusicRowImage from './components/MusicRowImage/MusicRowImage';
-import { AlbumRowPropsInterface } from './interfaces/album-row-props.interface';
+import { MusicRowPropsInterface } from './interfaces/music-row-props.interface';
 
-const AlbumRow = (props: AlbumRowPropsInterface) => {
+const MusicRow = (props: MusicRowPropsInterface) => {
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
@@ -21,4 +21,4 @@ const AlbumRow = (props: AlbumRowPropsInterface) => {
   );
 };
 
-export default AlbumRow;
+export default MusicRow;

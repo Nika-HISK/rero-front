@@ -1,7 +1,7 @@
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './TopHits.module.scss';
 import { TopHitsAlbums } from './top-hits-data/top-hits-data';
-import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const TopHits = () => {
   return (
@@ -9,7 +9,7 @@ const TopHits = () => {
       <SectionTitle title="Top Hits" link="/tophits" />
       <div className={styles.container}>
         {TopHitsAlbums.map((album) => (
-          <AlbumRow
+          <MusicRow
             id={album.id}
             key={album.id}
             albumName={album.albumName}
