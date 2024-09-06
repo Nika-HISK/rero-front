@@ -18,6 +18,7 @@ const TopAlbumLibrary = () => {
               albumTime={album.albumTime}
               songCount={album.songCount}
               backgroundImage={album.backgroundImage}
+              id={album.id}
             />
           ))}
         </div>

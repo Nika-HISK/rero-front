@@ -1,15 +1,17 @@
+import Link from 'next/link';
 import styles from './BackgroundAlbumCard.module.scss';
 import { BackgroundAlbumCardPropsInterface } from './interfaces/background-album-card-props.interface';
 
 const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
   return (
-    <div
+    <Link
       className={styles.wrapper}
       style={{
         backgroundImage: `url(${props.backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
+      href={`/topalbums/${props.id}`}
     >
       <div className={styles.container}>
         <span className={styles.albumName}>{props.albumName}</span>
@@ -19,7 +21,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
       <div className={styles.songCountContainer}>
         <span className={styles.songCount}>{props.songCount}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

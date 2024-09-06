@@ -4,4 +4,5 @@ export interface BackgroundAlbumCardPropsInterface {
   albumTime: string;
   songCount: string;
   backgroundImage?: string;
+  id: number;
 }
