@@ -14,8 +14,22 @@
   cursor: pointer;
 }
 
+.popupWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
 .wrapper:hover {
   background: linear-gradient(90deg, #13828a 0%, #052224 100%);
+}
+
+.mainWrapperOfButtonsAndModules {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 .container {
   display: flex;
@@ -31,6 +45,14 @@
 
 .musicImage img {
   border-radius: 50%;
+}
+
+.artistName {
+  text-align: center;
+}
+
+.musicName {
+  text-align: center;
 }
 
 .createTime {
