@@ -1,18 +1,17 @@
-import styles from './SelectPlaylistPopUp.module.scss';
 import { useState } from 'react';
-import { albumsSelectPupUpDummy } from './select-playlist-dummy-data/dummy-data';
 import Button from '../Button/Button';
+import styles from './SelectPlaylistPopUp.module.scss';
+import { SelectPlaylistPopupPropsInterface } from './interface/select-playlist-popup-props.interface';
+import { albumsSelectPupUpDummy } from './select-playlist-dummy-data/dummy-data';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
-import { SelectPlaylistPopupPropsInterface } from './interface/select-playlist-popup-props.interface';
 
 const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
-  //TODO confirm button function
   const [value, setValue] = useState<string | undefined>(undefined);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value);
-    props.value(true);
+    props.setOpen(true);
   };
 
   return (
@@ -40,7 +39,7 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
               mode={ButtonMode.Fill}
               title="Cancel"
               type={ButtonType.Text}
-              onClick={() => props.value(false)}
+              onClick={() => props.setOpen(false)}
             />
           </div>
           <div className={styles.confirmButtonWrapper}>
@@ -49,7 +48,7 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
               title="Confirm"
               type={ButtonType.Text}
               disabled={!value}
-              onClick={() => props.value(false)}
+              onClick={() => props.setOpen(false)}
             />
           </div>
         </div>

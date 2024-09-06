@@ -1,4 +1,4 @@
 export interface SelectPlaylistPopupPropsInterface {
-  value: (value: boolean) => void;
+  setOpen: (value: boolean) => void;
   option: boolean;
 }
