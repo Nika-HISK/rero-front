@@ -1,7 +1,9 @@
+'use client';
+
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import ArtistCardBelowName from './components/ArtistCardBelowName/ArtistCardBelowName';
-import { ArtistsCard } from './components/ArtistCardBelowName/artist-dummy-data/artist-dummy-data';
 import styles from './page.module.scss';
+import { artistSectionArray } from '@/app/HomePage/ArtistSection/artist-section-data/artist-secion-data';
 
 const TopArtists = () => {
   return (
@@ -10,9 +12,10 @@ const TopArtists = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {ArtistsCard.map((artist, index) => (
+        {artistSectionArray.map((artist) => (
           <ArtistCardBelowName
-            key={index}
+            id={artist.id}
+            key={artist.id}
             artistPhoto={artist.artistPhoto}
             artistName={artist.artistName}
           />

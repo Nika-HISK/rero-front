@@ -1,9 +1,10 @@
 import ArtistDescription from '../ArtistDescription/ArtistDescription';
+import { ArtistDescriptionPropsInterface } from '../ArtistDescription/interfaces/artist-description-props.interface';
 import NavigationAnchors from '../NavigationAnchores/NavigationAnchores';
 import Overview from '../Overview/Overview';
 import styles from './ArtistDetail.module.scss';
 
-const ArtistDetail = () => {
+const ArtistDetail = (props: ArtistDescriptionPropsInterface) => {
   return (
     <div className={styles.desktopContainer}>
       <div className={styles.detailWrapper}>
@@ -11,11 +12,11 @@ const ArtistDetail = () => {
           <NavigationAnchors />
         </div>
         <ArtistDescription
-          artistName="artist name"
-          description="Here is description of an artist. admin should input this. Here is description of an artist."
+          artistName={props.artistName}
+          biography={props.biography}
         />
         <div className={styles.overviewWrapper}>
-          <Overview />
+          <Overview albums={props.albums || []} />
         </div>
       </div>
     </div>

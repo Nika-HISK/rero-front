@@ -14,9 +14,9 @@ const AlbumRow = (props: AlbumRowPropsInterface) => {
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
         <MusicRowImage
-          cover={'/big.jpg'}
-          music={'Music Name'}
-          artist={'Artist Name'}
+          cover={props.cover}
+          music={props.music}
+          artist={props.artistName}
         />
         <p>{props.albumName}</p>
         <div className={styles.container}>
@@ -31,4 +31,4 @@ const AlbumRow = (props: AlbumRowPropsInterface) => {
   );
 };
 
-export default AlbumRow;
+export default MusicRow;

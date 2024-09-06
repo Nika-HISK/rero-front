@@ -1,16 +1,20 @@
 import styles from './RowAlbumSection.module.scss';
-import { rowAlbumData } from './row-album-dummy-data';
-import AlbumRow from '@/app/Components/AlbumRow/AlbumRow';
+import { RowAlbumSectionPropsInterface } from './interfaces/row-album-section-props.interface';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
-const RowAlbumSection = () => {
+const RowAlbumSection = (props: RowAlbumSectionPropsInterface) => {
   return (
     <div className={styles.topMusicContainer}>
       <div className={styles.topMusicWrapper}>
-        {rowAlbumData.map((album, index) => (
-          <AlbumRow
-            key={index}
+        {props.albums.map((album) => (
+          <MusicRow
+            id={album.id}
+            key={album.id}
             duration={album.duration}
             albumName={album.albumName}
+            cover={album.cover}
+            music={album.music}
+            artistName={album.artistName}
           />
         ))}
       </div>

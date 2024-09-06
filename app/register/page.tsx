@@ -32,7 +32,7 @@ const Register = () => {
         router.push('/login');
       })
       .catch((error) => {
-        alert(error.response.data.message)
+        alert(error.response.data.message);
       });
   };
 
