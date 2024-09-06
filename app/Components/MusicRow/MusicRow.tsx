@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import styles from './AlbumRow.module.scss';
+import styles from './MusicRow.module.scss';
 import { useState } from 'react';
 import MusicRowImage from './components/MusicRowImage/MusicRowImage';
-import { AlbumRowPropsInterface } from './interfaces/album-row-props.interface';
 import SelectPlaylistPopUp from '../SelectPlaylistPopUp/SelectPlaylistPopUp';
+import { MusicRowPropsInterface } from './interfaces/music-row-props.interface';
 
-const AlbumRow = (props: AlbumRowPropsInterface) => {
+const AlbumRow = (props: MusicRowPropsInterface) => {
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -25,10 +25,10 @@ const AlbumRow = (props: AlbumRowPropsInterface) => {
         </div>
       </div>
       {open &&
-        <SelectPlaylistPopUp  option={open} value={setOpen} />
+        <SelectPlaylistPopUp option={open} value={setOpen} />
       }
     </div>
   );
 };
 
-export default MusicRow;
+export default AlbumRow;
