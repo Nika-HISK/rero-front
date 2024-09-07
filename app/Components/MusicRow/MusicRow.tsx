@@ -11,7 +11,7 @@ const MusicRow = (props: MusicRowPropsInterface) => {
           music={props.music}
           artist={props.artistName}
         />
-        <p>{props.albumName}</p> 
+        <p>{props.albumName}</p>
         <div className={styles.container}>
           <p>{props.duration}</p>
           <div className={styles.plus}></div>

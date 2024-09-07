@@ -9,29 +9,24 @@
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "import", "react-hooks", "prettier"],
   "rules": {
-    "no-console": "warn",  
+    "no-console": "warn",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/array-type": ["warn", { "default": "array" }], 
-    "@typescript-eslint/ban-ts-comment": "warn", 
-    "@typescript-eslint/no-inferrable-types": "warn", 
+    "@typescript-eslint/array-type": ["warn", { "default": "array" }],
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-inferrable-types": "warn",
     "prettier/prettier": [
-      "warn", 
+      "warn",
       {
         "endOfLine": "auto"
       }
     ],
     "no-var": "error",
-    "prefer-const": "warn", 
-    "@typescript-eslint/explicit-function-return-type": "off", 
+    "prefer-const": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/typedef": [
-      "warn", 
+      "warn",
       {
         "arrayDestructuring": false,
         "arrowParameter": false,
@@ -52,15 +47,15 @@
       }
     ],
     "@typescript-eslint/no-require-imports": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "off", 
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-unused-vars": [
-      "warn", 
+      "warn",
       {
         "argsIgnorePattern": "^_"
       }
     ],
-    "@typescript-eslint/no-explicit-any": "warn", 
+    "@typescript-eslint/no-explicit-any": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn" 
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
