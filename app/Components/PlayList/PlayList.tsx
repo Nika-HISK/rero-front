@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
 import styles from './PlayList.module.scss';
 import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
-import { SongObject } from '@/app/(authorised)/playlist/dummyData/dummyData';
+import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
 
 const PlayList = ({
   playlistName,
