@@ -20,6 +20,7 @@
 
 .playlistName {
   padding-left: 5%;
+  text-align: center;
 }
 
 .playListWrapper .wrapper {
@@ -83,6 +84,7 @@
   padding-top: 16px;
   padding-bottom: 8px;
 }
+
 .images img {
   cursor: pointer;
 }
@@ -94,8 +96,6 @@
   padding-bottom: 12px;
   padding-left: 2px;
   padding-right: 2px;
-  height: 470px;
-  overflow-y: scroll;
 }
 
 .mapContainer::-webkit-scrollbar {
