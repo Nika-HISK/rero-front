@@ -1,4 +1,4 @@
-import { SongObject } from '@/app/(authorised)/playlist/dummyData/dummyData';
+import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
 
 export interface AlbumRowTimePropsInterface {
   isActive: boolean;
