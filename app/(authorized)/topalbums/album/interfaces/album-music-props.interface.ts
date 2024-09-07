@@ -11,5 +11,4 @@ export interface AlbumPagePropsInterface {
   duration: string;
   cover: string;
   music: string;
-
 }
