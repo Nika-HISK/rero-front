@@ -11,7 +11,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      href={`/topalbums/${props.id}`}
+      href={`/topalbums/albummusic/${props.id}`}
     >
       <div className={styles.container}>
         <span className={styles.albumName}>{props.albumName}</span>

@@ -1,16 +1,15 @@
 'use client';
 import { useParams } from 'next/navigation';
-import { AlbumCardDatas } from '../topalbums/components/TopAlbumLibrary/dummyAlbums/album-dummy-data';
-import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import { AlbumMusicPropsInterface } from './interfaces/album-music-props.interface';
-import styles from './page.module.scss';
+import { AlbumCardDatas } from '../../components/TopAlbumLibrary/dummyAlbums/album-dummy-data';
+import TopAlbumsNavigationAnchore from '../../components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
+import { AlbumPagePropsInterface } from '../interfaces/album-music-props.interface';
+import styles from '../page.module.scss';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const AlbumMusic = () => {
   const { id } = useParams();
-
-  const artistParam = AlbumCardDatas.find((album) => album.id === +id);
-  if (artistParam === undefined) return null;
+  const albumParam = AlbumCardDatas.find((album) => album.id === +id);
+  if (albumParam === undefined) return null;
 
   return (
     <div className={styles.wrapper}>
@@ -18,7 +17,7 @@ const AlbumMusic = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {artistParam.albumHits?.map((data: AlbumMusicPropsInterface) => {
+        {albumParam.albumHits?.map((data: AlbumPagePropsInterface) => {
           return (
             <MusicRow
               id={data.id}

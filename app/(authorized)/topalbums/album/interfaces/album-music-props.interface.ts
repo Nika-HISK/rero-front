@@ -1,6 +1,6 @@
 import { AlbumHitsPropsInterface } from './album-hits-props.interface';
 
-export interface AlbumMusicPropsInterface {
+export interface AlbumPagePropsInterface {
   id: number;
   albumName: string;
   artistName: string;
@@ -11,4 +11,5 @@ export interface AlbumMusicPropsInterface {
   duration: string;
   cover: string;
   music: string;
+
 }
