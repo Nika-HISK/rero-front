@@ -8,8 +8,8 @@ import MusicRow from '@/app/Components/MusicRow/MusicRow';
 
 const AlbumMusic = () => {
   const { id } = useParams();
-  const albumParam = AlbumCardDatas.find((album) => album.id === +id);
-  if (albumParam === undefined) return null;
+  const albumId = AlbumCardDatas.find((album) => album.id === +id);
+  if (albumId === undefined) return null;
 
   return (
     <div className={styles.wrapper}>
@@ -17,7 +17,7 @@ const AlbumMusic = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {albumParam.albumHits?.map((data: AlbumPagePropsInterface) => {
+        {albumId.albumHits?.map((data: AlbumPagePropsInterface) => {
           return (
             <MusicRow
               id={data.id}

@@ -11,7 +11,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      href={`/topalbums/albummusic/${props.id}`}
+      href={`/topalbums/album/${props.id}`}
     >
       <div className={styles.container}>
         <span className={styles.albumName}>{props.albumName}</span>
@@ -19,7 +19,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
         <span className={styles.time}>{props.albumTime}</span>
       </div>
       <div className={styles.songCountContainer}>
-        <span className={styles.songCount}>{props.songCount}</span>
+        <span className={styles.songCount}>{`${props.songCount} ${props.songCount > 1 ? 'songs' : 'song'}`}</span>
       </div>
     </Link>
   );
