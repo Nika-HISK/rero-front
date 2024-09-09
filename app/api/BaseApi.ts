@@ -7,7 +7,7 @@ const BaseApi = axios.create({
 
 BaseApi.interceptors.request.use(
   (config) => {
-    const token = getToken()
+    const token = getToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -18,6 +18,5 @@ BaseApi.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-
 
 export default BaseApi;
