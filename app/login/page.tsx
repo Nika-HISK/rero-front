@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Typhography from '../Components/Typhography/Typhography';
 import { TyphographyEnum } from '../Enums/Typhography.enum';
+import { setCookie } from '../Helpers/cookies';
 import BaseApi from '../api/BaseApi';
 import { LoginPropsInterface } from './login-props.interface/login-props.interface';
 import styles from './page.module.scss';
@@ -33,8 +34,8 @@ const Login = () => {
 
     BaseApi.post('/auth/login', data)
       .then((response) => {
+        setCookie('token', response.data.accessToken, 60);
         router.push('/');
-        localStorage.setItem('token', response.data.accessToken);
       })
       .catch((error) => {
         alert(error.response.data.message);
