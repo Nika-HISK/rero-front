@@ -5,7 +5,7 @@ export interface ButtonPropsInterface {
   title?: string;
   mode?: ButtonMode;
   disabled?: boolean;
-  onClick?: () => void;
   icon?: string;
   type?: ButtonType;
+  onClick?: () => void;
 }

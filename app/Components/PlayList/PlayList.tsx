@@ -4,11 +4,17 @@ import Image from 'next/image';
 import { useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
 import styles from './PlayList.module.scss';
-import { PlayListData } from './play-list-dummy-data/play-list-dummy-data';
 import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
+import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
 
-const PlayList = (props: PlayListPropsinterface) => {
+const PlayList = ({
+  playlistName,
+  artistPhoto,
+  isActive,
+  artists,
+}: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [artistsData, setArtistsData] = useState<SongObject[]>([...artists]);
 
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
@@ -20,12 +26,12 @@ const PlayList = (props: PlayListPropsinterface) => {
         <div className={styles.wrapper}>
           <Image
             className={styles.artistCover}
-            src={props.artistPhoto}
-            alt={`${props.playlistName} cover`}
+            src={artistPhoto}
+            alt={`${playlistName} cover`}
             width={53}
             height={53}
           />
-          <span className={styles.playlistName}>{props.playlistName}</span>
+          <span className={styles.playlistName}>{playlistName}</span>
           <Image
             onClick={onChangeToggle}
             src={isOpen ? '/playlist/down.svg' : '/playlist/up.svg'}
@@ -52,14 +58,17 @@ const PlayList = (props: PlayListPropsinterface) => {
             />
           </div>
           <div className={styles.mapContainer}>
-            {PlayListData.map((album, index) => (
+            {artistsData.map((artist: SongObject, index: number) => (
               <AlbumRowTime
-                key={index}
-                src={album.src}
-                musicName={album.musicName}
-                artistName={album.artistName}
-                albumName={album.albumName}
-                createTime={album.createTime}
+                src={artist.src}
+                artistData={artist}
+                index={index}
+                key={index + 1}
+                artistDataArray={artistsData}
+                filter={(artistsData: SongObject[]) =>
+                  setArtistsData(artistsData)
+                }
+                isActive={isActive}
               />
             ))}
           </div>
