@@ -6,4 +6,5 @@ export interface AlbumRowTimePropsInterface {
   artistData: SongObject;
   artistDataArray: SongObject[];
   filter: (data: SongObject[]) => void;
+  src: string;
 }

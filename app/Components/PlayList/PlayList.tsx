@@ -60,6 +60,7 @@ const PlayList = ({
           <div className={styles.mapContainer}>
             {artistsData.map((artist: SongObject, index: number) => (
               <AlbumRowTime
+                src={artist.src}
                 artistData={artist}
                 index={index}
                 key={index + 1}
