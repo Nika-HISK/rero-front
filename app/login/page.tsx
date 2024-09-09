@@ -9,6 +9,7 @@ import { TyphographyEnum } from '../Enums/Typhography.enum';
 import BaseApi from '../api/BaseApi';
 import { LoginPropsInterface } from './login-props.interface/login-props.interface';
 import styles from './page.module.scss';
+import { setCookie } from '../Helpers/cookies';
 
 const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
@@ -33,12 +34,13 @@ const Login = () => {
 
     BaseApi.post('/auth/login', data)
       .then((response) => {
-        router.push('/');
-        localStorage.setItem('token', response.data.accessToken);
-      })
-      .catch((error) => {
+       setCookie('token', response.data.accessToken, 60)
+       router.push('/')
+       })
+      .catch((error) => { 
         alert(error.response.data.message);
       });
+       
   };
 
   const handleCheckboxChange = () => {
