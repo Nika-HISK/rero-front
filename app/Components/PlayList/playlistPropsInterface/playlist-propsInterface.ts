@@ -1,6 +1,6 @@
 export interface PlayListPropsinterface {
   playlistName: string;
-  artistName?: string;
+  artistName: string;
   artistPhoto: string;
-  musicName?: string;
+  musicName: string;
 }

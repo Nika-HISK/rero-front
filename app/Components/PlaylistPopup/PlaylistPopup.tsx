@@ -41,20 +41,12 @@ const PlaylistPopup = () => {
             />
           </div>
           <div className={styles.button}>
-            {value.length > 0 ? (
-              <Button
-                mode={ButtonMode.Fill}
-                type={ButtonType.Text}
-                title="Confirm"
-              />
-            ) : (
-              <Button
-                mode={ButtonMode.Fill}
-                type={ButtonType.Text}
-                title="Confirm"
-                disabled
-              />
-            )}
+            <Button
+              mode={ButtonMode.Fill}
+              type={ButtonType.Text}
+              title="Confirm"
+              disabled={value.length === 0}
+            />
           </div>
         </div>
       </div>
