@@ -11,12 +11,12 @@ const AlbumsColumn = () => {
     [],
   );
 
-  // useEffect(() => {
-  //   BaseApi.get('/')
-  //     .then((response) => {
-  //       setAlbumData(response.data);
-  //     })
-  // }, []);
+  useEffect(() => {
+    BaseApi.get('/album ')
+      .then((response) => {
+        setAlbumData(response.data);
+      })
+  }, []);
 
   return (
     <div className={styles.wrapper}>

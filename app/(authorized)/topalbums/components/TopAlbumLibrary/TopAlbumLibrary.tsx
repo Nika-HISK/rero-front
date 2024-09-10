@@ -24,9 +24,9 @@ const TopAlbumLibrary = () => {
           {albumData.map((album, index) => (
             <BackgroundAlbumCard
               key={index}
-              albumName={album.albumName}
+              name={album.name}
               artistName={album.artistName}
-              albumTime={album.albumTime}
+              releaseDate={album.releaseDate}
               songCount={album.songCount}
               backgroundImage={album.backgroundImage}
               id={album.id}
