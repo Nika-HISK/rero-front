@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import styles from './LongAlbumCover.module.scss';
 import { LongAlbumCoverPropsInterface } from './interfaces/long-album-cover-props.interface';
+import { useParams } from 'next/navigation';
 
 const LongAlbumCover = (props: LongAlbumCoverPropsInterface) => {
-  //TODO Link href
+  const { id } = useParams();
   return (
     <Link
-      href=""
+      href={`/topalbums/album/${props.id}`}
       className={styles.wrapper}
       style={{
         backgroundImage: `url(${props.backgroundImage})`,
