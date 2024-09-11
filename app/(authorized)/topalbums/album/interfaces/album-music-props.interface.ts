@@ -4,8 +4,7 @@ export interface AlbumPagePropsInterface {
   id: number;
   albumName: string;
   artistName: string;
-  albumHits?: AlbumHitsPropsInterface[];
+  musics: AlbumHitsPropsInterface[];
   duration: string;
-  cover: string;
-  music: string;
+  cover?: string;
 }

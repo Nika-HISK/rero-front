@@ -6,13 +6,18 @@ const BaseApi = axios.create({
 });
 
 BaseApi.interceptors.request.use(
-  (config) => {
-    const token = getToken();
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+  async (config) => {
+    try {
+      const token = await getToken();
 
-    return config;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      return config;
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
   (error) => {
     return Promise.reject(error);

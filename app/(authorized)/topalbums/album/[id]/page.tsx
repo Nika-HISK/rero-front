@@ -1,15 +1,22 @@
 'use client';
 import { useParams } from 'next/navigation';
-import { AlbumCardDatas } from '../../components/TopAlbumLibrary/dummyAlbums/album-dummy-data';
+import { useEffect, useState } from 'react';
 import TopAlbumsNavigationAnchore from '../../components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import { AlbumPagePropsInterface } from '../interfaces/album-music-props.interface';
 import styles from '../page.module.scss';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
+import BaseApi from '@/app/api/BaseApi';
 
 const AlbumMusic = () => {
+  const [musicData, setMusicData] = useState<AlbumPagePropsInterface>();
+
   const { id } = useParams();
-  const albumId = AlbumCardDatas.find((album) => album.id === +id);
-  if (albumId === undefined) return null;
+
+  useEffect(() => {
+    BaseApi.get(`/album/${id}`).then((response) => {
+      setMusicData(response.data);
+    });
+  }, [id]);
 
   return (
     <div className={styles.wrapper}>
@@ -17,19 +24,20 @@ const AlbumMusic = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {albumId.albumHits?.map((data: AlbumPagePropsInterface) => {
-          return (
-            <MusicRow
-              id={data.id}
-              key={data.id}
-              albumName={data.albumName}
-              duration={data.duration}
-              cover={data.cover}
-              music={data.music}
-              artistName={data.artistName}
-            />
-          );
-        })}
+        {musicData &&
+          musicData.musics.map((data) => {
+            return (
+              <MusicRow
+                id={data.id}
+                key={data.id}
+                albumName={data.albumName}
+                duration={data.duration}
+                cover={data.cover}
+                music={data.music}
+                artistName={data.artistName}
+              />
+            );
+          })}
       </div>
     </div>
   );
