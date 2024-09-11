@@ -1,10 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import BaseApi from '@/app/api/BaseApi';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './AlbumsColumn.module.scss';
 import LongAlbumCover from './LongAlbumCover/LongAlbumCover';
 import { LongAlbumCoverPropsInterface } from './LongAlbumCover/interfaces/long-album-cover-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const AlbumsColumn = () => {
   const [albumsData, setAlbumData] = useState<LongAlbumCoverPropsInterface[]>(
@@ -12,10 +12,9 @@ const AlbumsColumn = () => {
   );
 
   useEffect(() => {
-    BaseApi.get('/album ')
-      .then((response) => {
-        setAlbumData(response.data);
-      })
+    BaseApi.get('/album ').then((response) => {
+      setAlbumData(response.data);
+    });
   }, []);
 
   return (
@@ -27,7 +26,7 @@ const AlbumsColumn = () => {
             id={album.id}
             key={album.id}
             artistName={album.artistName}
-            albumName={album.albumName}
+            name={album.name}
             backgroundImage={album.backgroundImage}
           />
         ))}

@@ -1,6 +1,6 @@
 export interface LongAlbumCoverPropsInterface {
   id: number;
-  albumName: string;
+  name: string;
   artistName: string;
   backgroundImage?: string;
 }

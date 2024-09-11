@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import BackgroundAlbumCard from '../BackgroundAlbumCard/BackgroundAlbumCard';
+import { BackgroundAlbumCardPropsInterface } from '../BackgroundAlbumCard/interfaces/background-album-card-props.interface';
 import styles from './TopAlbumLibrary.module.scss';
 import BaseApi from '@/app/api/BaseApi';
-import { BackgroundAlbumCardPropsInterface } from '../BackgroundAlbumCard/interfaces/background-album-card-props.interface';
 
 const TopAlbumLibrary = () => {
   const [albumData, setAlbumData] = useState<

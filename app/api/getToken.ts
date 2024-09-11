@@ -7,7 +7,6 @@ const getToken = async (): Promise<string | null> => {
     const token = cookies().get('token');
     return token ? token.value : null;
   } catch (error) {
-    console.error('Error fetching token:', error);
     return null;
   }
 };
