@@ -10,18 +10,17 @@ import { useEffect, useState } from 'react';
 import { AlbumHitsPropsInterface } from '../interfaces/album-hits-props.interface';
 
 const AlbumMusic = () => {
-  const [musicData, setMusicData] = useState<AlbumPagePropsInterface[]>([]);
+  const [musicData, setMusicData] = useState<AlbumPagePropsInterface>();
   console.log(musicData);
 
   const { id } = useParams();
-  const albumId = musicData.find((album) => album.id === +id);
-  if (albumId === undefined) return null;
 
   useEffect(() => {
-    BaseApi.get('/album').then((response) => {
+    BaseApi.get(`/album/${id}`).then((response) => {
       setMusicData(response.data);
     });
   });
+
 
   return (
     <div className={styles.wrapper}>
@@ -29,7 +28,7 @@ const AlbumMusic = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {albumId.musics?.map((data) => {
+        {musicData && musicData.musics.map((data) => {
           return (
             <MusicRow
               id={data.id}

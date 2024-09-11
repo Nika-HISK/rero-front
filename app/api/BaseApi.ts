@@ -6,10 +6,16 @@ const BaseApi = axios.create({
 });
 
 BaseApi.interceptors.request.use(
-  (config) => {
-    const token = getToken();
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+  async (config) => {
+    try {
+      const token = await getToken(); 
+      console.log(token);
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    } catch (error) {
+      console.error('Error in request interceptor:', error);
     }
 
     return config;
