@@ -25,12 +25,13 @@ const TopAlbumLibrary = () => {
             <BackgroundAlbumCard
               key={index}
               name={album.name}
-              artistName={album.artistName}
+              artistName={album.artist.artistName}
               releaseDate={album.releaseDate}
               songCount={album.songCount}
               backgroundImage={album.backgroundImage}
-              id={album.id}
-            />
+              id={album.id} 
+              artist={album.artist}
+              />
           ))}
         </div>
       </div>

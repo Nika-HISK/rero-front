@@ -15,7 +15,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
     >
       <div className={styles.container}>
         <span className={styles.albumName}>{props.name}</span>
-        <span className={styles.artistName}>{props.artistName}</span>
+        <span className={styles.artistName}>{props.artist.artistName}</span>
         <span className={styles.time}>{props.releaseDate}</span>
       </div>
       <div className={styles.songCountContainer}>

@@ -34,7 +34,7 @@ const AlbumMusic = () => {
                 duration={data.duration}
                 cover={data.cover}
                 music={data.music}
-                artistName={data.artistName}
+                artistName={data.artist.artistName}
               />
             );
           })}
