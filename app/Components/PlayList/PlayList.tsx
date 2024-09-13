@@ -12,6 +12,8 @@ const PlayList = ({
   artistPhoto,
   isActive,
   artists,
+  loop,
+  toggleLoop,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState<SongObject[]>([...artists]);
@@ -45,10 +47,11 @@ const PlayList = ({
         >
           <div className={styles.images}>
             <Image
-              src="/playlist/looper.svg"
-              alt="Looper"
-              width={24}
-              height={24}
+              onClick={toggleLoop}
+              src={loop ? '/icons/activeloop.svg' : '/icons/normalloop.svg'}
+              alt="loop"
+              width={28}
+              height={28}
             />
             <Image
               src="/playlist/shuffle.svg"
