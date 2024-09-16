@@ -2,13 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
+import Cookies from 'js-cookie'
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove('token');
+    router.push('/login');
+
+  };
   return (
     <div className={styles.fullscreenContainer}>
       <div className={styles.container}>
@@ -38,7 +46,7 @@ const Header = () => {
               <Icon name={'playlist'} width={21} height={21} />
             )}
           </Link>
-          <Icon name={'exit'} width={21} height={21} />
+          <Icon name={'exit'} width={21} height={21} onClick={handleLogout} />
         </div>
       </div>
     </div>
