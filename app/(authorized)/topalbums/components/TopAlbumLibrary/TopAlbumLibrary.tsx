@@ -1,21 +1,32 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BackgroundAlbumCard from '../BackgroundAlbumCard/BackgroundAlbumCard';
+import { BackgroundAlbumCardPropsInterface } from '../BackgroundAlbumCard/interfaces/background-album-card-props.interface';
 import styles from './TopAlbumLibrary.module.scss';
-import { AlbumCardDatas } from './dummyAlbums/album-dummy-data';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopAlbumLibrary = () => {
+  const [albumData, setAlbumData] = useState<
+    BackgroundAlbumCardPropsInterface[]
+  >([]);
+
+  useEffect(() => {
+    BaseApi.get(`/album`).then((response) => {
+      setAlbumData(response.data);
+    });
+  }, []);
+
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.wrap}>
-          {AlbumCardDatas.map((album, index) => (
+          {albumData.map((album, index) => (
             <BackgroundAlbumCard
               key={index}
-              albumName={album.albumName}
+              name={album.name}
               artistName={album.artistName}
-              albumTime={album.albumTime}
+              releaseDate={album.releaseDate}
               songCount={album.songCount}
               backgroundImage={album.backgroundImage}
               id={album.id}

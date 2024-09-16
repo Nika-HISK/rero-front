@@ -3,10 +3,9 @@ import styles from './LongAlbumCover.module.scss';
 import { LongAlbumCoverPropsInterface } from './interfaces/long-album-cover-props.interface';
 
 const LongAlbumCover = (props: LongAlbumCoverPropsInterface) => {
-  //TODO Link href
   return (
     <Link
-      href=""
+      href={`/topalbums/album/${props.id}`}
       className={styles.wrapper}
       style={{
         backgroundImage: `url(${props.backgroundImage})`,
@@ -15,7 +14,7 @@ const LongAlbumCover = (props: LongAlbumCoverPropsInterface) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <span className={styles.albumName}>{props.albumName}</span>
+      <span className={styles.albumName}>{props.name}</span>
       <span className={styles.artistName}>{props.artistName}</span>
     </Link>
   );

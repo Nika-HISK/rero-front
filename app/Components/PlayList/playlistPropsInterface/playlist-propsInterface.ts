@@ -8,4 +8,6 @@ export interface PlayListPropsinterface {
   isActive: boolean;
   artists: SongObject[];
   setActive?: () => void;
+  loop: boolean;
+  toggleLoop: () => void;
 }
