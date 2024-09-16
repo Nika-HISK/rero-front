@@ -4,13 +4,13 @@ export const artistSectionArray = [
     artistName: 'Kendriki',
     artistPhoto: '/kendrika.png',
     biography: 'zd zmebosad sand sasadjsabd sajd asd  dwasdsadi djsad',
-    albumData: [
+    albums: [
       { id: 1, artistCover: '/big.jpg', albumName: 'Album Name 1' },
       { id: 2, artistCover: '/big.jpg', albumName: 'Album Name 2' },
       { id: 3, artistCover: '/big.jpg', albumName: 'Album Name 3' },
       { id: 4, artistCover: '/big.jpg', albumName: 'Album Name 4' },
     ],
-    rowAlbumData: [
+    musics: [
       {
         id: 1,
         duration: '3:33',

@@ -88,6 +88,8 @@ const PlaylistPage = () => {
                 setActive={handleClick}
                 key={index + 1}
                 artists={songs}
+                artistName={''}
+                musicName={''}
                 loop={audioPlayer.loop}
                 toggleLoop={audioPlayerControls.toggleLoop}
               />

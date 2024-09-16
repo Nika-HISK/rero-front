@@ -4,7 +4,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 1',
     artistName: 'Artist Name 1',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/zangi.png',
     albumHits: [
       {
@@ -54,7 +54,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 2',
     artistName: 'Artist Name 2',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/gogo.png',
     albumHits: [
       {
@@ -144,7 +144,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 3',
     artistName: 'Artist Name 3',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/kaci.png',
     albumHits: [
       {
@@ -194,7 +194,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 4',
     artistName: 'Artist Name 4',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/zangi.png',
     albumHits: [
       {
@@ -244,7 +244,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 5',
     artistName: 'Artist Name 5',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/gogo.png',
     albumHits: [
       {
@@ -294,7 +294,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 6',
     artistName: 'Artist Name 6',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/kaci.png',
     albumHits: [
       {
@@ -344,7 +344,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 7',
     artistName: 'Artist Name 7',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/zangi.png',
     albumHits: [
       {
@@ -394,7 +394,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 8',
     artistName: 'Artist Name 8',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/gogo.png',
     albumHits: [
       {
@@ -444,7 +444,7 @@ export const AlbumCardDatas = [
     albumName: 'Album Name 9',
     artistName: 'Artist Name 9',
     albumTime: '2018.05.03',
-    songCount: 1,
+    songCount: 16,
     backgroundImage: '/kaci.png',
     albumHits: [
       {
