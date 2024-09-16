@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['rero-db.cdwkeq4oijxh.eu-north-1.rds.amazonaws.com'],
+    domains: ['reroapp-bucket.s3.amazonaws.com'],
   },
 };
 
