@@ -27,7 +27,7 @@ const AlbumsColumn = () => {
             key={album.id}
             artistName={album.artist.artistName}
             name={album.name}
-            backgroundImage={album.backgroundImage}
+            albumCover={album.albumCover}
             artist={album.artist}
           />
         ))}
