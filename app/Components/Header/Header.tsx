@@ -1,12 +1,11 @@
 'use client';
-
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
-import Cookies from 'js-cookie'
 
 const Header = () => {
   const pathname = usePathname();
@@ -15,7 +14,6 @@ const Header = () => {
   const handleLogout = () => {
     Cookies.remove('token');
     router.push('/login');
-
   };
   return (
     <div className={styles.fullscreenContainer}>
