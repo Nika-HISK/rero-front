@@ -7,7 +7,7 @@ const BackgroundAlbumCard = (props: BackgroundAlbumCardPropsInterface) => {
     <Link
       className={styles.wrapper}
       style={{
-        backgroundImage: `url(${props.backgroundImage})`,
+        backgroundImage: `url(${props.albumCover})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

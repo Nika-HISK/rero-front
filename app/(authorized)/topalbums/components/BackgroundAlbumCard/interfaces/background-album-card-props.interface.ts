@@ -1,4 +1,4 @@
-import { TopAlbumLibraryPropsInterface } from "../../TopAlbumLibrary/interfaces/top-album-library-props.interface";
+import { TopAlbumLibraryPropsInterface } from '../../TopAlbumLibrary/interfaces/top-album-library-props.interface';
 
 export interface BackgroundAlbumCardPropsInterface {
   id: number;
@@ -7,5 +7,14 @@ export interface BackgroundAlbumCardPropsInterface {
   artistName: string;
   releaseDate: string;
   songCount: number;
-  backgroundImage?: string;
+  albumCover?: string;
+  musics: {
+    id: number;
+    name: string;
+    musicAudio: string;
+    coverImage: string;
+    duration: string | null;
+    albumId: number;
+    artistId: number;
+  }[];
 }

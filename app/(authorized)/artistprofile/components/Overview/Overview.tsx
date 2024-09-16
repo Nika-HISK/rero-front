@@ -15,7 +15,7 @@ const Overview = (props: RowAlbumSectionPropsInterface) => {
             key={album.id}
             duration={album.duration}
             albumName={album.albumName}
-            cover={album.cover}
+            coverImage={album.cover}
             music={album.music}
             artistName={album.artistName}
           />
