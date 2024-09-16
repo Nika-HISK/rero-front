@@ -21,7 +21,6 @@ const ArtistPage = () => {
   useEffect(() => {
     BaseApi.get('/artist').then((response) => {
       setArtistData(response.data);
-      console.log(artistData);
     });
   }, []);
 

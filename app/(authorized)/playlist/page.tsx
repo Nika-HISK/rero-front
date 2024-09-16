@@ -82,6 +82,8 @@ const PlaylistPage = () => {
                 setActive={handleClick}
                 key={index + 1}
                 artists={songs}
+                artistName={''}
+                musicName={''}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>
