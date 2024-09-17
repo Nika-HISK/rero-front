@@ -6,6 +6,17 @@
   margin-top: 88px;
 }
 
+.errorDiv {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-top: 6px;
+}
+
+.errors {
+  color: red;
+}
+
 .container {
   display: flex;
   justify-content: center;

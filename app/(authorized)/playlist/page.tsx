@@ -1,14 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { artistInfo, artistData } from './dummyData/dummyData';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
+import { audioPlayerState } from '@/app/Atoms/states';
 import Button from '@/app/Components/Button/Button';
 import ConfirmPopup from '@/app/Components/ConfirmPopup/ConfirmPopup';
 import Icon from '@/app/Components/Icons/Icon';
 import PlayList from '@/app/Components/PlayList/PlayList';
 import PlaylistPopup from '@/app/Components/PlaylistPopup/PlaylistPopup';
+import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
+import { useAudioPlayer } from '@/app/Components/SmallPlayer/hooks/useAudio.hook';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 
@@ -19,6 +23,8 @@ const PlaylistPage = () => {
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
+  const audioPlayerControls = useAudioPlayer(songs);
+  const audioPlayer = useRecoilValue(audioPlayerState);
 
   const handleClick = () => {
     setActive(!active);
@@ -82,6 +88,10 @@ const PlaylistPage = () => {
                 setActive={handleClick}
                 key={index + 1}
                 artists={songs}
+                artistName={''}
+                musicName={''}
+                loop={audioPlayer.loop}
+                toggleLoop={audioPlayerControls.toggleLoop}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>

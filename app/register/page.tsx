@@ -61,7 +61,12 @@ const Register = () => {
               })}
             />
             {errors.email && (
-              <span className={styles.errors}>{errors.email.message}</span>
+              <div className={styles.errorDiv}>
+                <Image src={'/error.webp'} alt="error" width={14} height={14} />
+                <div>
+                  <span className={styles.errors}>{errors.email.message}</span>
+                </div>
+              </div>
             )}
           </div>
           <div className={styles.inputContainer}>
@@ -81,7 +86,14 @@ const Register = () => {
               })}
             />
             {errors.password && (
-              <span className={styles.errors}>{errors.password.message}</span>
+              <div className={styles.errorDiv}>
+                <Image src={'/error.webp'} alt="error" width={14} height={14} />
+                <div>
+                  <span className={styles.errors}>
+                    {errors.password.message}
+                  </span>
+                </div>
+              </div>
             )}
           </div>
           <div className={styles.inputContainer}>
@@ -101,9 +113,14 @@ const Register = () => {
               })}
             />
             {errors.confirmPassword && (
-              <span className={styles.errors}>
-                {errors.confirmPassword.message}
-              </span>
+              <div className={styles.errorDiv}>
+                <Image src={'/error.webp'} alt="error" width={14} height={14} />
+                <div>
+                  <span className={styles.errors}>
+                    {errors.confirmPassword.message}
+                  </span>
+                </div>
+              </div>
             )}
           </div>
         </div>
