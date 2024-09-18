@@ -5,5 +5,6 @@ export interface MusicRowPropsInterface {
   coverImage: string;
   music: string;
   artistName: string;
+  onPlusClick?: () => void;
   onRowAlbumClick?: () => void;
 }
