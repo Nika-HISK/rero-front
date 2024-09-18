@@ -1,7 +1,5 @@
 export interface AlbumDataPropsInterface {
   id: number;
+  artistCover: string;
   albumName: string;
-  name: string;
-  coverImage: string;
-  albumCover: string;
 }

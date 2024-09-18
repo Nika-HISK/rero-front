@@ -10,8 +10,8 @@ const AlbumSection = (props: AlbumsSectionPropsInterface) => {
           <BelowNameAlbumCard
             id={album.id}
             key={album.id}
-            albumCover={album.albumCover}
-            albumName={album.name}
+            artistCover={album.artistCover}
+            albumName={album.albumName}
           />
         ))}
       </div>

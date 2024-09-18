@@ -6,7 +6,7 @@ const BelowNameAlbumCard = (props: AlbumBelowNamePropsInterface) => {
   return (
     <div className={styles.container}>
       <Image
-        src={props.albumCover}
+        src={props.artistCover}
         alt="Artist Photo"
         height={200}
         width={220}

@@ -13,7 +13,7 @@ const TopCharts = () => {
             key={album.id}
             albumName={album.albumName}
             duration={album.duration}
-            coverImage={album.cover}
+            cover={album.cover}
             music={album.music}
             artistName={album.artistName}
             id={album.id}
