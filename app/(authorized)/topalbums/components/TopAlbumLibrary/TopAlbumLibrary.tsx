@@ -18,7 +18,6 @@ const TopAlbumLibrary = () => {
     });
   }, []);
 
-  
   return (
     <>
       <div className={styles.wrapper}>
@@ -28,7 +27,7 @@ const TopAlbumLibrary = () => {
               <BackgroundAlbumCard
                 key={album.id}
                 name={album.name}
-                artistName={album.artist.artistName}
+                artistName={album.artist?.artistName}
                 releaseDate={album.releaseDate}
                 songCount={album.musics.length}
                 albumCover={album?.albumCover}
