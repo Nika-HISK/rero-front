@@ -10,4 +10,3 @@ export interface ArtistDescriptionPropsInterface {
     albumName: string;
   }[];
 }
-
