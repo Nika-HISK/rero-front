@@ -12,6 +12,7 @@ const ArtistCard = (props: ArtistCardPropsInterface) => {
           alt={props.artistName}
           width={158}
           height={274}
+          className={styles.photo}
         />
       </div>
       <div className={styles.containerParagraph}>

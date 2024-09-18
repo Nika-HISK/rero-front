@@ -13,13 +13,13 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
         <MusicRowImage
-          cover={props.cover}
+          cover={props.coverImage}
           music={props.music}
           artist={props.artistName}
         />
         <p>{props.albumName}</p>
         <div className={styles.container}>
-          <p>{props.duration}</p>
+          <p>{props.duration ? props.duration : 'N/A'}</p>
           <div className={styles.plus} onClick={() => setOpen(true)}></div>
         </div>
       </div>
