@@ -30,11 +30,11 @@ const AlbumMusic = () => {
               <MusicRow
                 id={data.id}
                 key={data.id}
-                albumName={musicData.name}
+                albumName={data.albumName}
                 duration={data.duration}
-                coverImage={data.coverImage}
-                music={data.name}
-                artistName={musicData.artist?.artistName}
+                cover={data.cover}
+                music={data.music}
+                artistName={data.artistName}
               />
             );
           })}
