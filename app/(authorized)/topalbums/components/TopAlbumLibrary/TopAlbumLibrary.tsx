@@ -22,19 +22,21 @@ const TopAlbumLibrary = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.wrap}>
-          {albumData.map((album) => (
-            <BackgroundAlbumCard
-              key={album.id}
-              name={album.name}
-              artistName={album.artist.artistName}
-              releaseDate={album.releaseDate}
-              songCount={album.musics.length}
-              albumCover={album?.albumCover}
-              id={album.id}
-              artist={album.artist}
-              musics={album.musics}
-            />
-          ))}
+          {albumData.map((album) => {
+            return (
+              <BackgroundAlbumCard
+                key={album.id}
+                name={album.name}
+                artistName={album.artist.artistName}
+                releaseDate={album.releaseDate}
+                songCount={album.musics.length}
+                albumCover={album?.albumCover}
+                id={album.id}
+                artist={album.artist}
+                musics={album.musics}
+              />
+            );
+          })}
         </div>
       </div>
     </>
