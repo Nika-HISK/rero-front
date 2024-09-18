@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import styles from './RowAlbumSection.module.scss';
 import { RowAlbumSectionPropsInterface } from './interfaces/row-album-section-props.interface';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
@@ -16,6 +15,11 @@ const RowAlbumSection = (props: RowAlbumSectionPropsInterface) => {
             coverImage={album.coverImage}
             music={album.name}
             artistName={album.artist?.artistName!}
+            musicAudio={''}
+            isPlaying={false}
+            onClick={function (): void {
+              throw new Error('Function not implemented.');
+            }}
           />
         ))}
       </div>
