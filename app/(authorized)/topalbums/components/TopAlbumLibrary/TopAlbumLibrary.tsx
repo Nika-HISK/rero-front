@@ -14,6 +14,7 @@ const TopAlbumLibrary = () => {
   useEffect(() => {
     BaseApi.get(`/album`).then((response) => {
       setAlbumData(response.data);
+      setcount(response.data.musics?.length);
     });
   }, []);
 
