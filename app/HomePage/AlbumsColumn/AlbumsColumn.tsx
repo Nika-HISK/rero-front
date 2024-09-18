@@ -25,7 +25,7 @@ const AlbumsColumn = () => {
           <LongAlbumCover
             id={album.id}
             key={album.id}
-            artistName={album.artist.artistName}
+            artistName={album.artist?.artistName}
             name={album.name}
             albumCover={album.albumCover}
             artist={album.artist}
