@@ -1,7 +1,10 @@
 export interface AlbumsSectionPropsInterface {
-  artists: {
-    id: number;
-    artistCover: string;
-    albumName: string;
-  }[];
+  artists: ArtistsPropsInterface[];
+}
+
+export interface ArtistsPropsInterface {
+  coverImage: string;
+  id: number;
+  albumCover: string;
+  name: string;
 }
