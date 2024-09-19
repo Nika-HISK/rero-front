@@ -1,40 +1,10 @@
 import { useRef, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { Song } from '../interfaces/song-props.interface';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
+import { Song } from '../interfaces/song-props.interface';
 
-interface ArtistInterface {
-  id: number;
-  artistName: string;
-  artistPhoto: string;
-  biography: string;
-  deletedAt: string | null;
-}
-
-interface AlbumInterface {
-  id: number;
-  name: string;
-  releaseDate: string;
-  cover: string;
-  artistId: number;
-  deletedAt: string | null;
-  musics?: MusicInterface[];
-}
-
-interface MusicInterface {
-  id: number;
-  name: string;
-  musicAudio: string;
-  coverImage: string;
-  duration: string;
-  albumId: number;
-  artistId: number;
-  artist?: ArtistInterface;
-  album?: AlbumInterface;
-}
-
-export const useAudioPlayer = (songs: MusicInterface[]) => {
+export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLInputElement>(null);

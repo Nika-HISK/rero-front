@@ -11,15 +11,15 @@ import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const SmallPlayer = (props: SmallPlayerPropsInterface) => {
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId , props.songs);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <MusicPhoto
-          src={currentSong.src}
-          music={currentSong.music}
-          artist={currentSong.artist}
+          src={currentSong.coverImage}
+          music={currentSong.name}
+          artist={currentSong.artist.artistName}
         />
         <Player
           playing={props.isPlaying}

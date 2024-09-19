@@ -10,5 +10,6 @@ export interface ArtistDescriptionPropsInterface {
     albumName: string;
     name: string;
     coverImage: string;
+    musicAudio?: string;
   }[];
 }

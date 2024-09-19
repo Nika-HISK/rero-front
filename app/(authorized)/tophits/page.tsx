@@ -8,36 +8,7 @@ import styles from './page.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
-
-interface ArtistInterface {
-  id: number;
-  artistName: string;
-  artistPhoto: string;
-  biography: string;
-  deletedAt: string | null;
-}
-
-interface AlbumInterface {
-  id: number;
-  name: string;
-  releaseDate: string;
-  cover: string;
-  artistId: number;
-  deletedAt: string | null;
-  musics?: MusicInterface[];
-}
-
-interface MusicInterface {
-  id: number;
-  name: string;
-  musicAudio: string;
-  coverImage: string;
-  duration: string;
-  albumId: number;
-  artistId: number;
-  artist?: ArtistInterface;
-  album?: AlbumInterface;
-}
+import { MusicInterface } from './interfaces/music-props.interface';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
@@ -46,15 +17,16 @@ const TopHits = () => {
   useEffect(() => {
     BaseApi.get('/music').then((response) => {
       setData(response.data);
+      console.log(data);
     });
   }, []);
+  console.log(data);
 
   const handlePlayClick = (id: number) => {
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,
     }));
-    console.log(id);
   };
 
   return (
@@ -77,23 +49,20 @@ const TopHits = () => {
         <div className={styles.container}>
           <TopAlbumsNavigationAnchore />
         </div>
-        {data.map(
-          (music) =>
-            music.album && (
-              <MusicRow
-                id={music.album.id}
-                key={music.album.id}
-                albumName={music.album.name}
-                duration={music.duration}
-                coverImage={music.coverImage}
-                music={music.name}
-                artistName={music.artist?.artistName || ''}
-                musicAudio={music.musicAudio}
-                isPlaying={currentSong.currentSongId === music.id}
-                onClick={() => handlePlayClick(music.id)}
-              />
-            ),
-        )}
+        {data.map((music) => (
+          <MusicRow
+            id={music.id}
+            key={music?.album?.id}
+            albumName={music?.album?.name}
+            duration={music.duration}
+            coverImage={music.coverImage}
+            music={music.name}
+            artistName={music.artist?.artistName || ''}
+            musicAudio={music.musicAudio}
+            isPlaying={currentSong.currentSongId === music.id}
+            onClick={() => handlePlayClick(music.id)}
+          />
+        ))}
       </div>
     </>
   );
