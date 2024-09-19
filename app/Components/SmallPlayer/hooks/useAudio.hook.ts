@@ -4,11 +4,41 @@ import { Song } from '../interfaces/song-props.interface';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
-export const useAudioPlayer = (songs: Song[]) => {
+interface ArtistInterface {
+  id: number;
+  artistName: string;
+  artistPhoto: string;
+  biography: string;
+  deletedAt: string | null;
+}
+
+interface AlbumInterface {
+  id: number;
+  name: string;
+  releaseDate: string;
+  cover: string;
+  artistId: number;
+  deletedAt: string | null;
+  musics?: MusicInterface[];
+}
+
+interface MusicInterface {
+  id: number;
+  name: string;
+  musicAudio: string;
+  coverImage: string;
+  duration: string;
+  albumId: number;
+  artistId: number;
+  artist?: ArtistInterface;
+  album?: AlbumInterface;
+}
+
+export const useAudioPlayer = (songs: MusicInterface[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLInputElement>(null);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
 
   useEffect(() => {
     const handleTimeUpdate = () => {
@@ -67,9 +97,11 @@ export const useAudioPlayer = (songs: Song[]) => {
 
   useEffect(() => {
     if (!audioRef.current) return;
-    audioRef.current.src = currentSong.audioSrc;
-    audioRef.current.play();
-  }, [audioPlayer.currentSongId, currentSong.audioSrc]);
+    audioRef.current.src = currentSong.musicAudio;
+    audioRef.current
+      .play()
+      .catch((error) => console.error('Error playing audio:', error));
+  }, [audioPlayer.currentSongId, currentSong.musicAudio]);
 
   useEffect(() => {
     if (!audioRef.current) return;

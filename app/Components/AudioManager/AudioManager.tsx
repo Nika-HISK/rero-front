@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import axios from 'axios';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
@@ -13,12 +12,41 @@ import { audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
 import BaseApi from '@/app/api/BaseApi';
 
+interface ArtistInterface {
+  id: number;
+  artistName: string;
+  artistPhoto: string;
+  biography: string;
+  deletedAt: string | null;
+}
+
+interface AlbumInterface {
+  id: number;
+  name: string;
+  releaseDate: string;
+  cover: string;
+  artistId: number;
+  deletedAt: string | null;
+  musics?: MusicInterface[];
+}
+
+interface MusicInterface {
+  id: number;
+  name: string;
+  musicAudio: string;
+  coverImage: string;
+  duration: string;
+  albumId: number;
+  artistId: number;
+  artist?: ArtistInterface;
+  album?: AlbumInterface;
+}
 const AudioManager = () => {
   const [open, setOpen] = useState(true);
-  const [songs, setSongs] = useState<Song[]>([]);
+  const [songs, setSongs] = useState<MusicInterface[]>([]);
 
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {
@@ -26,17 +54,10 @@ const AudioManager = () => {
     });
   }, []);
 
-  console.log(currentSong);
-
   const audioPlayerControls = useAudioPlayer(songs);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'auto';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
-
+    document.body.style.overflow = open ? 'auto' : 'hidden';
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -57,7 +78,7 @@ const AudioManager = () => {
         <div
           className={styles.wrapper}
           style={{
-            backgroundImage: `url(${currentSong.artist})`,
+            backgroundImage: `url(${currentSong.name})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'top',

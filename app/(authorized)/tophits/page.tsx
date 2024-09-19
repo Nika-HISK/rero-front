@@ -9,6 +9,24 @@ import { audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
 
+interface ArtistInterface {
+  id: number;
+  artistName: string;
+  artistPhoto: string;
+  biography: string;
+  deletedAt: string | null;
+}
+
+interface AlbumInterface {
+  id: number;
+  name: string;
+  releaseDate: string;
+  cover: string;
+  artistId: number;
+  deletedAt: string | null;
+  musics?: MusicInterface[];
+}
+
 interface MusicInterface {
   id: number;
   name: string;
@@ -21,25 +39,6 @@ interface MusicInterface {
   album?: AlbumInterface;
 }
 
-interface AlbumInterface {
-  id: number;
-  name: string;
-  releaseDate: string;
-  albumCover: string;
-  artistId: number;
-  deletedAt: string | null;
-  musics?: MusicInterface[];
-}
-
-interface ArtistInterface {
-  id: number;
-  artistName: string;
-  artistPhoto: string;
-  biography: string;
-  albums?: AlbumInterface[];
-  musics?: MusicInterface[];
-}
-
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
   const [data, setData] = useState<MusicInterface[]>([]);
@@ -49,15 +48,14 @@ const TopHits = () => {
       setData(response.data);
     });
   }, []);
-  console.log(data, 'dataa ');
 
   const handlePlayClick = (id: number) => {
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,
     }));
+    console.log(id);
   };
-  console.log(currentSong.currentSongId);
 
   return (
     <>

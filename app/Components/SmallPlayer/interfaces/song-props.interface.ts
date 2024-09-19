@@ -1,9 +1,9 @@
 export type Song = {
   id: number;
-  src: string;
-  music: string;
-  artist: string;
-  audioSrc: string;
+  name: string;
+  musicAudio: string;
+  coverImage: string;
+  duration: string;
 };
 
 export interface SongPropsInterface {
