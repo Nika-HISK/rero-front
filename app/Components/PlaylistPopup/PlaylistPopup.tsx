@@ -9,18 +9,14 @@ import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import { TyphographyEnum } from '@/app/Enums/Typhography.enum';
 
-const PlaylistPopup = ({
-  onCancel,
-  onConfirm,
-  e: event,
-}: PlaylistPopUpProps) => {
+const PlaylistPopup = ({ onCancel, onConfirm, e }: PlaylistPopUpProps) => {
   const [value, setValue] = useState('');
 
   useEffect(() => {
     if (value) {
-      event(value);
+      e(value);
     }
-  }, [value, event]);
+  }, [value, e]);
 
   useEffect(() => {
     document.body.classList.add(styles.freeze);

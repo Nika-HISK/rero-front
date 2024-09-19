@@ -1,4 +1,4 @@
-export interface Data {
+export interface SongObject {
   src: string;
   musicName: string;
   artistName: string;

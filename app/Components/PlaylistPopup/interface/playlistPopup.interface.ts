@@ -1,4 +1,4 @@
-import { artistData } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { artistData } from '@/app/(authorised)/playlist/interface/artist-data.interface';
 
 export interface PlaylistPopUpProps {
   onCancel: () => void;

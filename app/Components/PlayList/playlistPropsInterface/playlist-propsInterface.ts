@@ -1,10 +1,7 @@
-import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { SongObject } from '@/app/(authorised)/playlist/interface/song-object.interface';
 
 export interface PlayListPropsinterface {
   playlistName: string;
-  artistName: string;
-  artistPhoto: string;
-  musicName: string;
   isActive: boolean;
   artists: SongObject[];
   setActive?: () => void;

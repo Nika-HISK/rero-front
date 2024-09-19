@@ -1,33 +1,41 @@
 'use client';
 
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
-import { artistInfo, artistData } from './dummyData/dummyData';
+import { useEffect, useState } from 'react';
 import styles from './page.module.scss';
+import { artistData } from '@/app/(authorised)/playlist/interface/artist-data.interface';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import { audioPlayerState } from '@/app/Atoms/states';
 import Button from '@/app/Components/Button/Button';
 import ConfirmPopup from '@/app/Components/ConfirmPopup/ConfirmPopup';
 import Icon from '@/app/Components/Icons/Icon';
 import PlayList from '@/app/Components/PlayList/PlayList';
 import PlaylistPopup from '@/app/Components/PlaylistPopup/PlaylistPopup';
-import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
-import { useAudioPlayer } from '@/app/Components/SmallPlayer/hooks/useAudio.hook';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
+import BaseApi from '@/app/api/BaseApi';
 
 const PlaylistPage = () => {
   const [active, setActive] = useState<boolean>(false);
-  const [artists, setArtists] = useState<artistData[]>([...artistInfo]);
+  const [artists, setArtists] = useState<artistData[]>([]);
   const [isVisiblePopUp, setIsVisiblePopUp] = useState<boolean>(false);
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
-  const audioPlayerControls = useAudioPlayer(songs);
-  const audioPlayer = useRecoilValue(audioPlayerState);
+
+  const fetchData = async () => {
+    try {
+      const response = await BaseApi.get('/playlist');
+      setArtists(response.data);``
+    } catch (error) {
+      alert('Failed to fetch playlist data.');
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleClick = () => {
-    setActive(!active);
+    setActive((prev) => !prev);
   };
 
   const handleDeleteClick = (id: number) => {
@@ -35,23 +43,22 @@ const PlaylistPage = () => {
     setIsVisiblePopUp(true);
   };
 
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = async () => {
     if (selectedArtistId !== null) {
-      updatedArtitstData(selectedArtistId);
+      try {
+        await BaseApi.delete(`/playlist/${selectedArtistId}`);
+        fetchData();
+      } catch (error) {
+        alert('Failed to delete playlist.');
+      }
+      setIsVisiblePopUp(false);
+      setSelectedArtistId(null);
     }
-    setIsVisiblePopUp(false);
   };
 
   const handleCancelDelete = () => {
     setIsVisiblePopUp(false);
     setSelectedArtistId(null);
-  };
-
-  const updatedArtitstData = (id: number) => {
-    const updatedArtists: artistData[] = artists.filter(
-      ({ id: ID }: artistData) => ID !== id,
-    );
-    setArtists(updatedArtists);
   };
 
   return (
@@ -62,36 +69,29 @@ const PlaylistPage = () => {
         </div>
         <div className={styles.iconsWrapper}>
           <Icon
-            name={'plus'}
+            name="plus"
             width={18}
             height={18}
-            onClick={() => {
-              setIsActiveAddIcon(true);
-            }}
+            onClick={() => setIsActiveAddIcon(true)}
           />
           <div className={styles.editIconWrapper} onClick={handleClick}>
-            <Icon name={'edit'} width={18} height={18} />
+            <Icon name="edit" width={18} height={18} />
           </div>
         </div>
       </div>
+
       <div className={styles.collapseWrapper}>
         {artists.map(
-          (
-            { playlistName, artistPhoto, id: ID, songs }: artistData,
-            index: number,
-          ) => (
+          ({ playlistName, id: ID, musics }: artistData, index: number) => (
             <div key={index} className={styles.playlistWrapper}>
               <PlayList
                 playlistName={playlistName}
-                artistPhoto={`/artists/${artistPhoto}`}
                 isActive={active}
                 setActive={handleClick}
                 key={index + 1}
-                artists={songs}
-                artistName={''}
-                musicName={''}
-                loop={audioPlayer.loop}
-                toggleLoop={audioPlayerControls.toggleLoop}
+                artists={musics}
+                loop={false}
+                toggleLoop={() => { }}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>
@@ -107,55 +107,45 @@ const PlaylistPage = () => {
           ),
         )}
       </div>
+
       {isVisiblePopUp && (
         <ConfirmPopup
-          message="Are you sure ?"
+          message="Are you sure you want to delete this playlist?"
           onConfirm={handleConfirmDelete}
           onCancel={handleCancelDelete}
         />
       )}
+
       {isActiveAddIcon && (
-        <>
-          <PlaylistPopup
-            onCancel={() => {
-              setIsActiveAddIcon(false);
-            }}
-            onConfirm={() => {
-              const existingFile = artists.find(
-                ({ playlistName }: artistData) => playlistName === value,
-              );
-              if (existingFile) {
-                alert('Playlist with that name is already exists');
-                return;
+        <PlaylistPopup
+          onCancel={() => setIsActiveAddIcon(false)}
+          onConfirm={() => {
+            const existingFile = artists.find(
+              ({ playlistName }: artistData) => playlistName === value,
+            );
+            if (existingFile) {
+              alert('Playlist with that name already exists');
+              return;
+            }
+
+            const postData = async () => {
+              try {
+                await BaseApi.post('/playlist', {
+                  playlistName: value,
+                  musics: [],
+                });
+                fetchData();
               }
-              const updatedArtistsData = {
-                playlistName: `${value}`,
-                artistPhoto: 'playlist.jpg',
-                id: artists.length + 1,
-                songs: [
-                  {
-                    src: '/2pac.jpg',
-                    musicName: 'Song 1',
-                    artistName: 'Artist 1',
-                    albumName: 'Album 1',
-                    createTime: '3:45',
-                  },
-                  {
-                    src: '/2pac.jpg',
-                    musicName: 'Song 1',
-                    artistName: 'Artist 1',
-                    albumName: 'Album 1',
-                    createTime: '3:45',
-                  },
-                ],
-              };
-              setArtists([updatedArtistsData, ...artists]);
-              setIsActiveAddIcon(false);
-            }}
-            e={setValue}
-            data={artistInfo}
-          />
-        </>
+              catch (error) {
+                alert('Failed to create playlist.');
+              }
+            };
+            postData();
+            setIsActiveAddIcon(false);
+          }}
+          e={setValue}
+          data={[]}
+        />
       )}
     </>
   );

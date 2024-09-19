@@ -5,16 +5,16 @@ import { useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
 import styles from './PlayList.module.scss';
 import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
-import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { SongObject } from '@/app/(authorised)/playlist/interface/song-object.interface';
 
 const PlayList = ({
   playlistName,
-  artistPhoto,
   isActive,
   artists,
   loop,
   toggleLoop,
 }: PlayListPropsinterface) => {
+  
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState<SongObject[]>([...artists]);
 
@@ -26,13 +26,6 @@ const PlayList = ({
     <>
       <div className={styles.playListWrapper}>
         <div className={styles.wrapper}>
-          <Image
-            className={styles.artistCover}
-            src={artistPhoto}
-            alt={`${playlistName} cover`}
-            width={53}
-            height={53}
-          />
           <span className={styles.playlistName}>{playlistName}</span>
           <Image
             onClick={onChangeToggle}
@@ -68,9 +61,7 @@ const PlayList = ({
                 index={index}
                 key={index + 1}
                 artistDataArray={artistsData}
-                filter={(artistsData: SongObject[]) =>
-                  setArtistsData(artistsData)
-                }
+                filter={(artistsData: SongObject[]) => setArtistsData(artistsData)}
                 isActive={isActive}
               />
             ))}
