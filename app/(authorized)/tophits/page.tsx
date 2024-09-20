@@ -32,7 +32,7 @@ const TopHits = () => {
       <div className={styles.wrapper}>
         {data.slice(0, 3).map((music) => (
           <MusicBox
-            key={music.id} // Unique key for MusicBox
+            key={music.id}
             id={music.id}
             artistName={music.artist?.artistName || ''}
             musicName={music.name}
@@ -49,7 +49,7 @@ const TopHits = () => {
         </div>
         {data.map((music) => (
           <MusicRow
-            key={music.id} // Use unique key for MusicRow
+            key={music.id} 
             id={music.id}
             albumName={music.album?.name}
             duration={music.duration}
