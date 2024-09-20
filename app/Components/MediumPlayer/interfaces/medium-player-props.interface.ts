@@ -5,6 +5,7 @@ export interface MediumPlayerPropsInterface extends SongPropsInterface {
   audioPlayer: AtomAudioPlayerPropsInterface;
   playMusic: () => void;
   toggleLoop: () => void;
+  toggleShuffle: () => void;
   handleNextSong: () => void;
   handlePreviousSong: () => void;
   handleVolumeDown: () => void;

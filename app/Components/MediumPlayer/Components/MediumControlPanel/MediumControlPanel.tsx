@@ -9,40 +9,29 @@ import { formatTime } from '@/app/Helpers/AudioHelpers';
 import BaseApi from '@/app/api/BaseApi';
 
 const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
-  const [audioPlayer , setAudioPlayer] = useRecoilState(audioPlayerState);
+  const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
 
   const handleShuffleClick = () => {
-    setAudioPlayer((prevState) => {
-      const updatedShuffle = !prevState.shuffle;
-      return {
-        ...prevState,
-        shuffle: updatedShuffle,
-      };
-    });
-    BaseApi.post('/music/shuffle',audioPlayer.shuffle)
+    setAudioPlayer((prev) => ({ ...prev, shuffle: !prev.shuffle }));
   };
-
-  useEffect(() => {
-    BaseApi.get('/music')
-  },[])
-
 
   return (
     <div className={styles.progressBar}>
       <div className={styles.icons} onClick={handleShuffleClick}>
-        {!audioPlayer.shuffle ? (
+      
+        {audioPlayer.shuffle && !props.loop ? (
           <Image
-            src={'playlist/shuffle.svg'}
-            alt="shuffle icon"
-            width={24}
-            height={24}
+            src={'icons/activeShuffle.svg'}
+            alt="loop"
+            width={28}
+            height={28}
           />
         ) : (
           <Image
-            src={'icons/activeShuffle.svg'}
-            alt="shuffle icon"
-            width={24}
-            height={24}
+            src={'playlist/shuffle.svg'}
+            alt="loop"
+            width={28}
+            height={28}
           />
         )}
       </div>
@@ -51,7 +40,7 @@ const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
         defaultValue={String((props.currentTime / props.duration) * 100)}
         onChange={props.handleProgressChange}
         progressRef={props.progressRef}
-      /> 
+      />
       <div className={styles.mobileTime}>
         <span>{`${formatTime(props.currentTime)}/${formatTime(props.duration)}`}</span>
       </div>
