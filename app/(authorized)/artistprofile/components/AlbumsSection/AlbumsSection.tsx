@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import styles from './AlbumsSection.module.scss';
 import { AlbumsSectionPropsInterface } from './interfaces/album-section-props.interface';
 import BelowNameAlbumCard from '@/app/Components/BelowNameAlbumCard/BelowNameAlbumCard';
@@ -10,7 +11,7 @@ const AlbumSection = (props: AlbumsSectionPropsInterface) => {
           <BelowNameAlbumCard
             id={album.id}
             key={album.id}
-            albumCover={album.albumCover}
+            cover={album.cover!}
             albumName={album.name}
           />
         ))}

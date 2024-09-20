@@ -1,5 +1,5 @@
 export interface AlbumBelowNamePropsInterface {
   id: number;
-  albumCover: string;
+  cover: string;
   albumName: string;
 }
