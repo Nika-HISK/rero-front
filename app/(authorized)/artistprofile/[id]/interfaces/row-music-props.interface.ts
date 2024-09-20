@@ -8,3 +8,7 @@ export interface RowMusicDataInterface {
   name: string;
   coverImage: string;
 }
+
+export interface RowMusicDataPropsInterfaceArray {
+  albums: RowMusicDataInterface[];
+}

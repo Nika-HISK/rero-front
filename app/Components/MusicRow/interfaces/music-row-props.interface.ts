@@ -1,9 +1,11 @@
 export interface MusicRowPropsInterface {
-  id: number;
-  albumName: string;
+  id: number | undefined;
+  albumName: string | undefined;
   duration: string | null;
   coverImage: string;
   music: string;
   artistName: string;
-  onRowAlbumClick?: () => void;
+  musicAudio: string;
+  isPlaying: boolean;
+  onClick: () => void;
 }

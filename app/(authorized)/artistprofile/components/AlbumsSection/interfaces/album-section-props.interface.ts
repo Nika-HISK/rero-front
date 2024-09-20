@@ -3,7 +3,7 @@ export interface AlbumsSectionPropsInterface {
 }
 
 export interface ArtistsPropsInterface {
-  coverImage: string;
+  cover?: string;
   id: number;
   albumCover: string;
   name: string;

@@ -11,7 +11,7 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
 
   return (
     <div className={styles.containerWrapper}>
-      <div className={styles.wrapper} onClick={props.onRowAlbumClick}>
+      <div className={styles.wrapper} onClick={props.onClick}>
         <MusicRowImage
           cover={props.coverImage}
           music={props.music}

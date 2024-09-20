@@ -4,6 +4,7 @@ import { BackgroundAlbumCardPropsInterface } from '@/app/(authorized)/topalbums/
 export interface RowAlbumSectionPropsInterface {
   albums: AlbumsPropsInterface[];
 }
+
 interface AlbumsPropsInterface {
   artist?: ArtistPropsInterface;
   album?: BackgroundAlbumCardPropsInterface;
@@ -13,4 +14,5 @@ interface AlbumsPropsInterface {
   id: number;
   duration: string;
   albumName: string;
+  musicAudio?: string;
 }
