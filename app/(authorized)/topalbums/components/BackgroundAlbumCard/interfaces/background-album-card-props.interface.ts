@@ -7,7 +7,7 @@ export interface BackgroundAlbumCardPropsInterface {
   artistName: string;
   releaseDate: string;
   songCount: number;
-  albumCover?: string;
+  cover?: string;
   musics: {
     id: number;
     name: string;

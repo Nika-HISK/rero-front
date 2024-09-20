@@ -30,7 +30,7 @@ const TopAlbumLibrary = () => {
                 artistName={album.artist?.artistName}
                 releaseDate={album.releaseDate}
                 songCount={album.musics.length}
-                albumCover={album?.albumCover}
+                cover={album?.cover}
                 id={album.id}
                 artist={album.artist}
                 musics={album.musics}
