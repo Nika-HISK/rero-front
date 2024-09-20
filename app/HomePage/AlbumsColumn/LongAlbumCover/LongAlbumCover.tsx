@@ -8,7 +8,7 @@ const LongAlbumCover = (props: LongAlbumCoverPropsInterface) => {
       href={`/topalbums/album/${props.id}`}
       className={styles.wrapper}
       style={{
-        backgroundImage: `url(${props.backgroundImage})`,
+        backgroundImage: `url(${props.cover})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

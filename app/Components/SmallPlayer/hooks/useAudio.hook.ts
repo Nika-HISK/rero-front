@@ -8,7 +8,7 @@ export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLInputElement>(null);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
 
   useEffect(() => {
     const handleTimeUpdate = () => {
@@ -67,9 +67,9 @@ export const useAudioPlayer = (songs: Song[]) => {
 
   useEffect(() => {
     if (!audioRef.current) return;
-    audioRef.current.src = currentSong.audioSrc;
+    audioRef.current.src = currentSong.musicAudio;
     audioRef.current.play();
-  }, [audioPlayer.currentSongId, currentSong.audioSrc]);
+  }, [audioPlayer.currentSongId, currentSong.musicAudio]);
 
   useEffect(() => {
     if (!audioRef.current) return;

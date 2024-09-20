@@ -5,4 +5,10 @@ export interface RowMusicDataInterface {
   cover: string;
   artistName: string;
   music: string;
+  name: string;
+  coverImage: string;
+}
+
+export interface RowMusicDataPropsInterfaceArray {
+  albums: RowMusicDataInterface[];
 }

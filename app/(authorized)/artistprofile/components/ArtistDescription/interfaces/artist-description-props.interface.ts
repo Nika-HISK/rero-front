@@ -8,5 +8,8 @@ export interface ArtistDescriptionPropsInterface {
     id: number;
     duration: string;
     albumName: string;
+    name: string;
+    coverImage: string;
+    musicAudio?: string;
   }[];
 }

@@ -11,8 +11,6 @@ import ConfirmPopup from '@/app/Components/ConfirmPopup/ConfirmPopup';
 import Icon from '@/app/Components/Icons/Icon';
 import PlayList from '@/app/Components/PlayList/PlayList';
 import PlaylistPopup from '@/app/Components/PlaylistPopup/PlaylistPopup';
-import songs from '@/app/Components/SmallPlayer/Utils/dummy-musics';
-import { useAudioPlayer } from '@/app/Components/SmallPlayer/hooks/useAudio.hook';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 
@@ -23,7 +21,7 @@ const PlaylistPage = () => {
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
-  const audioPlayerControls = useAudioPlayer(songs);
+  // const audioPlayerControls = useAudioPlayer(songs);
   const audioPlayer = useRecoilValue(audioPlayerState);
 
   const handleClick = () => {
@@ -91,7 +89,7 @@ const PlaylistPage = () => {
                 artistName={''}
                 musicName={''}
                 loop={audioPlayer.loop}
-                toggleLoop={audioPlayerControls.toggleLoop}
+                toggleLoop={() => undefined}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>

@@ -5,12 +5,7 @@ import { AlbumBelowNamePropsInterface } from './interfaces/album-below-name.prop
 const BelowNameAlbumCard = (props: AlbumBelowNamePropsInterface) => {
   return (
     <div className={styles.container}>
-      <Image
-        src={props.artistCover}
-        alt="Artist Photo"
-        height={200}
-        width={220}
-      />
+      <Image src={props.cover} alt="Artist Photo" height={200} width={220} />
       <span>{props.albumName}</span>
     </div>
   );

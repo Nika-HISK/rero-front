@@ -5,27 +5,30 @@ import { useRecoilValue } from 'recoil';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
-import songs from '../SmallPlayer/Utils/dummy-musics';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
-import { SongPropsInterface } from '../SmallPlayer/interfaces/song-props.interface';
+import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
+import BaseApi from '@/app/api/BaseApi';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
-const AudioManager = (props: SongPropsInterface) => {
-  const audioPlayerControls = useAudioPlayer(songs);
+const AudioManager = () => {
   const [open, setOpen] = useState(true);
+  const [songs, setSongs] = useState<Song[]>([]);
 
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'auto';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
+    BaseApi.get('/music').then((response) => {
+      setSongs(response.data);
+    });
+  }, []);
 
+  const audioPlayerControls = useAudioPlayer(songs);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'auto' : 'hidden';
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -38,7 +41,7 @@ const AudioManager = (props: SongPropsInterface) => {
         <SmallPlayer
           open={open}
           setOpen={setOpen}
-          songs={props.songs}
+          songs={songs}
           {...audioPlayerControls}
         />
       </div>
@@ -46,7 +49,7 @@ const AudioManager = (props: SongPropsInterface) => {
         <div
           className={styles.wrapper}
           style={{
-            backgroundImage: `url(${currentSong.src})`,
+            backgroundImage: `url(${currentSong.coverImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'top',
@@ -56,7 +59,7 @@ const AudioManager = (props: SongPropsInterface) => {
             <Icon name={'arrowdown'} width={18} height={10} />
           </div>
           <div className={styles.container}>
-            <MediumPlayer songs={props.songs} {...audioPlayerControls} />
+            <MediumPlayer songs={songs} {...audioPlayerControls} />
           </div>
         </div>
       </div>
