@@ -18,22 +18,16 @@ const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
   return (
     <div className={styles.progressBar}>
       <div className={styles.icons} onClick={handleShuffleClick}>
-      
-        {audioPlayer.shuffle && !props.loop ? (
-          <Image
-            src={'icons/activeShuffle.svg'}
-            alt="loop"
-            width={28}
-            height={28}
-          />
-        ) : (
-          <Image
-            src={'playlist/shuffle.svg'}
-            alt="loop"
-            width={28}
-            height={28}
-          />
-        )}
+        <Image
+          src={
+            !audioPlayer.shuffle
+              ? 'playlist/shuffle.svg'
+              : 'icons/activeShuffle.svg'
+          }
+          alt="shuffle"
+          width={28}
+          height={28}
+        />
       </div>
       <p>{formatTime(props.currentTime)}</p>
       <ProgressBar
