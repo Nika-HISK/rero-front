@@ -4,6 +4,6 @@ export interface LongAlbumCoverPropsInterface {
   id: number;
   name: string;
   artistName: string;
-  albumCover?: string;
+  cover?: string;
   artist: TopAlbumLibraryPropsInterface;
 }
