@@ -39,7 +39,7 @@ const ArtistPage = () => {
         <ArtistCover cover={artistParam.artistPhoto} />
       </div>
       <div className={styles.overviewContainer}>
-        <Overview albums={artistParam.musics}/>
+        <Overview albums={artistParam.musics} />
       </div>
       <Released />
       <AlbumSection artists={artistParam.albums} />

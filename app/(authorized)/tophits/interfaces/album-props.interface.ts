@@ -1,4 +1,4 @@
-import { MusicInterface } from "./music-props.interface";
+import { MusicInterface } from './music-props.interface';
 
 export interface AlbumInterface {
   id: number;

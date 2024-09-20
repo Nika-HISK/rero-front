@@ -6,11 +6,11 @@ import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
+import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
-import { getCurrentSong } from '@/app/utils/getCurrentSong';
 import BaseApi from '@/app/api/BaseApi';
-import { Song } from '../SmallPlayer/interfaces/song-props.interface';
+import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const AudioManager = () => {
   const [open, setOpen] = useState(true);

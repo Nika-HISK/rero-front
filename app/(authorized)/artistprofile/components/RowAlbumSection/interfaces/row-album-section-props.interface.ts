@@ -14,5 +14,5 @@ interface AlbumsPropsInterface {
   id: number;
   duration: string;
   albumName: string;
-  musicAudio:string;
+  musicAudio?: string;
 }

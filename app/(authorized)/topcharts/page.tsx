@@ -1,13 +1,12 @@
 'use client';
-
-import BaseApi from '@/app/api/BaseApi';
-import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import styles from './page.module.scss';
-import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import { useEffect, useState } from 'react';
-import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 import { useRecoilState } from 'recoil';
+import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
+import { MusicInterface } from '../tophits/interfaces/music-props.interface';
+import styles from './page.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopCharts = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);

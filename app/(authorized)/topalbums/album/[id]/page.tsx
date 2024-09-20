@@ -1,14 +1,14 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import TopAlbumsNavigationAnchore from '../../components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import { AlbumPagePropsInterface } from '../interfaces/album-music-props.interface';
 import styles from '../page.module.scss';
+import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
+import { audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
-import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
-import { useRecoilState } from 'recoil';
-import { audioPlayerState } from '@/app/Atoms/states';
 
 const AlbumMusic = () => {
   const [musicData, setMusicData] = useState<AlbumPagePropsInterface>();
@@ -22,7 +22,7 @@ const AlbumMusic = () => {
   }, [id]);
 
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [data, setData] = useState<MusicInterface[]>([]);
+  const [, setData] = useState<MusicInterface[]>([]);
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {

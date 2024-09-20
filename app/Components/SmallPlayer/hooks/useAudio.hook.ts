@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
+import { Song } from '../interfaces/song-props.interface';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
-import { Song } from '../interfaces/song-props.interface';
 
 export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
@@ -68,9 +68,7 @@ export const useAudioPlayer = (songs: Song[]) => {
   useEffect(() => {
     if (!audioRef.current) return;
     audioRef.current.src = currentSong.musicAudio;
-    audioRef.current
-      .play()
-      .catch((error) => console.error('Error playing audio:', error));
+    audioRef.current.play();
   }, [audioPlayer.currentSongId, currentSong.musicAudio]);
 
   useEffect(() => {

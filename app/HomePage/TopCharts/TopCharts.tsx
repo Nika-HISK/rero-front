@@ -1,12 +1,11 @@
 'use client';
-
-import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './TopCharts.module.scss';
-import MusicRow from '@/app/Components/MusicRow/MusicRow';
+import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
 import { audioPlayerState } from '@/app/Atoms/states';
-import { useRecoilState } from 'recoil';
-import { useEffect, useState } from 'react';
+import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
 
 const TopCharts = () => {

@@ -11,7 +11,7 @@ import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const SmallPlayer = (props: SmallPlayerPropsInterface) => {
   const audioPlayer = useRecoilValue(audioPlayerState);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId , props.songs);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, props.songs);
 
   return (
     <div className={styles.wrapper}>
