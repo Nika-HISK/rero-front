@@ -23,15 +23,14 @@ const PlayList = ({
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
   };
-  
-  useEffect (() => {
-    BaseApi.get('playlist')
-  },[])
 
+  useEffect(() => {
+    BaseApi.get('playlist');
+  }, []);
 
   const onShuffle = () => {
-    !shuffle ? BaseApi.get('/shuffle') : BaseApi.get('playlist')
-    setShuffle(!shuffle)
+    !shuffle ? BaseApi.get('/shuffle') : BaseApi.get('playlist');
+    setShuffle(!shuffle);
   };
 
   return (
@@ -66,7 +65,9 @@ const PlayList = ({
               height={28}
             />
             <Image
-              src={shuffle ? '/icons/activeShuffle.svg' : '/playlist/shuffle.svg'}
+              src={
+                shuffle ? '/icons/activeShuffle.svg' : '/playlist/shuffle.svg'
+              }
               alt="Shuffle"
               width={24}
               height={24}

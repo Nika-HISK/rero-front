@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRecoilState } from 'recoil';
 import ProgressBar from '../../../SmallPlayer/Components/ProgressBar/ProgressBar';
 import styles from './MediumControlPanel.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { AudioPlayerPropsInterface } from '@/app/Components/SmallPlayer/interfaces/audio-player-props.interface';
 import { formatTime } from '@/app/Helpers/AudioHelpers';
-import BaseApi from '@/app/api/BaseApi';
 
 const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);

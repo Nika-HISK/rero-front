@@ -36,17 +36,20 @@ export const useAudioPlayer = (songs: Song[]) => {
     const handleEnded = () => {
       setAudioPlayer((prev) => {
         if (prev.currentSongId === null) return prev;
-    
+
         let nextSongId;
-    
+
         if (prev.shuffle) {
-          const remainingSongs = songs.filter(song => song.id !== prev.currentSongId);
-          const randomSong = remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
+          const remainingSongs = songs.filter(
+            (song) => song.id !== prev.currentSongId,
+          );
+          const randomSong =
+            remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
           nextSongId = randomSong.id;
         } else {
           nextSongId = (prev.currentSongId + 1) % songs.length;
         }
-    
+
         return {
           ...prev,
           currentSongId: nextSongId,
@@ -66,7 +69,7 @@ export const useAudioPlayer = (songs: Song[]) => {
         audio.removeEventListener('ended', handleEnded);
       };
     }
-  }, [audioPlayer.currentSongId, songs.length, setAudioPlayer]);
+  }, [audioPlayer.currentSongId, songs.length, setAudioPlayer, songs]);
 
   useEffect(() => {
     if (!audioRef.current) return;
