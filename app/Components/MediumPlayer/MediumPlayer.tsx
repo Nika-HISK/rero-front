@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 'use client';
 
 import React from 'react';
@@ -29,6 +30,8 @@ const MediumPlayer = (props: MediumPlayerPropsInterface) => {
           handleProgressChange={props.handleProgressChange}
           loop={audioPlayer.loop}
           toggleLoop={props.toggleLoop}
+          shuffle={audioPlayer.shuffle}
+          toggleShuffle={props.toggleShuffle!}
         />
       </div>
     </div>

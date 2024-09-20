@@ -49,7 +49,7 @@ const TopHits = () => {
         </div>
         {data.map((music) => (
           <MusicRow
-            key={music.id} 
+            key={music.id}
             id={music.id}
             albumName={music.album?.name}
             duration={music.duration}

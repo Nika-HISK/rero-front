@@ -5,4 +5,6 @@ export interface AudioPlayerPropsInterface {
   handleProgressChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   loop: boolean;
   toggleLoop: () => void;
+  shuffle: boolean;
+  toggleShuffle: () => void;
 }

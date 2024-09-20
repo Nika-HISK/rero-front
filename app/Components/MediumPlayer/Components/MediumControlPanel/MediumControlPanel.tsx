@@ -8,19 +8,25 @@ import { AudioPlayerPropsInterface } from '@/app/Components/SmallPlayer/interfac
 import { formatTime } from '@/app/Helpers/AudioHelpers';
 
 const MediumControlPanel = (props: AudioPlayerPropsInterface) => {
-  const [, setAudioPlayer] = useRecoilState(audioPlayerState);
+  const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
 
   const handleShuffleClick = () => {
-    setAudioPlayer((prevState) => ({
-      ...prevState,
-      shuffle: !prevState.shuffle,
-    }));
+    setAudioPlayer((prev) => ({ ...prev, shuffle: !prev.shuffle }));
   };
 
   return (
     <div className={styles.progressBar}>
       <div className={styles.icons} onClick={handleShuffleClick}>
-        <Image src={'/shuffle.png'} alt="shuffle icon" width={24} height={24} />
+        <Image
+          src={
+            !audioPlayer.shuffle
+              ? 'playlist/shuffle.svg'
+              : 'icons/activeShuffle.svg'
+          }
+          alt="shuffle"
+          width={28}
+          height={28}
+        />
       </div>
       <p>{formatTime(props.currentTime)}</p>
       <ProgressBar
