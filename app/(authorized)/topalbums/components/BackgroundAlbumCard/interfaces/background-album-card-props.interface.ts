@@ -17,4 +17,11 @@ export interface BackgroundAlbumCardPropsInterface {
     albumId: number;
     artistId: number;
   }[];
+  albums?: {
+    id: number;
+    name: string;
+    releaseDate: string;
+    cover: string;
+    artistId: number;
+  };
 }
