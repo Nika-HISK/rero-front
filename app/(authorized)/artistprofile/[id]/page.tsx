@@ -41,7 +41,7 @@ const ArtistPage = () => {
       <div className={styles.overviewContainer}>
         <Overview albums={artistParam.musics} />
       </div>
-      <Released />
+      <Released id={artistParam.id} />
       <AlbumSection artists={artistParam.albums} />
       <TopMusicHeader />
       <RowAlbumSection albums={artistParam.musics} />
