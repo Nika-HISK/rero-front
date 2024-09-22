@@ -47,7 +47,7 @@ const TopHits = () => {
         <div className={styles.container}>
           <TopAlbumsNavigationAnchore />
         </div>
-        {data.map((music) => (
+        {data.slice(3, data.length).map((music) => (
           <MusicRow
             key={music.id}
             id={music.id}

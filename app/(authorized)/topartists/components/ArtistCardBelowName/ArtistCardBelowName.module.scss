@@ -8,6 +8,12 @@
   text-decoration: none;
 }
 
+.wrapper:hover {
+  .container span {
+    color: #13828a;
+  }
+}
+
 .wrapper img {
   border-radius: 12px;
   max-width: 392px;
