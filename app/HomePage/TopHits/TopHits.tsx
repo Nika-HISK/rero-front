@@ -30,7 +30,7 @@ const TopHits = () => {
     <div className={styles.wrapper}>
       <SectionTitle title="Top Hits" link="/tophits" />
       <div className={styles.container}>
-        {data.map((music) => (
+        {data.slice(0, 8).map((music) => (
           <MusicRow
             key={music.id}
             id={music.id}
