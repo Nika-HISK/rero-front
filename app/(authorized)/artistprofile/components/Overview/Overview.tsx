@@ -18,12 +18,19 @@ const Overview = (props: RowAlbumSectionPropsInterface) => {
     });
   }, []);
 
-  const handlePlayClick = (id: number) => {
+  const handlePlayClick = async (id: number) => {
+    try {
+      await BaseApi.post(`/listeners/${id}`);
+    } catch (error) {
+      alert(error);
+    }
+
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,
     }));
   };
+
   return (
     <>
       <div className={styles.overview}>
