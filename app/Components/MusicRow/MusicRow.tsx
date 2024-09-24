@@ -12,12 +12,17 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
     try {
       await BaseApi.post(`/listeners/${props.id}`);
     } catch (error) {
-      alert('Couldnot fetch listeners');
+      alert('Could not fetch listeners');
     }
 
     if (props.onClick) {
       props.onClick();
     }
+  };
+
+  const handlePlusClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    setOpen(true);
   };
 
   return (
@@ -31,7 +36,7 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
         <p>{props.albumName}</p>
         <div className={styles.container}>
           <p>{props.duration ? props.duration : 'N/A'}</p>
-          <div className={styles.plus} onClick={() => setOpen(true)}></div>
+          <div className={styles.plus} onClick={handlePlusClick}></div>
         </div>
       </div>
       {open && (

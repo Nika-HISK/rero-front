@@ -74,8 +74,12 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
               type={ButtonType.Text}
               disabled={value === 'Default'}
               onClick={async () => {
-                await BaseApi.post(`/playlist/${playlistId}/add/${musicId}`);
-                props.setOpen(false);
+                try {
+                  await BaseApi.post(`/playlist/${playlistId}/add/${musicId}`);
+                  props.setOpen(false);
+                } catch (error) {
+                  alert(`Specific song already exists`);
+                }
               }}
             />
           </div>

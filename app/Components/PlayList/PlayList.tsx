@@ -10,13 +10,11 @@ const PlayList = ({
   playlistName,
   isActive,
   artists,
-  loop,
   playlistId,
-  toggleLoop,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState([...artists]);
-  const [shuffle, setShuffle] = useState<boolean>(false);
+
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
   };
@@ -24,11 +22,6 @@ const PlayList = ({
   useEffect(() => {
     BaseApi.get('playlist');
   }, []);
-
-  const onShuffle = () => {
-    !shuffle ? BaseApi.get('/shuffle') : BaseApi.get('playlist');
-    setShuffle(!shuffle);
-  };
 
   const handleDelete = (id: number) => {
     setArtistsData((prevArtistData) =>
@@ -52,22 +45,6 @@ const PlayList = ({
         <div
           className={`${styles.afterOpen} ${!isOpen ? styles.collapsed : ''}`}
         >
-          <div className={styles.images}>
-            <Image
-              onClick={toggleLoop}
-              src={loop ? '/icons/activeloop.svg' : '/icons/normalloop.svg'}
-              alt="loop"
-              width={28}
-              height={28}
-            />
-            <Image
-              src={'/playlist/shuffle.svg'}
-              alt="Shuffle"
-              width={24}
-              height={24}
-              onClick={onShuffle}
-            />
-          </div>
           <div className={styles.mapContainer}>
             {artistsData.map((artist) => (
               <AlbumRowTime
