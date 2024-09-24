@@ -3,16 +3,15 @@ import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import HeaderInput from '../HeaderInput/HeaderInput';
+import { useEffect, useState } from 'react';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
-import BaseApi from '@/app/api/BaseApi';
-import { useEffect, useState } from 'react';
 import { MusicPropsInterface } from './interfaces/music-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const Header = () => {
-  const [songs, setSongs] = useState<MusicPropsInterface[]>([]);
-  const [filteredSongs, setFilteredSongs] = useState<MusicPropsInterface[]>([]);
+  const [, setSongs] = useState<MusicPropsInterface[]>([]);
+  const [, setFilteredSongs] = useState<MusicPropsInterface[]>([]);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -29,21 +28,6 @@ const Header = () => {
   const handleLogout = () => {
     Cookies.remove('token');
     router.push('/login');
-  };
-
-  const handleSearch = async (value: string) => {
-    if (value.trim() === '') {
-      setFilteredSongs(songs);
-      return;
-    }
-    const lowercasedValue = value.toLowerCase();
-    try {
-      const response = await BaseApi.get(`/search?query=${lowercasedValue}`);
-      setFilteredSongs(response.data.musics || []);
-    } catch (error) {
-      console.error('Search failed:', error);
-      setFilteredSongs(songs);
-    }
   };
 
   return (

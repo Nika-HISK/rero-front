@@ -9,4 +9,5 @@ export interface PlayListPropsinterface {
   musicAudio: string;
   isPlaying: boolean;
   onClick: () => void;
+  onPlayMusicClick: (id: number) => void;
 }

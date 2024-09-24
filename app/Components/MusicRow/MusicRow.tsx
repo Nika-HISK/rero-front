@@ -12,7 +12,7 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
     try {
       await BaseApi.post(`/listeners/${props.id}`);
     } catch (error) {
-      alert('Could not fetch listeners');
+      alert('Error posting listener count:');
     }
 
     if (props.onClick) {

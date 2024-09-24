@@ -11,6 +11,7 @@ const PlayList = ({
   isActive,
   artists,
   playlistId,
+  onClick,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState([...artists]);
@@ -33,7 +34,9 @@ const PlayList = ({
     <>
       <div className={styles.playListWrapper}>
         <div className={styles.wrapper}>
-          <span className={styles.playlistName}>{playlistName}</span>
+          <span className={styles.playlistName} onClick={onClick}>
+            {playlistName}
+          </span>
           <Image
             onClick={onChangeToggle}
             src={isOpen ? '/playlist/down.svg' : '/playlist/up.svg'}

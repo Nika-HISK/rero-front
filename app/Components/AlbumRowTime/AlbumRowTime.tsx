@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import Button from '../Button/Button';
 import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
-import styles from './AlbumRowTime.module.scss';
+import styles from './AlbumRowTIme.module.scss';
 import { AlbumRowTimePropsInterface } from './albumRowTimePropsInterface/album-row-time-props.inteface';
 import { audioPlayerState } from '@/app/Atoms/states';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
@@ -88,7 +88,7 @@ const AlbumRowTime = ({
             onClick={() => onDeleteClick(musicId)}
             mode={ButtonMode.Delete}
             type={ButtonType.IconOnly}
-            icon="/icons/group.svg"
+            icon="/icons/trash.svg"
           />
         </div>
       )}

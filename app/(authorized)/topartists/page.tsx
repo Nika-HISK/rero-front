@@ -5,15 +5,15 @@ import { ArtistPropsInterface } from '../artistprofile/[id]/interfaces/artist-pr
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import ArtistCardBelowName from './components/ArtistCardBelowName/ArtistCardBelowName';
 import styles from './page.module.scss';
-import BaseApi from '@/app/api/BaseApi';
 import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopArtists = () => {
   const [artistData, setArtistData] = useState<ArtistPropsInterface[]>([]);
   const [filteredArtists, setFilteredArtists] = useState<
     ArtistPropsInterface[]
   >([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/artist').then((response) => {

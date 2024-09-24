@@ -5,15 +5,15 @@ import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigat
 import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 import styles from './page.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
+import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
-import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 
 const TopCharts = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
   const [data, setData] = useState<MusicInterface[]>([]);
   const [filteredMusic, setFilteredMusic] = useState<MusicInterface[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/listeners').then((response) => {

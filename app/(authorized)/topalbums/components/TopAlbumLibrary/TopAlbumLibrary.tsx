@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import BackgroundAlbumCard from '../BackgroundAlbumCard/BackgroundAlbumCard';
 import { BackgroundAlbumCardPropsInterface } from '../BackgroundAlbumCard/interfaces/background-album-card-props.interface';
-import styles from './TopAlbumLibrary.module.scss';
-import BaseApi from '@/app/api/BaseApi';
 import TopAlbumNavigation from '../TopAlbumNavigation/TopAlbumNavigation';
+import styles from './TopAlbumLibrary.module.scss';
 import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopAlbumLibrary = () => {
   const [albumData, setAlbumData] = useState<
@@ -14,7 +14,7 @@ const TopAlbumLibrary = () => {
   const [filteredAlbums, setFilteredAlbums] = useState<
     BackgroundAlbumCardPropsInterface[]
   >([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get(`/album`).then((response) => {

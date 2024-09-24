@@ -1,5 +1,5 @@
-import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 import Image from 'next/image';
+import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 import styles from './HeaderInput.module.scss';
 import { HeaderInputSearchInterface } from './interfaces/input-props.interface';
 
