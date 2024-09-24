@@ -38,7 +38,7 @@ const Overview = (props: RowAlbumSectionPropsInterface) => {
       </div>
       <div className={styles.timeContainer}>
         {props.albums.slice(0, 4).map((album) => (
-          <MusicRow
+          Row
             id={album.id}
             key={album.id}
             duration={album.duration}

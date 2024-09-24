@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import Button from '../Button/Button';
 import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
-import styles from './AlbumRowTIme.module.scss';
+import styles from './AlbumRowTime.module.scss';
 import { AlbumRowTimePropsInterface } from './albumRowTimePropsInterface/album-row-time-props.inteface';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';
+import { audioPlayerState } from '@/app/Atoms/states';
 
 const AlbumRowTime = ({
   musicId,
@@ -17,6 +19,7 @@ const AlbumRowTime = ({
 }: AlbumRowTimePropsInterface) => {
   const [isConfirmPopupVisible, setIsConfirmPopupVisible] = useState(false);
   const [id, setId] = useState<number>();
+  const [, setCurrentSong] = useRecoilState(audioPlayerState);
 
   const handleDelete = () => {
     setIsConfirmPopupVisible(true);
@@ -33,7 +36,7 @@ const AlbumRowTime = ({
         BaseApi.delete(`/playlist/${playlistId}/add/${id}`);
         setArtistData(id);
       } catch (error) {
-        alert('Couldnot fetch data');
+        alert('Could not fetch data');
       }
     }
     setIsConfirmPopupVisible(false);
@@ -43,8 +46,20 @@ const AlbumRowTime = ({
     setIsConfirmPopupVisible(false);
   };
 
+  const handlePlayClick = async () => {
+    try {
+      await BaseApi.post(`/listeners/${musicId}`);
+      setCurrentSong((prevState) => ({
+        ...prevState,
+        currentSongId: musicId,
+      }));
+    } catch (error) {
+      alert('Failed to play the song.');
+    }
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={handlePlayClick}>
       <div className={styles.container}>
         <div className={styles.musicImage}>
           <Image
@@ -79,7 +94,7 @@ const AlbumRowTime = ({
       )}
       {isConfirmPopupVisible && (
         <ConfirmPopup
-          message="Are you sure ?"
+          message="Are you sure?"
           onConfirm={handleConfirmDelete}
           onCancel={handleCancelDelete}
         />

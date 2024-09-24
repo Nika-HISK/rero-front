@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { PlaylistData } from './interface/playlist-interface';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
@@ -14,28 +14,28 @@ import PlaylistPopup from '@/app/Components/PlaylistPopup/PlaylistPopup';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';
+import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 
 const PlaylistPage = () => {
   const [active, setActive] = useState<boolean>(false);
-  const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState<PlaylistData[]>([]);
   const [isVisiblePopUp, setIsVisiblePopUp] = useState<boolean>(false);
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
-  const audioPlayer = useRecoilValue(audioPlayerState);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const fetchData = async () => {
     try {
       const response = await BaseApi.get('/playlist');
       setArtists(response.data);
     } catch (error) {
-      alert('Couldnot fetch playlist data');
+      alert('Could not fetch playlist data');
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleClick = () => {
     setActive((prev) => !prev);
@@ -64,6 +64,27 @@ const PlaylistPage = () => {
     setSelectedArtistId(null);
   };
 
+  const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
+  const [data, setData] = useState<MusicInterface[]>([]);
+
+  useEffect(() => {
+    BaseApi.get('/listeners').then((response) => {
+      setData(response.data);
+    });
+  }, []);
+
+  const handlePlayClick = async (id: number) => {
+    try {
+      await BaseApi.post(`/listeners/${id}`);
+      setCurrentSong((prevState) => ({
+        ...prevState,
+        currentSongId: id,
+      }));
+    } catch (error) {
+      alert('Failed to play the song.');
+    }
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -82,37 +103,31 @@ const PlaylistPage = () => {
           </div>
         </div>
       </div>
-
       <div className={styles.collapseWrapper}>
-        {artists.map(
-          ({ playlistName, id: ID, musics }: PlaylistData, index: number) => (
-            <div key={index} className={styles.playlistWrapper}>
-              <PlayList
-                playlistId={ID}
-                playlistName={playlistName}
-                isActive={active}
-                setActive={handleClick}
-                key={index + 1}
-                artists={musics}
-                loop={audioPlayer.loop}
-                artistName={''}
-                artistPhoto={''}
-                musicName={''}
-                toggleLoop={() => ''}
-              />
-              {active && (
-                <div className={styles.garbageButtonWrapper}>
-                  <Button
-                    mode={ButtonMode.Delete}
-                    type={ButtonType.IconOnly}
-                    onClick={() => handleDeleteClick(ID)}
-                    icon="/icons/group.svg"
-                  />
-                </div>
-              )}
-            </div>
-          ),
-        )}
+        {artists.map((artists) => (
+          <div key={artists.id} className={styles.playlistWrapper}>
+            <PlayList
+              playlistId={artists.id}
+              playlistName={artists.playlistName}
+              isActive={active}
+              setActive={handleClick}
+              artists={artists.musics}
+              musicAudio={artists.musicAudio}
+              isPlaying={currentSong.currentSongId === artists.id}
+              onClick={() => handlePlayClick(artists.id)}
+            />
+            {active && (
+              <div className={styles.garbageButtonWrapper}>
+                <Button
+                  mode={ButtonMode.Delete}
+                  type={ButtonType.IconOnly}
+                  onClick={() => handleDeleteClick(artists.id)}
+                  icon="/icons/group.svg"
+                />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       {isVisiblePopUp && (
@@ -147,6 +162,7 @@ const PlaylistPage = () => {
               }
             };
             postData();
+            setValue('');
             setIsActiveAddIcon(false);
           }}
           e={setValue}

@@ -4,4 +4,5 @@ export interface PlaylistData {
   id: number;
   playlistName: string;
   musics: SongObject[];
+  musicAudio: string;
 }
