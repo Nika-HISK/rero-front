@@ -5,10 +5,10 @@ import Button from '../Button/Button';
 import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
 import styles from './AlbumRowTime.module.scss';
 import { AlbumRowTimePropsInterface } from './albumRowTimePropsInterface/album-row-time-props.inteface';
+import { audioPlayerState } from '@/app/Atoms/states';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';
-import { audioPlayerState } from '@/app/Atoms/states';
 
 const AlbumRowTime = ({
   musicId,

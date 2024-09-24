@@ -77,10 +77,8 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
                 try {
                   await BaseApi.post(`/playlist/${playlistId}/add/${musicId}`);
                   props.setOpen(false);
-
-                }
-                catch(error) {
-                  alert(`Specific song already exists`)
+                } catch (error) {
+                  alert(`Specific song already exists`);
                 }
               }}
             />

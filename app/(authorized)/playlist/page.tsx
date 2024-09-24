@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
+import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 import { PlaylistData } from './interface/playlist-interface';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
@@ -14,7 +15,6 @@ import PlaylistPopup from '@/app/Components/PlaylistPopup/PlaylistPopup';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';
-import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 
 const PlaylistPage = () => {
   const [active, setActive] = useState<boolean>(false);
@@ -65,7 +65,7 @@ const PlaylistPage = () => {
   };
 
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [data, setData] = useState<MusicInterface[]>([]);
+  const [, setData] = useState<MusicInterface[]>([]);
 
   useEffect(() => {
     BaseApi.get('/listeners').then((response) => {
