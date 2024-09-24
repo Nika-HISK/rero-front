@@ -9,14 +9,18 @@ import styles from './page.module.scss';
 import { audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
+import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
   const [data, setData] = useState<MusicInterface[]>([]);
+  const [filteredMusic, setFilteredMusic] = useState<MusicInterface[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {
       setData(response.data);
+      setFilteredMusic(response.data);
     });
   }, []);
 
@@ -33,10 +37,25 @@ const TopHits = () => {
     }));
   };
 
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+    if (value.trim() === '') {
+      setFilteredMusic(data); 
+    } else {
+      const lowercasedValue = value.toLowerCase();
+      const filtered = data.filter(
+        (music) =>
+          music.name.toLowerCase().includes(lowercasedValue) ||
+          music.artist?.artistName.toLowerCase().includes(lowercasedValue),
+      );
+      setFilteredMusic(filtered);
+    }
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
-        {data.slice(0, 3).map((music) => (
+        {filteredMusic.slice(0, 3).map((music) => (
           <MusicBox
             key={music.id}
             id={music.id}
@@ -50,10 +69,16 @@ const TopHits = () => {
         ))}
       </div>
       <div className={styles.mainContainer}>
-        <div className={styles.container}>
-          <TopAlbumsNavigationAnchore />
+        <div className={styles.contWrapper}>
+          <div className={styles.container}>
+            <TopAlbumsNavigationAnchore />
+          </div>
+          <HeaderInput
+            onSearch={handleSearch}
+            results={filteredMusic.map((music) => music.name)}
+          />
         </div>
-        {data.slice(3, data.length).map((music) => (
+        {filteredMusic.slice(3, filteredMusic.length).map((music) => (
           <MusicRow
             key={music.id}
             id={music.id}

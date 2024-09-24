@@ -8,6 +8,14 @@
   padding: 24px 24px 120px 24px;
 }
 
+.WrapperContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+}
+
 .wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,4 +32,12 @@
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+
+.wrapCont {
+  max-width: 1200px;
+  padding-left: 12px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
 }
