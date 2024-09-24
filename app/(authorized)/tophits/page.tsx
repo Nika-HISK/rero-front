@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import MusicBox from './components/MusicBox/MusicBox';
@@ -20,7 +20,13 @@ const TopHits = () => {
     });
   }, []);
 
-  const handlePlayClick = (id: number) => {
+  const handlePlayClick = async (id: number) => {
+    try {
+      await BaseApi.post(`/listeners/${id}`);
+    } catch (error) {
+      alert(error);
+    }
+
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,

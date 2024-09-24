@@ -30,7 +30,13 @@ const AlbumMusic = () => {
     });
   }, []);
 
-  const handlePlayClick = (id: number) => {
+  const handlePlayClick = async (id: number) => {
+    try {
+      await BaseApi.post(`/listeners/${id}`);
+    } catch (error) {
+      alert(error);
+    }
+
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,
