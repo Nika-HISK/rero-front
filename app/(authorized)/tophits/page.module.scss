@@ -15,6 +15,12 @@
   }
 }
 
+.contWrapper {
+  max-width: 1224px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 .container {
   max-width: 200px;
   width: 100%;

@@ -1,91 +1,16 @@
-.mainContainer {
-  display: flex;
-  align-items: center;
-}
-
-.inputStyle {
-  border: 0;
-  outline: none;
-  color: #121212;
-  font-size: 20px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  max-width: 393px;
+.input {
+  max-width: 230px;
   width: 100%;
   height: 40px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: #fff;
+  border-radius: 10px;
+  padding-left: 4px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.inputStyle::placeholder {
-  padding-left: 30px;
-  font-weight: 500;
-  font-style: normal;
-  background: url('/searchIcon/search.svg') no-repeat left -3px center;
-}
-
-.iconStyle {
-  display: none;
-}
-
-.imgStyle {
-  display: none;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .iconStyle {
-    display: block;
-    max-width: 348px;
-    width: 100%;
-    height: 40px;
-  }
-
-  .isActiveInput {
-    display: none;
-  }
-
-  .imgStyle {
-    display: block;
-    cursor: pointer;
-    padding-top: 8px;
-    padding-left: 13px;
-  }
-
-  .isActive {
-    display: none;
-  }
-
-  .inputStyle::placeholder {
-    padding-left: 30px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .iconStyle {
-    display: block;
-    max-width: 170px;
-    width: 100%;
-    height: 36px;
-  }
-
-  .isActiveInput {
-    display: none;
-  }
-
-  .imgStyle {
-    cursor: pointer;
-    display: block;
-    padding-top: 8px;
-    padding-left: 13px;
-  }
-
-  .isActive {
-    display: none;
-  }
-
-  .inputStyle::placeholder {
-    padding-left: 30px;
-  }
-}
+.input:focus {
+  outline: none;
+} 

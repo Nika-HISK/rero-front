@@ -18,6 +18,14 @@
   margin-bottom: 12px;
 }
 
+.contWrapper {
+  max-width: 1224px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .container {
   max-width: 1224px;
   width: 100%;
