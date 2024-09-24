@@ -27,7 +27,7 @@ const TopCharts = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SectionTitle title={'Top Charts'} link="/topcharts" />
+      <SectionTitle title="Top Charts" link="/topcharts" />
       <div className={styles.container}>
         {data.slice(0, 6).map((music) => (
           <MusicRow

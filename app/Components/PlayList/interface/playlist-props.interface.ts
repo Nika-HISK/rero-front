@@ -1,4 +1,4 @@
-import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { SongObject } from './song-props.interface';
 
 export interface PlayListPropsinterface {
   playlistName: string;
@@ -10,4 +10,5 @@ export interface PlayListPropsinterface {
   setActive?: () => void;
   loop: boolean;
   toggleLoop: () => void;
+  playlistId: number;
 }

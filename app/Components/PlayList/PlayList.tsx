@@ -1,37 +1,45 @@
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
 import styles from './PlayList.module.scss';
-import { PlayListPropsinterface } from './playlistPropsInterface/playlist-propsInterface';
-import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { PlayListPropsinterface } from './interface/playlist-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const PlayList = ({
   playlistName,
-  artistPhoto,
   isActive,
   artists,
   loop,
+  playlistId,
   toggleLoop,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [artistsData, setArtistsData] = useState<SongObject[]>([...artists]);
-
+  const [artistsData, setArtistsData] = useState([...artists]);
+  const [shuffle, setShuffle] = useState<boolean>(false);
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    BaseApi.get('playlist');
+  }, []);
+
+  const onShuffle = () => {
+    !shuffle ? BaseApi.get('/shuffle') : BaseApi.get('playlist');
+    setShuffle(!shuffle);
+  };
+
+  const handleDelete = (id: number) => {
+    setArtistsData((prevArtistData) =>
+      prevArtistData.filter((item) => item.id !== id),
+    );
   };
 
   return (
     <>
       <div className={styles.playListWrapper}>
         <div className={styles.wrapper}>
-          <Image
-            className={styles.artistCover}
-            src={artistPhoto}
-            alt={`${playlistName} cover`}
-            width={53}
-            height={53}
-          />
           <span className={styles.playlistName}>{playlistName}</span>
           <Image
             onClick={onChangeToggle}
@@ -57,20 +65,21 @@ const PlayList = ({
               alt="Shuffle"
               width={24}
               height={24}
+              onClick={onShuffle}
             />
           </div>
           <div className={styles.mapContainer}>
-            {artistsData.map((artist: SongObject, index: number) => (
+            {artistsData.map((artist) => (
               <AlbumRowTime
-                src={artist.src}
+                setArtistData={handleDelete}
+                src={artist.coverImage}
                 artistData={artist}
-                index={index}
-                key={index + 1}
+                index={artist.id}
+                key={artist.id}
                 artistDataArray={artistsData}
-                filter={(artistsData: SongObject[]) =>
-                  setArtistsData(artistsData)
-                }
                 isActive={isActive}
+                musicId={artist.id}
+                playlistId={playlistId}
               />
             ))}
           </div>

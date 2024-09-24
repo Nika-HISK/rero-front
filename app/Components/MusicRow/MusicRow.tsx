@@ -23,7 +23,9 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
           <div className={styles.plus} onClick={() => setOpen(true)}></div>
         </div>
       </div>
-      {open && <SelectPlaylistPopUp option={open} setOpen={setOpen} />}
+      {open && (
+        <SelectPlaylistPopUp option={open} setOpen={setOpen} id={props.id} />
+      )}
     </div>
   );
 };

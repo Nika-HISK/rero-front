@@ -1,18 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../Button/Button';
 import styles from './SelectPlaylistPopUp.module.scss';
 import { SelectPlaylistPopupPropsInterface } from './interface/select-playlist-popup-props.interface';
-import { albumsSelectPupUpDummy } from './select-playlist-dummy-data/dummy-data';
+import { PlaylistData } from '@/app/(authorized)/playlist/interface /playlist-interface';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
+import BaseApi from '@/app/api/BaseApi';
 
 const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
-  const [value, setValue] = useState<string | undefined>(undefined);
+  const [value, setValue] = useState<string>('Default');
+  const [data, setData] = useState<PlaylistData[]>([]);
+  const [playlistId, setPLaylistId] = useState<number | null>(null);
+  const [musicId, setMusicId] = useState<number | null>(null);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
+    const selectedValue = e.target.value;
+    setPLaylistId(Number(selectedValue));
+    setValue(selectedValue);
     props.setOpen(true);
   };
+
+  const fetchData = async () => {
+    try {
+      const response = await BaseApi.get('/playlist');
+      setData(response.data);
+    } catch (error) {
+      alert('Couldnot fetch data');
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    setMusicId(props.id);
+  }, [props.id]);
 
   return (
     <div className={styles.mainWrapper}>
@@ -25,9 +45,14 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
               value={value}
               onChange={onChangeValue}
             >
-              {albumsSelectPupUpDummy.map((item, index) => (
-                <option key={index} className={styles.optionStyle}>
-                  {item.name}
+              <option value="Default">Default</option>
+              {data.map((playlist: PlaylistData, index: number) => (
+                <option
+                  key={index}
+                  value={String(playlist.id)}
+                  className={styles.optionStyle}
+                >
+                  {playlist.playlistName}
                 </option>
               ))}
             </select>
@@ -47,8 +72,11 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
               mode={ButtonMode.Fill}
               title="Confirm"
               type={ButtonType.Text}
-              disabled={!value}
-              onClick={() => props.setOpen(false)}
+              disabled={value === 'Default'}
+              onClick={async () => {
+                await BaseApi.post(`/playlist/${playlistId}/add/${musicId}`);
+                props.setOpen(false);
+              }}
             />
           </div>
         </div>

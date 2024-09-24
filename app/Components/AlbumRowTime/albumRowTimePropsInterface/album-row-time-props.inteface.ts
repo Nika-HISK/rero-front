@@ -1,10 +1,12 @@
-import { SongObject } from '@/app/(authorized)/playlist/dummyData/dummyData';
+import { SongObject } from '../../PlayList/interface/song-props.interface';
 
 export interface AlbumRowTimePropsInterface {
   isActive: boolean;
   index: number;
   artistData: SongObject;
   artistDataArray: SongObject[];
-  filter: (data: SongObject[]) => void;
   src: string;
+  musicId: number;
+  playlistId: number;
+  setArtistData: (id: number) => void;
 }
