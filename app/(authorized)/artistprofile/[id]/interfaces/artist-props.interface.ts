@@ -6,6 +6,7 @@ export interface ArtistPropsInterface {
   artistName: string;
   artistPhoto: string;
   biography: string;
+  relesed: string;
   musics: RowMusicDataInterface[];
   albums: AlbumDataPropsInterface[];
 }

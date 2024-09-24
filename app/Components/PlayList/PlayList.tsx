@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import { useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
@@ -47,7 +46,7 @@ const PlayList = ({
               height={28}
             />
             <Image
-              src="/playlist/shuffle.svg"
+              src={'/playlist/shuffle.svg'}
               alt="Shuffle"
               width={24}
               height={24}

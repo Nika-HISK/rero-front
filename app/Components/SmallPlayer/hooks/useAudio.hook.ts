@@ -8,7 +8,7 @@ export const useAudioPlayer = (songs: Song[]) => {
   const [audioPlayer, setAudioPlayer] = useRecoilState(audioPlayerState);
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLInputElement>(null);
-  const currentSong = getCurrentSong(audioPlayer.currentSongId);
+  const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
 
   useEffect(() => {
     const handleTimeUpdate = () => {
@@ -36,9 +36,23 @@ export const useAudioPlayer = (songs: Song[]) => {
     const handleEnded = () => {
       setAudioPlayer((prev) => {
         if (prev.currentSongId === null) return prev;
+
+        let nextSongId;
+
+        if (prev.shuffle) {
+          const remainingSongs = songs.filter(
+            (song) => song.id !== prev.currentSongId,
+          );
+          const randomSong =
+            remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
+          nextSongId = randomSong.id;
+        } else {
+          nextSongId = (prev.currentSongId + 1) % songs.length;
+        }
+
         return {
           ...prev,
-          currentSongId: (prev.currentSongId + 1) % songs.length,
+          currentSongId: nextSongId,
           currentTime: 0,
         };
       });
@@ -55,7 +69,7 @@ export const useAudioPlayer = (songs: Song[]) => {
         audio.removeEventListener('ended', handleEnded);
       };
     }
-  }, [audioPlayer.currentSongId, songs.length, setAudioPlayer]);
+  }, [audioPlayer.currentSongId, songs.length, setAudioPlayer, songs]);
 
   useEffect(() => {
     if (!audioRef.current) return;
@@ -67,9 +81,9 @@ export const useAudioPlayer = (songs: Song[]) => {
 
   useEffect(() => {
     if (!audioRef.current) return;
-    audioRef.current.src = currentSong.audioSrc;
+    audioRef.current.src = currentSong.musicAudio;
     audioRef.current.play();
-  }, [audioPlayer.currentSongId, currentSong.audioSrc]);
+  }, [audioPlayer.currentSongId, currentSong.musicAudio]);
 
   useEffect(() => {
     if (!audioRef.current) return;
@@ -110,12 +124,24 @@ export const useAudioPlayer = (songs: Song[]) => {
     setAudioPlayer((prev) => {
       if (prev.currentSongId === null) return prev;
 
-      const currentIndex = songs.findIndex(
-        (song) => song.id === prev.currentSongId,
-      );
-      const nextSongIndex =
-        currentIndex === songs.length - 1 ? 0 : currentIndex + 1;
-      const nextSongId = songs[nextSongIndex].id;
+      let nextSongId;
+
+      if (prev.shuffle) {
+        const remainingSongs = songs.filter(
+          (song) => song.id !== prev.currentSongId,
+        );
+        const randomSong =
+          remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
+        nextSongId = randomSong.id;
+      } else {
+        const currentIndex = songs.findIndex(
+          (song) => song.id === prev.currentSongId,
+        );
+        nextSongId =
+          currentIndex === songs.length - 1
+            ? songs[0].id
+            : songs[currentIndex + 1].id;
+      }
 
       return {
         ...prev,
@@ -132,12 +158,24 @@ export const useAudioPlayer = (songs: Song[]) => {
     setAudioPlayer((prev) => {
       if (prev.currentSongId === null) return prev;
 
-      const currentIndex = songs.findIndex(
-        (song) => song.id === prev.currentSongId,
-      );
-      const prevSongIndex =
-        currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
-      const prevSongId = songs[prevSongIndex].id;
+      let prevSongId;
+
+      if (prev.shuffle) {
+        const remainingSongs = songs.filter(
+          (song) => song.id !== prev.currentSongId,
+        );
+        const randomSong =
+          remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
+        prevSongId = randomSong.id;
+      } else {
+        const currentIndex = songs.findIndex(
+          (song) => song.id === prev.currentSongId,
+        );
+        prevSongId =
+          currentIndex === 0
+            ? songs[songs.length - 1].id
+            : songs[currentIndex - 1].id;
+      }
 
       return {
         ...prev,
@@ -167,6 +205,18 @@ export const useAudioPlayer = (songs: Song[]) => {
     audioRef.current.loop = !audioRef.current.loop;
   };
 
+  const Shuffle = (songs: Song[]) => {
+    let currentIndex = songs.length;
+    while (currentIndex !== 0) {
+      const randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [songs[currentIndex], songs[randomIndex]] = [
+        songs[randomIndex],
+        songs[currentIndex],
+      ];
+    }
+  };
+
   const isPlaying = !!audioRef.current?.paused;
 
   return {
@@ -182,5 +232,6 @@ export const useAudioPlayer = (songs: Song[]) => {
     handleVolumeUp,
     toggleLoop,
     isPlaying,
+    Shuffle,
   };
 };

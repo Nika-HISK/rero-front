@@ -1,28 +1,29 @@
 'use client';
+import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import BackgroundAlbumCard from '../BackgroundAlbumCard/BackgroundAlbumCard';
-import { BackgroundAlbumCardPropsInterface } from '../BackgroundAlbumCard/interfaces/background-album-card-props.interface';
-import styles from './TopAlbumLibrary.module.scss';
+import styles from './AlbumLibrary.module.scss';
+import BackgroundAlbumCard from '@/app/(authorized)/topalbums/components/BackgroundAlbumCard/BackgroundAlbumCard';
+import { BackgroundAlbumCardPropsInterface } from '@/app/(authorized)/topalbums/components/BackgroundAlbumCard/interfaces/background-album-card-props.interface';
 import BaseApi from '@/app/api/BaseApi';
 
-const TopAlbumLibrary = () => {
+const AlbumLibrary = () => {
   const [albumData, setAlbumData] = useState<
     BackgroundAlbumCardPropsInterface[]
   >([]);
   const [, setcount] = useState(0);
-
+  const { id } = useParams();
   useEffect(() => {
-    BaseApi.get(`/album`).then((response) => {
-      setAlbumData(response.data);
+    BaseApi.get(`/artist/${id}`).then((response) => {
+      setAlbumData(response.data.albums);
       setcount(response.data.musics?.length || 0);
     });
-  }, []);
+  }, [id]);
 
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.wrap}>
-          {albumData.map((album) => {
+          {albumData?.map((album) => {
             return (
               <BackgroundAlbumCard
                 key={album.id}
@@ -43,4 +44,4 @@ const TopAlbumLibrary = () => {
   );
 };
 
-export default TopAlbumLibrary;
+export default AlbumLibrary;

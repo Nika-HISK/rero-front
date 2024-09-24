@@ -10,9 +10,7 @@ const GlobalAudioManager = () => {
       ? [songs[audioPlayer.currentSongId]]
       : [];
 
-  return (
-    <>{selectedSongs.length > 0 && <AudioManager songs={selectedSongs} />}</>
-  );
+  return <>{selectedSongs.length > 0 && <AudioManager />}</>;
 };
 
 export default GlobalAudioManager;

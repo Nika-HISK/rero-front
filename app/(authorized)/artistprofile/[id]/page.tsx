@@ -26,7 +26,6 @@ const ArtistPage = () => {
 
   const artistParam = artistData.find((artist) => artist.id === +id);
   if (artistParam === undefined) return null;
-  const MusicData = artistParam.musics;
 
   return (
     <>
@@ -35,17 +34,17 @@ const ArtistPage = () => {
         <ArtistDetail
           artistName={artistParam.artistName}
           biography={artistParam.biography}
-          albums={MusicData}
+          albums={artistParam.musics}
         />
         <ArtistCover cover={artistParam.artistPhoto} />
       </div>
       <div className={styles.overviewContainer}>
-        <Overview albums={MusicData} />
+        <Overview albums={artistParam.musics} />
       </div>
-      <Released />
+      <Released id={artistParam.id} />
       <AlbumSection artists={artistParam.albums} />
       <TopMusicHeader />
-      <RowAlbumSection albums={MusicData} />
+      <RowAlbumSection albums={artistParam.musics} />
     </>
   );
 };
