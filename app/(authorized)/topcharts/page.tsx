@@ -13,7 +13,7 @@ const TopCharts = () => {
   const [data, setData] = useState<MusicInterface[]>([]);
 
   useEffect(() => {
-    BaseApi.get('/music').then((response) => {
+    BaseApi.get('/listeners').then((response) => {
       setData(response.data);
     });
   }, []);
