@@ -22,8 +22,8 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
 
   const fetchData = async () => {
     try {
-      const response = await BaseApi.get('/playlist');
-      setData(response.data);
+      const response = await BaseApi.get('/user/me');
+      setData(response.data.playlists);
     } catch (error) {
       alert('Couldnot fetch data');
     }
