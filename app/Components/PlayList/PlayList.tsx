@@ -13,10 +13,12 @@ const PlayList = ({
   loop,
   playlistId,
   toggleLoop,
+  onClick,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState([...artists]);
   const [shuffle, setShuffle] = useState<boolean>(false);
+
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
   };
@@ -40,7 +42,9 @@ const PlayList = ({
     <>
       <div className={styles.playListWrapper}>
         <div className={styles.wrapper}>
-          <span className={styles.playlistName}>{playlistName}</span>
+          <span className={styles.playlistName} onClick={onClick}>
+            {playlistName}
+          </span>
           <Image
             onClick={onChangeToggle}
             src={isOpen ? '/playlist/down.svg' : '/playlist/up.svg'}

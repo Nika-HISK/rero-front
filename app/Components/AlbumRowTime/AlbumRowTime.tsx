@@ -73,7 +73,7 @@ const AlbumRowTime = ({
             onClick={() => onDeleteClick(musicId)}
             mode={ButtonMode.Delete}
             type={ButtonType.IconOnly}
-            icon="/icons/group.svg"
+            icon="/icons/trash.svg"
           />
         </div>
       )}

@@ -53,6 +53,18 @@
   margin-left: 10px;
 }
 
+.trashIconWrapper {
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .editIconWrapper {
   width: 48px;
   height: 48px;
@@ -78,4 +90,25 @@
 .trashIconStyle {
   position: absolute;
   left: 100px;
+}
+
+.editIconStyle {
+  width: 47px;
+  height: 47px;
+  border-radius: 5px;
+  background-color: #13828a;
+}
+
+.editStyle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playlistInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

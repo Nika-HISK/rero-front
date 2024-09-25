@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import Editpopup from './components/Editpopup';
 import { PlaylistData } from './interface /playlist-interface';
+
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import { audioPlayerState } from '@/app/Atoms/states';
@@ -17,11 +19,13 @@ import BaseApi from '@/app/api/BaseApi';
 
 const PlaylistPage = () => {
   const [active, setActive] = useState<boolean>(false);
-  const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState<PlaylistData[]>([]);
   const [isVisiblePopUp, setIsVisiblePopUp] = useState<boolean>(false);
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
-  const [value, setValue] = useState<string>('');
+  const [playlistName, setPlaylistName] = useState<string>('');
+  const [editActive, setEditActive] = useState<boolean>(false);
+  const [editPlaylistId, setEditPlaylistId] = useState<number | null>(null);
   const audioPlayer = useRecoilValue(audioPlayerState);
 
   useEffect(() => {
@@ -33,7 +37,7 @@ const PlaylistPage = () => {
       const response = await BaseApi.get('/playlist');
       setArtists(response.data);
     } catch (error) {
-      alert('Couldnot fetch playlist data');
+      alert('Could not fetch playlist data');
     }
   };
 
@@ -64,6 +68,26 @@ const PlaylistPage = () => {
     setSelectedArtistId(null);
   };
 
+  const handleConfirmEdit = async () => {
+    if (editPlaylistId !== null) {
+      try {
+        await BaseApi.put(`/playlist/${editPlaylistId}`, {
+          playlistName: playlistName,
+        });
+        fetchData();
+        setEditActive(false);
+      } catch (error) {
+        alert('Sorry, we are not able to change the playlist name');
+      }
+    }
+  };
+
+  const handleEditClick = (id: number, currentPlaylistName: string) => {
+    setPlaylistName(currentPlaylistName);
+    setEditPlaylistId(id);
+    setEditActive(true);
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -77,9 +101,14 @@ const PlaylistPage = () => {
             height={18}
             onClick={() => setIsActiveAddIcon(true)}
           />
-          <div className={styles.editIconWrapper} onClick={handleClick}>
-            <Icon name="edit" width={18} height={18} />
+          <div className={styles.trashIconWrapper} onClick={handleClick}>
+            <Icon name="trash" width={18} height={18} />
           </div>
+          {editActive && (
+            <div className={styles.editIconWrapper}>
+              <Icon name="edit" width={18} height={18} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -99,6 +128,7 @@ const PlaylistPage = () => {
                 artistPhoto={''}
                 musicName={''}
                 toggleLoop={() => ''}
+                onClick={() => handleEditClick(ID, playlistName)}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>
@@ -106,9 +136,16 @@ const PlaylistPage = () => {
                     mode={ButtonMode.Delete}
                     type={ButtonType.IconOnly}
                     onClick={() => handleDeleteClick(ID)}
-                    icon="/icons/group.svg"
+                    icon="/icons/trash.svg"
                   />
                 </div>
+              )}
+              {editActive && editPlaylistId === ID && (
+                <Editpopup
+                  e={setPlaylistName}
+                  onCancel={() => setEditActive(false)}
+                  onConfirm={handleConfirmEdit}
+                />
               )}
             </div>
           ),
@@ -128,7 +165,7 @@ const PlaylistPage = () => {
           onCancel={() => setIsActiveAddIcon(false)}
           onConfirm={() => {
             const existingFile = artists.find(
-              ({ playlistName }: PlaylistData) => playlistName === value,
+              ({ playlistName }: PlaylistData) => playlistName === playlistName,
             );
             if (existingFile) {
               alert('Playlist with that name already exists');
@@ -138,7 +175,7 @@ const PlaylistPage = () => {
             const postData = async () => {
               try {
                 await BaseApi.post('/playlist', {
-                  playlistName: value,
+                  playlistName: playlistName,
                   musics: [],
                 });
                 fetchData();
@@ -149,7 +186,7 @@ const PlaylistPage = () => {
             postData();
             setIsActiveAddIcon(false);
           }}
-          e={setValue}
+          e={setPlaylistName}
         />
       )}
     </>

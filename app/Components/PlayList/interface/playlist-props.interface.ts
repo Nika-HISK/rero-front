@@ -11,4 +11,5 @@ export interface PlayListPropsinterface {
   loop: boolean;
   toggleLoop: () => void;
   playlistId: number;
+  onClick: () => void;
 }
