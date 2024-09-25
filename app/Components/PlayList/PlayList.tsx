@@ -1,10 +1,9 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
 import styles from './PlayList.module.scss';
 import { PlayListPropsinterface } from './interface/playlist-props.interface';
-import BaseApi from '@/app/api/BaseApi';
 
 const PlayList = ({
   playlistName,
@@ -19,10 +18,6 @@ const PlayList = ({
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    BaseApi.get('playlist');
-  }, []);
 
   const handleDelete = (id: number) => {
     setArtistsData((prevArtistData) =>

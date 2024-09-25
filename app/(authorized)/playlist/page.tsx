@@ -33,8 +33,8 @@ const PlaylistPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await BaseApi.get('/playlist');
-      setArtists(response.data);
+      const response = await BaseApi.get('/user/me');
+      setArtists(response.data.playlists);
     } catch (error) {
       alert('Could not fetch playlist data');
     }
