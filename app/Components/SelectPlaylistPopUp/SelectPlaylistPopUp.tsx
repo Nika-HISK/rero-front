@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from '../Button/Button';
 import styles from './SelectPlaylistPopUp.module.scss';
 import { SelectPlaylistPopupPropsInterface } from './interface/select-playlist-popup-props.interface';
-import { PlaylistData } from '@/app/(authorized)/playlist/interface /playlist-interface';
+import { PlaylistData } from '@/app/(authorized)/playlist/interface/playlist-interface';
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';

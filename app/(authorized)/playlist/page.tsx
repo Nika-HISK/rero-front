@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { PlaylistData } from './interface /playlist-interface';
+import { PlaylistData } from './interface/playlist-interface';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import { audioPlayerState } from '@/app/Atoms/states';
