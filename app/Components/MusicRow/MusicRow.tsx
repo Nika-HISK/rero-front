@@ -20,6 +20,11 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
     }
   };
 
+  const handlePlusClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    setOpen(true);
+  };
+
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.wrapper} onClick={handlePlayClick}>
@@ -31,7 +36,7 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
         <p>{props.albumName}</p>
         <div className={styles.container}>
           <p>{props.duration ? props.duration : 'N/A'}</p>
-          <div className={styles.plus} onClick={() => setOpen(true)}></div>
+          <div className={styles.plus} onClick={handlePlusClick}></div>
         </div>
       </div>
       {open && (

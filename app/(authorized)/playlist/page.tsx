@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import Editpopup from './components/Editpopup';
-import { PlaylistData } from './interface /playlist-interface';
-
+import { PlaylistData } from './interface/playlist-interface';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import { audioPlayerState } from '@/app/Atoms/states';
@@ -26,7 +25,7 @@ const PlaylistPage = () => {
   const [playlistName, setPlaylistName] = useState<string>('');
   const [editActive, setEditActive] = useState<boolean>(false);
   const [editPlaylistId, setEditPlaylistId] = useState<number | null>(null);
-  const audioPlayer = useRecoilValue(audioPlayerState);
+  const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
 
   useEffect(() => {
     fetchData();
@@ -71,13 +70,11 @@ const PlaylistPage = () => {
   const handleConfirmEdit = async () => {
     if (editPlaylistId !== null) {
       try {
-        await BaseApi.put(`/playlist/${editPlaylistId}`, {
-          playlistName: playlistName,
-        });
+        await BaseApi.put(`/playlist/${editPlaylistId}`, { playlistName });
         fetchData();
         setEditActive(false);
       } catch (error) {
-        alert('Sorry, we are not able to change the playlist name');
+        alert('Failed to edit playlist name');
       }
     }
   };
@@ -88,12 +85,41 @@ const PlaylistPage = () => {
     setEditActive(true);
   };
 
+  const handlePlayClick = async (id: number) => {
+    try {
+      await BaseApi.post(`/listeners/${id}`);
+      setCurrentSong((prevState) => ({
+        ...prevState,
+        currentSongId: id,
+      }));
+    } catch (error) {
+      alert('Failed to play the song.');
+    }
+  };
+
+  const handleAddPlaylist = async () => {
+    if (artists.some((artist) => artist.playlistName === playlistName)) {
+      alert('Playlist with that name already exists');
+      return;
+    }
+
+    try {
+      await BaseApi.post('/playlist', { playlistName, musics: [] });
+      fetchData();
+      setIsActiveAddIcon(false);
+      setPlaylistName('');
+    } catch (error) {
+      alert('Failed to create playlist.');
+    }
+  };
+
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.navWrapper}>
           <TopAlbumsNavigationAnchore />
         </div>
+
         <div className={styles.iconsWrapper}>
           <Icon
             name="plus"
@@ -113,43 +139,38 @@ const PlaylistPage = () => {
       </div>
 
       <div className={styles.collapseWrapper}>
-        {artists.map(
-          ({ playlistName, id: ID, musics }: PlaylistData, index: number) => (
-            <div key={index} className={styles.playlistWrapper}>
-              <PlayList
-                playlistId={ID}
-                playlistName={playlistName}
-                isActive={active}
-                setActive={handleClick}
-                key={index + 1}
-                artists={musics}
-                loop={audioPlayer.loop}
-                artistName={''}
-                artistPhoto={''}
-                musicName={''}
-                toggleLoop={() => ''}
-                onClick={() => handleEditClick(ID, playlistName)}
-              />
-              {active && (
-                <div className={styles.garbageButtonWrapper}>
-                  <Button
-                    mode={ButtonMode.Delete}
-                    type={ButtonType.IconOnly}
-                    onClick={() => handleDeleteClick(ID)}
-                    icon="/icons/trash.svg"
-                  />
-                </div>
-              )}
-              {editActive && editPlaylistId === ID && (
-                <Editpopup
-                  e={setPlaylistName}
-                  onCancel={() => setEditActive(false)}
-                  onConfirm={handleConfirmEdit}
+        {artists.map((artist) => (
+          <div key={artist.id} className={styles.playlistWrapper}>
+            <PlayList
+              playlistId={artist.id}
+              playlistName={artist.playlistName}
+              isActive={active}
+              setActive={handleClick}
+              artists={artist.musics}
+              musicAudio={artist.musicAudio}
+              isPlaying={currentSong.currentSongId === artist.id}
+              onPlayMusicClick={() => handlePlayClick(artist.id)}
+              onClick={() => handleEditClick(artist.id, artist.playlistName)}
+            />
+            {active && (
+              <div className={styles.garbageButtonWrapper}>
+                <Button
+                  mode={ButtonMode.Delete}
+                  type={ButtonType.IconOnly}
+                  onClick={() => handleDeleteClick(artist.id)}
+                  icon="/icons/trash.svg"
                 />
-              )}
-            </div>
-          ),
-        )}
+              </div>
+            )}
+            {editActive && editPlaylistId === artist.id && (
+              <Editpopup
+                e={setPlaylistName}
+                onCancel={() => setEditActive(false)}
+                onConfirm={handleConfirmEdit}
+              />
+            )}
+          </div>
+        ))}
       </div>
 
       {isVisiblePopUp && (
@@ -163,29 +184,7 @@ const PlaylistPage = () => {
       {isActiveAddIcon && (
         <PlaylistPopup
           onCancel={() => setIsActiveAddIcon(false)}
-          onConfirm={() => {
-            const existingFile = artists.find(
-              ({ playlistName }: PlaylistData) => playlistName === playlistName,
-            );
-            if (existingFile) {
-              alert('Playlist with that name already exists');
-              return;
-            }
-
-            const postData = async () => {
-              try {
-                await BaseApi.post('/playlist', {
-                  playlistName: playlistName,
-                  musics: [],
-                });
-                fetchData();
-              } catch (error) {
-                alert('Failed to create playlist.');
-              }
-            };
-            postData();
-            setIsActiveAddIcon(false);
-          }}
+          onConfirm={handleAddPlaylist}
           e={setPlaylistName}
         />
       )}

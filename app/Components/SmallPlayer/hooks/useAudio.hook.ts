@@ -34,6 +34,8 @@ export const useAudioPlayer = (songs: Song[]) => {
     };
 
     const handleEnded = () => {
+      if (!audioRef.current) return;
+
       setAudioPlayer((prev) => {
         if (prev.currentSongId === null) return prev;
 
@@ -47,13 +49,20 @@ export const useAudioPlayer = (songs: Song[]) => {
             remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
           nextSongId = randomSong.id;
         } else {
-          nextSongId = (prev.currentSongId + 1) % songs.length;
+          const currentIndex = songs.findIndex(
+            (song) => song.id === prev.currentSongId,
+          );
+          nextSongId =
+            currentIndex === songs.length - 1
+              ? songs[0].id
+              : songs[currentIndex + 1].id;
         }
 
         return {
           ...prev,
           currentSongId: nextSongId,
           currentTime: 0,
+          duration: 0,
         };
       });
     };
