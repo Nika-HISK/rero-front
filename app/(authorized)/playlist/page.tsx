@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { PlaylistData } from './interface /playlist-interface';
 import styles from './page.module.scss';
-import { artistData } from '@/app/(authorised)/playlist/interface/artist-data.interface';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
+import { audioPlayerState } from '@/app/Atoms/states';
 import Button from '@/app/Components/Button/Button';
 import ConfirmPopup from '@/app/Components/ConfirmPopup/ConfirmPopup';
 import Icon from '@/app/Components/Icons/Icon';
@@ -15,24 +17,25 @@ import BaseApi from '@/app/api/BaseApi';
 
 const PlaylistPage = () => {
   const [active, setActive] = useState<boolean>(false);
-  const [artists, setArtists] = useState<artistData[]>([]);
+  const [artists, setArtists] = useState([]);
   const [isVisiblePopUp, setIsVisiblePopUp] = useState<boolean>(false);
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null);
   const [isActiveAddIcon, setIsActiveAddIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
-
-  const fetchData = async () => {
-    try {
-      const response = await BaseApi.get('/playlist');
-      setArtists(response.data);``
-    } catch (error) {
-      alert('Failed to fetch playlist data.');
-    }
-  };
+  const audioPlayer = useRecoilValue(audioPlayerState);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await BaseApi.get('/playlist');
+      setArtists(response.data);
+    } catch (error) {
+      alert('Couldnot fetch playlist data');
+    }
+  };
 
   const handleClick = () => {
     setActive((prev) => !prev);
@@ -82,16 +85,20 @@ const PlaylistPage = () => {
 
       <div className={styles.collapseWrapper}>
         {artists.map(
-          ({ playlistName, id: ID, musics }: artistData, index: number) => (
+          ({ playlistName, id: ID, musics }: PlaylistData, index: number) => (
             <div key={index} className={styles.playlistWrapper}>
               <PlayList
+                playlistId={ID}
                 playlistName={playlistName}
                 isActive={active}
                 setActive={handleClick}
                 key={index + 1}
                 artists={musics}
-                loop={false}
-                toggleLoop={() => { }}
+                loop={audioPlayer.loop}
+                artistName={''}
+                artistPhoto={''}
+                musicName={''}
+                toggleLoop={() => ''}
               />
               {active && (
                 <div className={styles.garbageButtonWrapper}>
@@ -121,7 +128,7 @@ const PlaylistPage = () => {
           onCancel={() => setIsActiveAddIcon(false)}
           onConfirm={() => {
             const existingFile = artists.find(
-              ({ playlistName }: artistData) => playlistName === value,
+              ({ playlistName }: PlaylistData) => playlistName === value,
             );
             if (existingFile) {
               alert('Playlist with that name already exists');
@@ -135,8 +142,7 @@ const PlaylistPage = () => {
                   musics: [],
                 });
                 fetchData();
-              }
-              catch (error) {
+              } catch (error) {
                 alert('Failed to create playlist.');
               }
             };
@@ -144,7 +150,6 @@ const PlaylistPage = () => {
             setIsActiveAddIcon(false);
           }}
           e={setValue}
-          data={[]}
         />
       )}
     </>

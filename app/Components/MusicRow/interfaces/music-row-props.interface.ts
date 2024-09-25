@@ -1,5 +1,5 @@
 export interface MusicRowPropsInterface {
-  id: number | undefined;
+  id: number;
   albumName: string | undefined;
   duration: string | null;
   coverImage: string;
