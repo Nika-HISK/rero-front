@@ -5,4 +5,5 @@ export interface MediumToolsPropsInterface {
   onNextSong: () => void;
   onPlayMusic: () => void;
   playing: boolean;
+  mute: () => void;
 }

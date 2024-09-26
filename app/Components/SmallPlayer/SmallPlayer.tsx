@@ -33,6 +33,7 @@ const SmallPlayer = (props: SmallPlayerPropsInterface) => {
           onPreviousSong={props.handlePreviousSong}
           onNextSong={props.handleNextSong}
           onPlayMusic={props.playMusic}
+          mute={props.mute}
         />
         <div
           onClick={() => props.setOpen(!props.open)}

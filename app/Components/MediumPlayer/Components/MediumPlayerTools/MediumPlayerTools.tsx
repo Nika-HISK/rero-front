@@ -1,9 +1,14 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { MediumToolsPropsInterface } from '../../interfaces/medium-tools-props.interface.ts.interface';
 import styles from './MediumPlayerTools.module.scss';
 
 const MediumPlayerTools = (props: MediumToolsPropsInterface) => {
+  const [mute, setMute] = useState<boolean>(false);
+
+  const toggleMute = () => {
+    setMute(!mute);
+  };
   return (
     <div className={styles.adjustButtons}>
       <div className={styles.volumeButton} onClick={props.onVolumeDown}>
@@ -39,6 +44,15 @@ const MediumPlayerTools = (props: MediumToolsPropsInterface) => {
           alt="volumeUpButton"
           width={24}
           height={24}
+        />
+      </div>
+      <div onClick={props.mute}>
+        <Image
+          src={!mute ? '/icons/mute.svg' : '/icons/muteactive.svg'}
+          alt="mute"
+          width={24}
+          height={24}
+          onClick={toggleMute}
         />
       </div>
     </div>

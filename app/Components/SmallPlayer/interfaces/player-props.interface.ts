@@ -10,4 +10,5 @@ export interface PlayerPropsInterface {
   onPreviousSong: () => void;
   onNextSong: () => void;
   onPlayMusic: () => void;
+  mute: () => void;
 }

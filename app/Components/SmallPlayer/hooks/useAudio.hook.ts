@@ -226,6 +226,12 @@ export const useAudioPlayer = (songs: Song[]) => {
     }
   };
 
+  const mute = () => {
+    if (!audioRef.current) return;
+
+    audioRef.current.muted = !audioRef.current.muted;
+  };
+
   const isPlaying = !!audioRef.current?.paused;
 
   return {
@@ -242,5 +248,6 @@ export const useAudioPlayer = (songs: Song[]) => {
     toggleLoop,
     isPlaying,
     Shuffle,
+    mute,
   };
 };

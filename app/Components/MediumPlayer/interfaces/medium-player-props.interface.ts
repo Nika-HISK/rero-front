@@ -13,4 +13,5 @@ export interface MediumPlayerPropsInterface extends SongPropsInterface {
   isPlaying: boolean;
   handleProgressChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   progressRef: React.RefObject<HTMLInputElement>;
+  mute: () => void;
 }
