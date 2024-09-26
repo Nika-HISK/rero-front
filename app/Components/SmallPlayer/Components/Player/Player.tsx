@@ -15,6 +15,7 @@ const Player = (props: PlayerPropsInterface) => {
         onPlayMusic={props.onPlayMusic}
         playing={props.playing}
         customStyle={false}
+        mute={props.mute}
       />
       <PlayerMediaControl
         currentTime={props.currentTime}

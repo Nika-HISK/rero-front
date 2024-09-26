@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 'use client';
 
 import React from 'react';
@@ -22,6 +21,7 @@ const MediumPlayer = (props: MediumPlayerPropsInterface) => {
           onNextSong={props.handleNextSong}
           onPlayMusic={props.playMusic}
           playing={props.isPlaying}
+          mute={props.mute}
         />
         <ProgressBar
           currentTime={audioPlayer.currentTime}

@@ -14,4 +14,5 @@ export interface SmallPlayerPropsInterface extends SongPropsInterface {
   progressRef: React.RefObject<HTMLInputElement>;
   open: boolean;
   setOpen: (open: boolean) => void;
+  mute: () => void;
 }

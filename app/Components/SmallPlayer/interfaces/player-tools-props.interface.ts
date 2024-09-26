@@ -6,4 +6,5 @@ export interface PlayerToolsPropsInterface {
   onPlayMusic: () => void;
   playing: boolean;
   customStyle: boolean;
+  mute: () => void;
 }
