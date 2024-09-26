@@ -1,45 +1,42 @@
 'use client';
+
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import TopAlbumsNavigationAnchore from '../../components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import { AlbumPagePropsInterface } from '../interfaces/album-music-props.interface';
 import styles from '../page.module.scss';
-import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
-import { audioPlayerState } from '@/app/Atoms/states';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
+import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
 
 const AlbumMusic = () => {
-  const [musicData, setMusicData] = useState<AlbumPagePropsInterface>();
+  const [data, setData] = useState<Song[]>([]);
 
   const { id } = useParams();
 
   useEffect(() => {
-    BaseApi.get(`/album/${id}`).then((response) => {
-      setMusicData(response.data);
-    });
+    BaseApi.get(`/album/${id}`)
+      .then((response) => {
+        setData(response.data.musics);
+      })
+      .catch((error) => {
+        console.error('Error fetching album:', error);
+      });
   }, [id]);
 
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [, setData] = useState<MusicInterface[]>([]);
+  const [songs, setSongs] = useRecoilState(SongsState);
 
-  useEffect(() => {
-    BaseApi.get('/music').then((response) => {
-      setData(response.data);
-    });
-  }, []);
-
-  const handlePlayClick = async (id: number) => {
+  const handlePlayClick = async (songId: number) => {
     try {
-      await BaseApi.post(`/listeners/${id}`);
-    } catch (error) {
-      alert(error);
-    }
+      await BaseApi.post(`/listeners/${songId}`);
+      setSongs(data);
+    } catch (error) {}
 
     setCurrentSong((prevState) => ({
       ...prevState,
-      currentSongId: id,
+      currentSongId: songId,
     }));
   };
 
@@ -49,21 +46,20 @@ const AlbumMusic = () => {
         <TopAlbumsNavigationAnchore />
       </div>
       <div className={styles.container}>
-        {musicData &&
-          musicData.musics.map((data) => (
-            <MusicRow
-              id={data.id}
-              key={data.id}
-              albumName={musicData.name}
-              duration={data.duration}
-              coverImage={data.coverImage}
-              music={data.name}
-              artistName={musicData.artist?.artistName}
-              musicAudio={data.musicAudio}
-              isPlaying={currentSong.currentSongId === data.id}
-              onClick={() => handlePlayClick(data.id)}
-            />
-          ))}
+        {data.map((song) => (
+          <MusicRow
+            id={song.id}
+            key={song.id}
+            albumName={song.album?.name}
+            duration={song.duration}
+            coverImage={song.coverImage}
+            music={song.name}
+            artistName={song.artist?.artistName}
+            musicAudio={song.musicAudio}
+            isPlaying={currentSong.currentSongId === song.id}
+            onClick={() => handlePlayClick(song.id)}
+          />
+        ))}
       </div>
     </div>
   );

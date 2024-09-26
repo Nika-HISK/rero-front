@@ -6,7 +6,7 @@ import Editpopup from './components/Editpopup';
 import { PlaylistData } from './interface/playlist-interface';
 import styles from './page.module.scss';
 import TopAlbumsNavigationAnchore from '@/app/(authorized)/topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import { audioPlayerState } from '@/app/Atoms/states';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import Button from '@/app/Components/Button/Button';
 import ConfirmPopup from '@/app/Components/ConfirmPopup/ConfirmPopup';
 import Icon from '@/app/Components/Icons/Icon';
@@ -26,6 +26,7 @@ const PlaylistPage = () => {
   const [editActive, setEditActive] = useState<boolean>(false);
   const [editPlaylistId, setEditPlaylistId] = useState<number | null>(null);
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
+  const [songs, setSongs] = useRecoilState(SongsState);
 
   useEffect(() => {
     fetchData();
@@ -112,6 +113,7 @@ const PlaylistPage = () => {
       alert('Failed to create playlist.');
     }
   };
+  console.log(artists);
 
   return (
     <>
@@ -119,7 +121,6 @@ const PlaylistPage = () => {
         <div className={styles.navWrapper}>
           <TopAlbumsNavigationAnchore />
         </div>
-
         <div className={styles.iconsWrapper}>
           <Icon
             name="plus"

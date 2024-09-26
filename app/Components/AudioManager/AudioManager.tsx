@@ -1,29 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Icon from '../Icons/Icon';
 import MediumPlayer from '../MediumPlayer/MediumPlayer';
 import SmallPlayer from '../SmallPlayer/SmallPlayer';
 import { useAudioPlayer } from '../SmallPlayer/hooks/useAudio.hook';
-import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './AudioManager.module.scss';
-import { audioPlayerState } from '@/app/Atoms/states';
-import BaseApi from '@/app/api/BaseApi';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import { getCurrentSong } from '@/app/utils/getCurrentSong';
 
 const AudioManager = () => {
   const [open, setOpen] = useState(true);
-  const [songs, setSongs] = useState<Song[]>([]);
+  const [songs] = useRecoilState(SongsState);
 
   const audioPlayer = useRecoilValue(audioPlayerState);
   const currentSong = getCurrentSong(audioPlayer.currentSongId, songs);
-
-  useEffect(() => {
-    BaseApi.get('/music').then((response) => {
-      setSongs(response.data);
-    });
-  }, []);
 
   const audioPlayerControls = useAudioPlayer(songs);
 

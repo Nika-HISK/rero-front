@@ -13,7 +13,7 @@ const PlayList = ({
   onClick,
 }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [artistsData, setArtistsData] = useState([...artists]);
+  const [artistsData, setArtistsData] = useState(artists);
 
   const onChangeToggle = () => {
     setIsOpen((prev) => !prev);

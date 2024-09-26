@@ -12,6 +12,7 @@ const AlbumLibrary = () => {
   >([]);
   const [, setcount] = useState(0);
   const { id } = useParams();
+  
   useEffect(() => {
     BaseApi.get(`/artist/${id}`).then((response) => {
       setAlbumData(response.data.albums);
@@ -23,8 +24,7 @@ const AlbumLibrary = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.wrap}>
-          {albumData?.map((album) => {
-            return (
+          {albumData?.map((album) => (
               <BackgroundAlbumCard
                 key={album.id}
                 name={album.name}
@@ -36,8 +36,7 @@ const AlbumLibrary = () => {
                 artist={album.artist}
                 musics={album.musics}
               />
-            );
-          })}
+            ))}
         </div>
       </div>
     </>
