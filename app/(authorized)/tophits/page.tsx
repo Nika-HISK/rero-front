@@ -6,16 +6,16 @@ import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigat
 import MusicBox from './components/MusicBox/MusicBox';
 import { MusicInterface } from './interfaces/music-props.interface';
 import styles from './page.module.scss';
-import { audioPlayerState } from '@/app/Atoms/states';
-import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
+import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [data, setData] = useState<MusicInterface[]>([]);
+  const [data, setData] = useState<Song[]>([]);
   const [filteredMusic, setFilteredMusic] = useState<MusicInterface[]>([]);
-  const [, setSearchTerm] = useState('');
+  const [, setSongs] = useRecoilState(SongsState);
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {
@@ -27,6 +27,7 @@ const TopHits = () => {
   const handlePlayClick = async (id: number) => {
     try {
       await BaseApi.post(`/listeners/${id}`);
+      setSongs(data);
     } catch (error) {
       alert(error);
     }
@@ -35,21 +36,6 @@ const TopHits = () => {
       ...prevState,
       currentSongId: id,
     }));
-  };
-
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setFilteredMusic(data);
-    } else {
-      const lowercasedValue = value.toLowerCase();
-      const filtered = data.filter(
-        (music) =>
-          music.name.toLowerCase().includes(lowercasedValue) ||
-          music.artist?.artistName.toLowerCase().includes(lowercasedValue),
-      );
-      setFilteredMusic(filtered);
-    }
   };
 
   return (
@@ -73,10 +59,6 @@ const TopHits = () => {
           <div className={styles.container}>
             <TopAlbumsNavigationAnchore />
           </div>
-          <HeaderInput
-            onSearch={handleSearch}
-            results={filteredMusic.map((music) => music.name)}
-          />
         </div>
         {filteredMusic.slice(3, filteredMusic.length).map((music) => (
           <MusicRow
