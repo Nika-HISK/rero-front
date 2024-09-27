@@ -4,13 +4,116 @@
   height: 40px;
   border-radius: 10px;
   padding-left: 4px;
+  border: none;
 }
+
 .wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 8px;
+
+}
+
+.searchStyle {
+  cursor: pointer;
 }
 
 .input:focus {
   outline: none;
-} 
+}
+
+.dropDownWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: brown;
+  position: fixed;
+  top: 70px;
+}
+
+.dropDownWrapper div {
+  border: 1px solid white;
+  padding: 5px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.dropDownWrapper div:hover {
+  background-color: green;
+}
+
+.searchIconAndInputFieldWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.aasd div {
+  width: 200px;
+}
+
+.ulWrapper {
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+}
+
+.albumParagraphStyle {
+  cursor: pointer;
+}
+
+.artistParagraphStyle {
+  cursor: pointer;
+}
+
+.musicParagraphStyle {
+  cursor: pointer;
+}
+
+.ulWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.musicStyle {
+  list-style-type: none;
+
+}
+
+.artistStyle {
+  list-style-type: none;
+
+}
+
+.albumStyle {
+  list-style-type: none;
+
+}
+.musicLiStyle{
+  list-style-type: none;
+  display: flex;
+}
+.artistLiStyle{
+  list-style-type: none;
+  display: flex;
+}
+.albumLiStyle{
+  list-style-type: none;
+  display: flex;
+  padding: 2px;
+}
+
+.musicLiStyle:hover {
+  border-left: 1px solid black;
+}
+
+.artistLiStyle:hover {
+ border-left: 1px solid black;
+}
+
+.albumLiStyle:hover {
+  border-left: 1px solid black;
+}

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import HeaderInput from '../HeaderInput/HeaderInput';
 import Icon from '../Icons/Icon';
 import styles from './Header.module.scss';
 import { MusicPropsInterface } from './interfaces/music-props.interface';
@@ -39,6 +40,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={styles.userInterface}>
+          <HeaderInput />
           <Link className={styles.homeButton} href="/">
             <Icon
               name={'home'}
