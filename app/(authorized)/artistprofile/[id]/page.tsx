@@ -37,9 +37,6 @@ const ArtistPage = () => {
         />
         <ArtistCover cover={artistParam.artistPhoto!} />
       </div>
-      <div className={styles.overviewContainer}>
-        <Overview albums={artistParam.musics!} />
-      </div>
       <Released id={artistParam.id!} />
       <AlbumSection artists={artistParam.albums!} />
       <TopMusicHeader />
