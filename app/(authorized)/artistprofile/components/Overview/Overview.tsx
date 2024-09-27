@@ -1,22 +1,18 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { RowAlbumSectionPropsInterface } from '../RowAlbumSection/interfaces/row-album-section-props.interface';
 import styles from './Overview.module.scss';
-import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
-import { audioPlayerState } from '@/app/Atoms/states';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
 
 const Overview = (props: RowAlbumSectionPropsInterface) => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [, setData] = useState<MusicInterface[]>([]);
+  const [, setSongs] = useRecoilState(SongsState);
 
   useEffect(() => {
-    BaseApi.get('/music').then((response) => {
-      setData(response.data);
-    });
-  }, []);
+    setSongs(props.albums);
+  }, [props.albums, setSongs]);
 
   const handlePlayClick = async (id: number) => {
     try {
@@ -24,7 +20,6 @@ const Overview = (props: RowAlbumSectionPropsInterface) => {
     } catch (error) {
       alert(error);
     }
-
     setCurrentSong((prevState) => ({
       ...prevState,
       currentSongId: id,

@@ -1,10 +1,9 @@
+import { ArtistPropsInterface } from '../../[id]/interfaces/artist-props.interface';
 import ArtistDescription from '../ArtistDescription/ArtistDescription';
-import { ArtistDescriptionPropsInterface } from '../ArtistDescription/interfaces/artist-description-props.interface';
 import NavigationAnchors from '../NavigationAnchores/NavigationAnchores';
-import Overview from '../Overview/Overview';
 import styles from './ArtistDetail.module.scss';
 
-const ArtistDetail = (props: ArtistDescriptionPropsInterface) => {
+const ArtistDetail = (props: ArtistPropsInterface) => {
   return (
     <div className={styles.desktopContainer}>
       <div className={styles.detailWrapper}>
@@ -12,12 +11,9 @@ const ArtistDetail = (props: ArtistDescriptionPropsInterface) => {
           <NavigationAnchors />
         </div>
         <ArtistDescription
-          artistName={props.artistName}
-          biography={props.biography}
+          artistName={props.artistName!}
+          biography={props.biography!}
         />
-        <div className={styles.overviewWrapper}>
-          <Overview albums={props.albums || []} />
-        </div>
       </div>
     </div>
   );

@@ -5,19 +5,14 @@ import { ArtistPropsInterface } from '../artistprofile/[id]/interfaces/artist-pr
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
 import ArtistCardBelowName from './components/ArtistCardBelowName/ArtistCardBelowName';
 import styles from './page.module.scss';
-import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 import BaseApi from '@/app/api/BaseApi';
 
 const TopArtists = () => {
-  const [, setArtistData] = useState<ArtistPropsInterface[]>([]);
-  const [filteredArtists, setFilteredArtists] = useState<
-    ArtistPropsInterface[]
-  >([]);
+  const [artistData, setArtistData] = useState<ArtistPropsInterface[]>([]);
 
   useEffect(() => {
     BaseApi.get('/artist').then((response) => {
       setArtistData(response.data);
-      setFilteredArtists(response.data);
     });
   }, []);
 
@@ -27,19 +22,14 @@ const TopArtists = () => {
         <div className={styles.navigation}>
           <TopAlbumsNavigationAnchore />
         </div>
-        <div className={styles.responsiveInput}>
-          <HeaderInput
-            results={filteredArtists.map((song) => song.artistName)}
-          />
-        </div>
       </div>
       <div className={styles.container}>
-        {filteredArtists.map((artist) => (
+        {artistData.map((artist) => (
           <ArtistCardBelowName
-            id={artist.id}
+            id={artist.id!}
             key={artist.id}
-            artistPhoto={artist.artistPhoto}
-            artistName={artist.artistName}
+            artistPhoto={artist.artistPhoto!}
+            artistName={artist.artistName!}
           />
         ))}
       </div>

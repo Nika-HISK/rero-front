@@ -1,5 +1,9 @@
 import { atom } from 'recoil';
 import { AtomAudioPlayerPropsInterface } from './interfaces/audio-player.props.interface';
+import {
+  Song,
+  SongPropsInterface,
+} from '../Components/SmallPlayer/interfaces/song-props.interface';
 
 export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
   key: 'audioPlayerState',
@@ -10,4 +14,9 @@ export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
     loop: false,
     shuffle: false,
   },
+});
+
+export const SongsState = atom<Song[]>({
+  key: 'endPoint',
+  default: [],
 });

@@ -1,28 +1,22 @@
-.allTrack {
-  width: 100%;
-  max-width: 1274px;
-  padding-right: 24px;
-  padding-left: 24px;
+.overview {
+  border-bottom: 4px solid #13828a;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  margin-top: 24px;
   display: flex;
-  align-items: center;
-  margin-top: 28px;
+  justify-content: start;
+  width: fit-content;
 }
 
-.allTrack p {
-  text-align: left;
-  font-size: 32px;
-  font-weight: 500;
+.overview span {
   color: #fff;
+  font-size: 24px;
+  font-weight: 500;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .allTrack p {
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .allTrack p {
-    font-size: 20px;
-  }
+.container {
+  max-width: 1224px;
+  width: 100%;
 }
