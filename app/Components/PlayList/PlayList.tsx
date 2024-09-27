@@ -3,14 +3,18 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import MusicRow from '../MusicRow/MusicRow';
+import PlayListMusic from '../PlaylistMusic/PlaylistMusic';
 import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './PlayList.module.scss';
 import { PlayListPropsinterface } from './interface/playlist-props.interface';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import BaseApi from '@/app/api/BaseApi';
 
-const PlayList = ({ playlistName, onClick }: PlayListPropsinterface) => {
+const PlayList = ({
+  playlistName,
+  onClick,
+  playlistId,
+}: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState<Song[]>([]);
   const [, setSongs] = useRecoilState(SongsState);
@@ -60,7 +64,7 @@ const PlayList = ({ playlistName, onClick }: PlayListPropsinterface) => {
         >
           <div className={styles.mapContainer}>
             {artistsData.map((album) => (
-              <MusicRow
+              <PlayListMusic
                 key={album.id}
                 id={album.id}
                 duration={album.duration}
@@ -71,6 +75,7 @@ const PlayList = ({ playlistName, onClick }: PlayListPropsinterface) => {
                 musicAudio={album.musicAudio!}
                 isPlaying={currentSong.currentSongId === album.id}
                 onClick={() => handlePlayClick(album.id)}
+                albumId={playlistId}
               />
             ))}
           </div>
