@@ -7,8 +7,8 @@ import TopAlbumsNavigationAnchore from '../../components/TopAlbumsNavigationAnch
 import styles from '../page.module.scss';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
-import BaseApi from '@/app/api/BaseApi';
 import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const AlbumMusic = () => {
   const [data, setData] = useState<Song[]>([]);
@@ -16,23 +16,21 @@ const AlbumMusic = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    BaseApi.get(`/album/${id}`)
-      .then((response) => {
-        setData(response.data.musics);
-      })
-      .catch((error) => {
-        console.error('Error fetching album:', error);
-      });
+    BaseApi.get(`/album/${id}`).then((response) => {
+      setData(response.data.musics);
+    });
   }, [id]);
 
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [songs, setSongs] = useRecoilState(SongsState);
+  const [, setSongs] = useRecoilState(SongsState);
 
   const handlePlayClick = async (songId: number) => {
     try {
       await BaseApi.post(`/listeners/${songId}`);
       setSongs(data);
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
 
     setCurrentSong((prevState) => ({
       ...prevState,

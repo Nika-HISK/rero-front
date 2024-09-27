@@ -1,4 +1,3 @@
-import { SongObject } from '../../PlayList/interface/song-props.interface';
 import { Song } from '../../SmallPlayer/interfaces/song-props.interface';
 
 export interface AlbumRowTimePropsInterface {
