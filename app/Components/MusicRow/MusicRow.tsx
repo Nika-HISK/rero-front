@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import SelectPlaylistPopUp from '../SelectPlaylistPopUp/SelectPlaylistPopUp';
 import styles from './MusicRow.module.scss';
 import MusicRowImage from './components/MusicRowImage/MusicRowImage';
@@ -7,6 +8,7 @@ import BaseApi from '@/app/api/BaseApi';
 
 const AlbumRow = (props: MusicRowPropsInterface) => {
   const [open, setOpen] = useState<boolean>(false);
+  const router = usePathname();
 
   const handlePlayClick = async () => {
     try {
@@ -36,7 +38,9 @@ const AlbumRow = (props: MusicRowPropsInterface) => {
         <p>{props.albumName}</p>
         <div className={styles.container}>
           <p>{props.duration ? props.duration : 'N/A'}</p>
-          <div className={styles.plus} onClick={handlePlusClick}></div>
+          {router !== '/playlist' && (
+            <div className={styles.plus} onClick={handlePlusClick}></div>
+          )}
         </div>
       </div>
       {open && (

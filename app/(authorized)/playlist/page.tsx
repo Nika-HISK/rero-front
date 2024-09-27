@@ -40,7 +40,6 @@ const PlaylistPage = () => {
       alert('Could not fetch playlist data');
     }
   };
-
   const handleClick = () => {
     setActive((prev) => !prev);
   };
@@ -86,18 +85,6 @@ const PlaylistPage = () => {
     setEditActive(true);
   };
 
-  const handlePlayClick = async (id: number) => {
-    try {
-      await BaseApi.post(`/listeners/${id}`);
-      setCurrentSong((prevState) => ({
-        ...prevState,
-        currentSongId: id,
-      }));
-    } catch (error) {
-      alert('Failed to play the song.');
-    }
-  };
-
   const handleAddPlaylist = async () => {
     if (artists.some((artist) => artist.playlistName === playlistName)) {
       alert('Playlist with that name already exists');
@@ -113,7 +100,6 @@ const PlaylistPage = () => {
       alert('Failed to create playlist.');
     }
   };
-  console.log(artists);
 
   return (
     <>
@@ -148,9 +134,6 @@ const PlaylistPage = () => {
               isActive={active}
               setActive={handleClick}
               artists={artist.musics}
-              musicAudio={artist.musicAudio}
-              isPlaying={currentSong.currentSongId === artist.id}
-              onPlayMusicClick={() => handlePlayClick(artist.id)}
               onClick={() => handleEditClick(artist.id, artist.playlistName)}
             />
             {active && (

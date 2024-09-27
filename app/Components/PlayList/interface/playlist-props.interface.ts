@@ -6,8 +6,5 @@ export interface PlayListPropsinterface {
   artists: SongObject[];
   setActive?: () => void;
   playlistId: number;
-  musicAudio: string;
-  isPlaying: boolean;
-  onClick: () => void;
-  onPlayMusicClick: (id: number) => void;
+  onClick: () => void;  
 }

@@ -4,26 +4,23 @@ import { useRecoilState } from 'recoil';
 import styles from './RowAlbumSection.module.scss';
 import { RowAlbumSectionPropsInterface } from './interfaces/row-album-section-props.interface';
 import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
-import { audioPlayerState } from '@/app/Atoms/states';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
 import BaseApi from '@/app/api/BaseApi';
+import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
 
 const RowAlbumSection = (props: RowAlbumSectionPropsInterface) => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [, setData] = useState<MusicInterface[]>([]);
-
-  useEffect(() => {
-    BaseApi.get('/music').then((response) => {
-      setData(response.data);
-    });
-  }, []);
+  // const [data, setData] = useState<Song[]>([]);
+  // const [songs, setSongs] = useRecoilState(SongsState);
 
   const handlePlayClick = async (id: number) => {
-    try {
-      await BaseApi.post(`/listeners/${id}`);
-    } catch (error) {
-      alert(error);
-    }
+    // try {
+    //   await BaseApi.post(`/listeners/${id}`);
+    //   setSongs(props.albums);
+    // } catch (error) {
+    //   alert(error);
+    // }
 
     setCurrentSong((prevState) => ({
       ...prevState,
