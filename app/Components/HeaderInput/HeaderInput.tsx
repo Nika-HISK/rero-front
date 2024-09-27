@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState, ChangeEvent, useEffect, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
+import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './HeaderInput.module.scss';
+import MusicListItem from './MusicListItem/MusicListItem';
 import {
   HeaderInputSearchInterface,
   InputAlbumPropsInterface,
   InputArtistInterface,
-  InputMusicInterface,
 } from './interfaces/input-props.interface';
+import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import BaseApi from '@/app/api/BaseApi';
 
 const HeaderInput = (props: HeaderInputSearchInterface) => {
@@ -16,8 +19,10 @@ const HeaderInput = (props: HeaderInputSearchInterface) => {
   const [data, setData] = useState<{
     albums: InputAlbumPropsInterface[];
     artists: InputArtistInterface[];
-    musics: InputMusicInterface[];
+    musics: Song[];
   }>({ albums: [], artists: [], musics: [] });
+  const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
+  const [, setSongs] = useRecoilState(SongsState);
 
   const router = useRouter();
 
@@ -56,9 +61,21 @@ const HeaderInput = (props: HeaderInputSearchInterface) => {
     setInputValue('');
   };
 
-  const handleMusicClick = (musicId: string) => {
+  const handleMusicClick = (id: number) => {
     setIsActive(false);
-    router.push(`/musics/${musicId}`);
+
+    try {
+      BaseApi.post(`/listeners/${id}`);
+      setSongs(data.musics);
+    } catch (error) {
+      alert(error);
+    }
+
+    setCurrentSong((prevState) => ({
+      ...prevState,
+      currentSongId: id,
+    }));
+
     setInputValue('');
   };
 
@@ -114,19 +131,19 @@ const HeaderInput = (props: HeaderInputSearchInterface) => {
                   </p>
                 </li>
               ))}
-
               {data.musics.map((music) => (
-                <li
+                <MusicListItem
                   key={music.id}
-                  className={styles.musicLiStyle}
+                  id={music.id}
+                  music={music.name}
+                  musicAudio={music.musicAudio}
+                  isPlaying={currentSong.currentSongId === music.id}
                   onClick={() => handleMusicClick(music.id)}
-                >
-                  <Image src="/search.png" alt="music" width={20} height={20} />
-                  <p className={styles.musicParagraphStyle}>
-                    <span className={styles.musicStyle}>Music: </span>
-                    {music.name}
-                  </p>
-                </li>
+                  albumName={music.album.name}
+                  duration={music.duration}
+                  coverImage={music.coverImage}
+                  artistName={music.artist.artistName}
+                />
               ))}
             </ul>
           )}
