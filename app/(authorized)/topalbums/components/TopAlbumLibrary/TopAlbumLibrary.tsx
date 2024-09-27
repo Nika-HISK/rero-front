@@ -8,13 +8,10 @@ import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 import BaseApi from '@/app/api/BaseApi';
 
 const TopAlbumLibrary = () => {
-  const [albumData, setAlbumData] = useState<
-    BackgroundAlbumCardPropsInterface[]
-  >([]);
+  const [, setAlbumData] = useState<BackgroundAlbumCardPropsInterface[]>([]);
   const [filteredAlbums, setFilteredAlbums] = useState<
     BackgroundAlbumCardPropsInterface[]
   >([]);
-  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get(`/album`).then((response) => {
@@ -23,21 +20,6 @@ const TopAlbumLibrary = () => {
     });
   }, []);
 
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setFilteredAlbums(albumData);
-    } else {
-      const lowercasedValue = value.toLowerCase();
-      const filtered = albumData.filter(
-        (album) =>
-          album.name.toLowerCase().includes(lowercasedValue) ||
-          album.artist?.artistName.toLowerCase().includes(lowercasedValue),
-      );
-      setFilteredAlbums(filtered);
-    }
-  };
-
   return (
     <>
       <div className={styles.WrapperContainer}>
@@ -45,10 +27,7 @@ const TopAlbumLibrary = () => {
           <TopAlbumNavigation />
         </div>
         <div className={styles.searchWrapper}>
-          <HeaderInput
-            onSearch={handleSearch}
-            results={filteredAlbums.map((album) => album.name)}
-          />
+          <HeaderInput results={filteredAlbums.map((album) => album.name)} />
         </div>
       </div>
       <div className={styles.wrapper}>

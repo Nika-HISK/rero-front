@@ -13,9 +13,8 @@ import BaseApi from '@/app/api/BaseApi';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [data, setData] = useState<MusicInterface[]>([]);
+  const [, setData] = useState<MusicInterface[]>([]);
   const [filteredMusic, setFilteredMusic] = useState<MusicInterface[]>([]);
-  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {
@@ -35,21 +34,6 @@ const TopHits = () => {
       ...prevState,
       currentSongId: id,
     }));
-  };
-
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setFilteredMusic(data);
-    } else {
-      const lowercasedValue = value.toLowerCase();
-      const filtered = data.filter(
-        (music) =>
-          music.name.toLowerCase().includes(lowercasedValue) ||
-          music.artist?.artistName.toLowerCase().includes(lowercasedValue),
-      );
-      setFilteredMusic(filtered);
-    }
   };
 
   return (
@@ -73,10 +57,7 @@ const TopHits = () => {
           <div className={styles.container}>
             <TopAlbumsNavigationAnchore />
           </div>
-          <HeaderInput
-            onSearch={handleSearch}
-            results={filteredMusic.map((music) => music.name)}
-          />
+          <HeaderInput results={filteredMusic.map((music) => music.name)} />
         </div>
         {filteredMusic.slice(3, filteredMusic.length).map((music) => (
           <MusicRow

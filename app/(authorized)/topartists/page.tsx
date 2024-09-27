@@ -9,11 +9,10 @@ import HeaderInput from '@/app/Components/HeaderInput/HeaderInput';
 import BaseApi from '@/app/api/BaseApi';
 
 const TopArtists = () => {
-  const [artistData, setArtistData] = useState<ArtistPropsInterface[]>([]);
+  const [, setArtistData] = useState<ArtistPropsInterface[]>([]);
   const [filteredArtists, setFilteredArtists] = useState<
     ArtistPropsInterface[]
   >([]);
-  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/artist').then((response) => {
@@ -21,19 +20,6 @@ const TopArtists = () => {
       setFilteredArtists(response.data);
     });
   }, []);
-
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setFilteredArtists(artistData);
-    } else {
-      const lowercasedValue = value.toLowerCase();
-      const filtered = artistData.filter((artist) =>
-        artist.artistName.toLowerCase().includes(lowercasedValue),
-      );
-      setFilteredArtists(filtered);
-    }
-  };
 
   return (
     <div className={styles.wrapper}>
@@ -43,7 +29,6 @@ const TopArtists = () => {
         </div>
         <div className={styles.responsiveInput}>
           <HeaderInput
-            onSearch={handleSearch}
             results={filteredArtists.map((song) => song.artistName)}
           />
         </div>

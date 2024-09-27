@@ -11,14 +11,13 @@ import BaseApi from '@/app/api/BaseApi';
 
 const TopCharts = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
-  const [data, setData] = useState<MusicInterface[]>([]);
+  const [, setData] = useState<MusicInterface[]>([]);
   const [filteredMusic, setFilteredMusic] = useState<MusicInterface[]>([]);
-  const [, setSearchTerm] = useState('');
 
   useEffect(() => {
     BaseApi.get('/listeners').then((response) => {
       setData(response.data);
-      setFilteredMusic(response.data); // Initially, filtered data is the same as the full data set
+      setFilteredMusic(response.data);
     });
   }, []);
 
@@ -35,21 +34,6 @@ const TopCharts = () => {
     }));
   };
 
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setFilteredMusic(data); // Reset to original data if search is cleared
-    } else {
-      const lowercasedValue = value.toLowerCase();
-      const filtered = data.filter(
-        (music) =>
-          music.name.toLowerCase().includes(lowercasedValue) ||
-          music.artist?.artistName.toLowerCase().includes(lowercasedValue),
-      );
-      setFilteredMusic(filtered);
-    }
-  };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.contWrapper}>
@@ -57,10 +41,7 @@ const TopCharts = () => {
           <TopAlbumsNavigationAnchore />
         </div>
         <div className={styles.searchInput}>
-          <HeaderInput
-            onSearch={handleSearch}
-            results={filteredMusic.map((music) => music.name)}
-          />
+          <HeaderInput results={filteredMusic.map((music) => music.name)} />
         </div>
       </div>
       <div className={styles.container}>
