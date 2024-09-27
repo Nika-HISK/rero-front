@@ -6,5 +6,5 @@ export interface PlayListPropsinterface {
   artists: SongObject[];
   setActive?: () => void;
   playlistId: number;
-  onClick: () => void;  
+  onClick: () => void;
 }

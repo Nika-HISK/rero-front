@@ -1,9 +1,6 @@
 import { atom } from 'recoil';
+import { Song } from '../Components/SmallPlayer/interfaces/song-props.interface';
 import { AtomAudioPlayerPropsInterface } from './interfaces/audio-player.props.interface';
-import {
-  Song,
-  SongPropsInterface,
-} from '../Components/SmallPlayer/interfaces/song-props.interface';
 
 export const audioPlayerState = atom<AtomAudioPlayerPropsInterface>({
   key: 'audioPlayerState',

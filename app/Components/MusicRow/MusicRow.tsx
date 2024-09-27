@@ -1,5 +1,5 @@
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
 import SelectPlaylistPopUp from '../SelectPlaylistPopUp/SelectPlaylistPopUp';
 import styles from './MusicRow.module.scss';
 import MusicRowImage from './components/MusicRowImage/MusicRowImage';

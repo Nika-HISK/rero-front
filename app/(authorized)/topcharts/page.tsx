@@ -2,12 +2,11 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import TopAlbumsNavigationAnchore from '../topalbums/components/TopAlbumsNavigationAnchore/TopAlbumsNavigationAnchore';
-import { MusicInterface } from '../tophits/interfaces/music-props.interface';
 import styles from './page.module.scss';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
-import BaseApi from '@/app/api/BaseApi';
 import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopCharts = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);

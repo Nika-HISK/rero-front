@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { RowAlbumSectionPropsInterface } from '../RowAlbumSection/interfaces/row-album-section-props.interface';
 import styles from './Overview.module.scss';

@@ -6,8 +6,6 @@ import { PlaylistData } from '@/app/(authorized)/playlist/interface/playlist-int
 import { ButtonMode } from '@/app/Enums/ButtonMode.enum';
 import { ButtonType } from '@/app/Enums/ButtonType.enum';
 import BaseApi from '@/app/api/BaseApi';
-import { useRecoilState } from 'recoil';
-import { SongsState } from '@/app/Atoms/states';
 
 const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
   const [value, setValue] = useState<string>('Default');
@@ -21,15 +19,11 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
     setValue(selectedValue);
     props.setOpen(true);
   };
-  const [, setSongs] = useRecoilState(SongsState);
-
 
   const fetchData = async () => {
     try {
       const response = await BaseApi.get('/user/me');
       setData(response.data.playlists);
-      console.log(response , 'zdddd');
-      
     } catch (error) {
       alert('Couldnot fetch data');
     }
@@ -38,7 +32,6 @@ const SelectPlaylistPopUp = (props: SelectPlaylistPopupPropsInterface) => {
   useEffect(() => {
     fetchData();
     setMusicId(props.id);
-
   }, [props.id]);
 
   return (

@@ -8,8 +8,8 @@ import { MusicInterface } from './interfaces/music-props.interface';
 import styles from './page.module.scss';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
-import BaseApi from '@/app/api/BaseApi';
 import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);

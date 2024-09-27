@@ -5,13 +5,13 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './TopCharts.module.scss';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
-import BaseApi from '@/app/api/BaseApi';
 import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopCharts = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
   const [data, setData] = useState<Song[]>([]);
-  const [songs, setSongs] = useRecoilState(SongsState);
+  const [, setSongs] = useRecoilState(SongsState);
 
   useEffect(() => {
     BaseApi.get('/listeners').then((response) => {

@@ -4,16 +4,15 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './TopHits.module.scss';
-import { MusicInterface } from '@/app/(authorized)/tophits/interfaces/music-props.interface';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import MusicRow from '@/app/Components/MusicRow/MusicRow';
-import BaseApi from '@/app/api/BaseApi';
 import { Song } from '@/app/Components/SmallPlayer/interfaces/song-props.interface';
+import BaseApi from '@/app/api/BaseApi';
 
 const TopHits = () => {
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
   const [data, setData] = useState<Song[]>([]);
-  const [songs, setSongs] = useRecoilState(SongsState);
+  const [, setSongs] = useRecoilState(SongsState);
 
   useEffect(() => {
     BaseApi.get('/music').then((response) => {

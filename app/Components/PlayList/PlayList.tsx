@@ -1,24 +1,19 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import AlbumRowTime from '../AlbumRowTime/AlbumRowTime';
+import { useRecoilState } from 'recoil';
+import MusicRow from '../MusicRow/MusicRow';
+import { Song } from '../SmallPlayer/interfaces/song-props.interface';
 import styles from './PlayList.module.scss';
 import { PlayListPropsinterface } from './interface/playlist-props.interface';
-import { Song } from '../SmallPlayer/interfaces/song-props.interface';
-import { useRecoilState } from 'recoil';
 import { SongsState, audioPlayerState } from '@/app/Atoms/states';
 import BaseApi from '@/app/api/BaseApi';
-import MusicRow from '../MusicRow/MusicRow';
 
-const PlayList = ({
-  playlistName,
-  isActive,
-  playlistId,
-  onClick,
-}: PlayListPropsinterface) => {
+const PlayList = ({ playlistName, onClick }: PlayListPropsinterface) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [artistsData, setArtistsData] = useState<Song[]>([]);
-  const [songs, setSongs] = useRecoilState(SongsState);
+  const [, setSongs] = useRecoilState(SongsState);
   const [currentSong, setCurrentSong] = useRecoilState(audioPlayerState);
 
   useEffect(() => {
@@ -31,17 +26,13 @@ const PlayList = ({
     setIsOpen((prev) => !prev);
   };
 
-  const handleDelete = (id: number) => {
-    setArtistsData((prevArtistData) =>
-      prevArtistData.filter((item) => item.id !== id),
-    );
-  };
-
   const handlePlayClick = async (id: number) => {
     try {
       await BaseApi.post(`/listeners/${id}`);
       setSongs(artistsData);
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
 
     setCurrentSong((prevState) => ({
       ...prevState,
