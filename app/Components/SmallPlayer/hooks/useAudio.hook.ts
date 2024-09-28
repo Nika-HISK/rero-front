@@ -39,6 +39,16 @@ export const useAudioPlayer = (songs: Song[]) => {
       setAudioPlayer((prev) => {
         if (prev.currentSongId === null) return prev;
 
+        if (songs.length === 1) {
+          audioRef.current!.currentTime = 0;
+          audioRef.current!.play();
+          return {
+            ...prev,
+            currentTime: 0,
+            duration: audioRef.current!.duration,
+          };
+        }
+
         let nextSongId;
 
         if (prev.shuffle) {
@@ -133,6 +143,16 @@ export const useAudioPlayer = (songs: Song[]) => {
     setAudioPlayer((prev) => {
       if (prev.currentSongId === null) return prev;
 
+      if (songs.length === 1) {
+        audioRef.current!.currentTime = 0;
+        audioRef.current!.play();
+        return {
+          ...prev,
+          currentTime: 0,
+          duration: audioRef.current!.duration,
+        };
+      }
+
       let nextSongId;
 
       if (prev.shuffle) {
@@ -166,6 +186,16 @@ export const useAudioPlayer = (songs: Song[]) => {
 
     setAudioPlayer((prev) => {
       if (prev.currentSongId === null) return prev;
+
+      if (songs.length === 1) {
+        audioRef.current!.currentTime = 0;
+        audioRef.current!.play();
+        return {
+          ...prev,
+          currentTime: 0,
+          duration: audioRef.current!.duration,
+        };
+      }
 
       let prevSongId;
 
