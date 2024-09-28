@@ -6,7 +6,6 @@ import AlbumSection from '../components/AlbumsSection/AlbumsSection';
 import ArtistCover from '../components/ArtistCover/ArtistCover';
 import ArtistDetail from '../components/ArtistDetail/ArtistDetail';
 import ArtistNavigation from '../components/ArtistNavigation/ArtistNavigation';
-import Overview from '../components/Overview/Overview';
 import Released from '../components/Released/Released';
 import RowAlbumSection from '../components/RowAlbumSection/RowAlbumSection';
 import TopMusicHeader from '../components/TopMusicHeader/TopMusicHeader';
@@ -36,9 +35,6 @@ const ArtistPage = () => {
           biography={artistParam.biography}
         />
         <ArtistCover cover={artistParam.artistPhoto!} />
-      </div>
-      <div className={styles.overviewContainer}>
-        <Overview albums={artistParam.musics!} />
       </div>
       <Released id={artistParam.id!} />
       <AlbumSection artists={artistParam.albums!} />
